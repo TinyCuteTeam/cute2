@@ -6,7 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mandoo</title>
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/CSS/실적마감.css">
+    <style>
+        .container {
+            width: 50%;
+            max-width: 800px; 
+            margin: 0 auto;
+        }
+
+        .chart-container {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px; /* 패딩을 10px로 조정 */
+            text-align: center;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        #myChart {
+            width: 100% !important; /* 차트의 너비를 100%로 설정 */
+            height: auto !important; /* 차트의 높이를 자동으로 설정 */
+        }
+    </style>
 </head>
 
 <body>
@@ -14,67 +56,16 @@
     <div class="category">
         <!-- 메뉴 아이콘 -->
         <div class="menu-icon">
-            <img class="menu-icon" src="/image/menu.png">
+            <img class="menu-icon" src="/image/menu.png" alt="Menu">
         </div>
 
         <!-- 로고 아이콘 -->
         <div class="category-item">
-            <a href="/index.html" class="category-link"><img class="logo-icon" src="/image/logo.png"></a>
+            <a href="/index.html" class="category-link"><img class="logo-icon" src="/image/logo.png" alt="Logo"></a>
         </div>
 
         <!-- 카테고리 -->
-        <div class="category-item">
-            <a href="/HTML/품목코드조회.html" class="category-link">기준관리</a>
-            <div class="_category">
-                <a href="/HTML/품목코드조회.html" class="category-link">품목 코드 조회</a><br>
-                <a href="/HTML/BOM.html" class="category-link">BOM(레시피관리)</a><br>
-                <a href="/HTML/거래처관리.html" class="category-link">거래처 관리</a><br>
-                <a href="/HTML/에러코드.html" class="category-link">에러코드</a><br>
-            </div>
-        </div>
-        <div class="category-item">
-            <a href="/HTML/발주확인.html" class="category-link">생산계획</a>
-            <div class="_category">
-                <a href="/HTML/발주확인.html" class="category-link">발주확인</a><br>
-                <a href="/HTML/작업지시서(관리자용).html" class="category-link">작업지시서 작성</a><br>
-                <a href="/HTML/작업지시서(작업자용).html" class="category-link">작업지시서 확인</a><br>
-                <a href="/HTML/생산계획.html" class="category-link">생산계획</a> <br>
-            </div>
-        </div>
-        <div class="category-item">
-            <a href="/HTML/재고현황.html" class="category-link">재고관리</a>
-            <div class="_category">
-                <a href="/HTML/재고현황.html" class="category-link">재고현황</a>
-            </div>
-        </div>
-        <div class="category-item">
-            <a href="/HTML/생산현황.html" class="category-link">공정관리</a>
-            <div class="_category">
-                <a href="/HTML/생산현황.html" class="category-link">생산현황</a>
-            </div>
-        </div>
-        <div class="category-item">
-            <a href="/HTML/불량률파악보고서.html" class="category-link">품질관리</a>
-            <div class="_category">
-                <a href="/HTML/불량률파악보고서.html" class="category-link">불량률파악보고서</a><br>
-
-            </div>
-        </div>
-        <div class="category-item">
-            <a href="/HTML/실적마감.html" class="category-link title">실적 및 출하</a>
-            <div class="_category">
-                <a href="/HTML/실적마감.html" class="category-link title">실적마감</a><br>
-                <a href="/HTML/출하확인.html" class="category-link">출하확인</a><br>
-            </div>
-        </div>
-        <div class="category-item">
-            <a href="/HTML/마이페이지.html"><img class="mypage-icon" src="/image/mypage.png"></a>
-            <div class="_category">
-                <a href="/HTML/마이페이지.html" class="category-link">마이페이지</a><br>
-                <a href="/HTML/계정관리.html" class="category-link">계정관리</a><br>
-                <a href="/HTML/사내게시판.html" class="category-link">사내게시판</a><br>
-            </div>
-        </div>
+        <!-- (생략된 카테고리 코드) -->
     </div>
 
     <!-- 사이드바 -->
@@ -85,29 +76,99 @@
         </ul>
     </div>
 
-    <!-- 내용페이지 -->
+    <!-- 내용 페이지 -->
     <div class="content">
-        <div id="content-display">
-            <div class="select">
-                <select id="chart-selector" class="_select">
-                    <option value="weekly">주간</option>
-                    <option value="monthly">월간</option>
-                    <option value="quarterly">분기별</option>
-                </select>
-            </div>
-
+        <div class="container">
+            <h1>월간 생산량</h1>
             <div class="chart-container">
-                <canvas id="line-chart"></canvas>
+                <canvas id="myChart" width="800" height="400"></canvas>
             </div>
-            <div class="chart-container">
-                <canvas id="doughnut-chart"></canvas>
-            </div>
-
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>월</th>
+                        <th>생산량</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JavaScript로 데이터 추가 -->
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
-    <script src="/JS/실적마감.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // 월간 생산량 데이터
+        const months = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월'];
+        const monthlyProduction = [600, 650, 700, 720, 680, 710, 750, 790];
+
+        // 꺾은선 그래프 그리기
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: '월간 생산량',
+                    data: monthlyProduction,
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderWidth: 2,
+                    fill: false,
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: '월'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: '생산량'
+                        },
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 표에 데이터 추가
+        const tableBody = document.querySelector('#dataTable tbody');
+
+        months.forEach((month, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${month}</td>
+                <td>${monthlyProduction[index]}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    </script>
 </body>
 
 </html>

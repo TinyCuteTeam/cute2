@@ -1,17 +1,5 @@
-/* 실적마감.css */
 
-.select {
-    position: absolute;
-    top: 20px; /* 상단에서의 위치 조정 */
-    left: 20px; /* 왼쪽에서의 위치 조정 */
-    z-index: 1; /* 셀렉트 박스가 차트 위에 있도록 설정 */
-}
 
-._select {
-    width: 120px;
-    height: 30px;
-    text-align: center;
-}
 
 .chart-container {
     display: inline-block;

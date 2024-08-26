@@ -6,15 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mandoo</title>
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/CSS/생산현황.css">
-    
+    <!-- <link rel="stylesheet" href="/CSS/생산현황.css"> -->
+    <style>
+        .progress-container {
+            display: grid;
+            grid-template-columns: repeat(3, 120px);
+            gap: 30px;
+        }
+
+        .progress-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .progress-label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .progress-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 8px solid #e0e0e0;
+            position: relative;
+            background: conic-gradient(
+                #ff0000 0% 0%, /* 빨간색 (0% - 0%) */
+                #ffff00 0% 0%, /* 노란색 (0% - 0%) */
+                #00ff00 0% 0%  /* 녹색 (0% - 0%) */
+            );
+            /* box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);  */
+            transition: background 0.3s ease;
+        }
+
+        .progress-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- 메인 -->
     <div class="category">
-
         <!-- 메뉴 아이콘 -->
         <div class="menu-icon">
             <img class="menu-icon" src="/image/menu.png">
@@ -76,196 +131,84 @@
 
         <div class="category-item">
             <a href="/HTML/마이페이지.html"><img class="mypage-icon" src="/image/mypage.png"></a>
-
             <div class="_category">
                 <a href="/HTML/마이페이지.html" class="category-link ">마이페이지</a> <br>
                 <a href="/HTML/계정관리.html" class="category-link">계정관리</a><br>
                 <a href="/HTML/사내게시판.html "class="category-link">사내게시판</a><br>
             </div>
-
         </div>
-
     </div>
 
     <!-- 사이드바 -->
     <div class="sidebar">
         <ul id="sidebar-content">
             <li><a href="/HTML/생산현황.html" class="category-link title ">생산현황</a></li>
-
         </ul>
     </div>
 
     <!-- 내용페이지  -->
-    <div class="progress-content">
-        <div class="progress-home">
-            <div class="progress-mandoo">
-                <select class="progress-pick" id="progress-select">
-                    <option value="all">전체</option>
-                    <option value="b1"><a href="/HTML/작업지시서.html">2024-050</a></option>
-                    <option value="b2"><a href="/HTML/작업지시서.html">2024-051</a></option>
-                    <option value="b3"><a href="/HTML/작업지시서.html">2024-052</a></option>
-                </select>
-            </div>
-            <!-- 첫 번째 진행 바 -->
-            <div class="probar" id="b1">
-                <div class="progress-explain">
-                    <span>1차 생산</span>
-                    <span>1차 검수</span>
-                    <span>2차 생산</span>
-                    <span>2차 검수</span>
-                    <span>포장</span>
-                    <span>3차 검수</span>
-                    <span>출하</span>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-line-container">
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                    </div>
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="procount">
-                    <img src="/image/갱신.png" class="pro-restart">
-                    <br>
-                    <span>생산 수량 | 20 BOX</span><br>
-                    <span>불량 수량 | 1 BOX</span>
-                </div>
-                <div class="quality-explain">
-                    <span>1차 검수</span>
-                    <span>2차 검수</span>
-                    <span>3차 검수</span>
-                    <span>검수 완료</span>
-                </div>
-                <div class="quality-container">
-                    <div class="quality-line-container">
-                        <div class="quality-line"></div>
-                        <div class="quality-line"></div>
-                        <div class="quality-line"></div>
-                        <div class="quality-line"></div>
-                    </div>
-                    <div class="quality-bar"></div>
-                </div>
-                <div class="qualcount">
-                    <img src="/image/갱신.png" class="pro-restart">
-                    <br>
-                    <span>1차 검수 | 적격</span><br>
-                    <span>2차 검수 | 적격</span><br>
-                    <span>3차 검수 | 부적격</span>
+    <div class="content">
+        <div class="progress-container">
+            <div class="progress-wrapper">
+                <div class="progress-label">1</div>
+                <div class="progress-circle" data-progress="30">
+                    <div class="progress-text">30%</div>
                 </div>
             </div>
-            <!-- 두 번째 진행 바 -->
-            <div class="probar" id="b2" style="display: none;">
-                <div class="progress-explain">
-                    <span>1차 생산</span>
-                    <span>1차 검수</span>
-                    <span>2차 생산</span>
-                    <span>2차 검수</span>
-                    <span>포장</span>
-                    <span>3차 검수</span>
-                    <span>출하</span>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-line-container">
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                    </div>
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="procount">
-                    <img src="/image/갱신.png" class="pro-restart">
-                    <br>
-                    <span>생산 수량 | 30 BOX</span><br>
-                    <span>불량 수량 | 3 BOX</span>
-                </div>
-                <div class="quality-explain">
-                    <span>1차 검수</span>
-                    <span>2차 검수</span>
-                    <span>3차 검수</span>
-                    <span>검수 완료</span>
-                </div>
-                <div class="quality-container">
-                    <div class="quality-line-container">
-                        <div class="quality-line"></div>
-                        <div class="quality-line"></div>
-                        <div class="quality-line"></div>
-                        <div class="quality-line"></div>
-                    </div>
-                    <div class="quality-bar"></div>
-                </div>
-                <div class="qualcount">
-                    <img src="/image/갱신.png" class="pro-restart">
-                    <br>
-                    <span>1차 검수 | 적격</span><br>
-                    <span>2차 검수 | 적격</span><br>
-                    <span>3차 검수 | 부적격</span>
+            <div class="progress-wrapper">
+                <div class="progress-label">2</div>
+                <div class="progress-circle" data-progress="50">
+                    <div class="progress-text">50%</div>
                 </div>
             </div>
-            <!-- 세 번째 진행 바 -->
-            <div class="probar" id="b3" style="display: none;">
-                <div class="progress-explain">
-                    <span>1차 생산</span>
-                    <span>1차 검수</span>
-                    <span>2차 생산</span>
-                    <span>2차 검수</span>
-                    <span>포장</span>
-                    <span>3차 검수</span>
-                    <span>출하</span>
+            <div class="progress-wrapper">
+                <div class="progress-label">3</div>
+                <div class="progress-circle" data-progress="70">
+                    <div class="progress-text">70%</div>
                 </div>
-                <div class="progress-container">
-                    <div class="progress-line-container">
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-line"></div>
-                    </div>
-                    <div class="progress-bar"></div>
+            </div>
+            <div class="progress-wrapper">
+                <div class="progress-label">4</div>
+                <div class="progress-circle" data-progress="90">
+                    <div class="progress-text">90%</div>
                 </div>
-                <div class="procount">
-                    <img src="/image/갱신.png" class="pro-restart">
-                    <br>
-                    <span>생산 수량 | 5 BOX</span><br>
-                    <span>불량 수량 | 0 BOX</span>
+            </div>
+            <div class="progress-wrapper">
+                <div class="progress-label">5</div>
+                <div class="progress-circle" data-progress="40">
+                    <div class="progress-text">40%</div>
                 </div>
-                <div class="quality-explain">
-                    <span>1차 검수</span>
-                    <span>2차 검수</span>
-                    <span>3차 검수</span>
-                    <span>검수 완료</span>
-                </div>
-                <div class="quality-container">
-                    <div class="quality-line-container">
-                        <div class="quality-line"></div>
-                        <div class="quality-line"></div>
-                        <div class="quality-line"></div>
-                        <div class="quality-line"></div>
-                    </div>
-                    <div class="quality-bar"></div>
-                </div>
-                <div class="qualcount">
-                    <img src="/image/갱신.png" class="pro-restart">
-                    <br>
-                    <span>1차 검수 | 적격</span><br>
-                    <span>2차 검수 | 적격</span><br>
-                    <span>3차 검수 | 부적격</span>
+            </div>
+            <div class="progress-wrapper">
+                <div class="progress-label">6</div>
+                <div class="progress-circle" data-progress="60">
+                    <div class="progress-text">60%</div>
                 </div>
             </div>
         </div>
-        <script src="/js/생산현황.js">
-            
-        </script>
     </div>
+    <!-- <script src="/js/생산현황.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var circles = document.querySelectorAll('.progress-circle');
+
+            circles.forEach(function(circle) {
+                var progress = parseInt(circle.getAttribute('data-progress'), 10);
+                
+                // 색상 결정
+                var color;
+                if (progress <= 30) {
+                    color = '#ff0000'; // 빨간색
+                } else if (progress <= 50) {
+                    color = '#ffff00'; // 노란색
+                } else {
+                    color = '#00ff00'; // 녹색
+                }
+
+                // 색상과 진행률을 설정
+                circle.style.background = `conic-gradient(${color} 0% ${progress}%, #e0e0e0 ${progress}% 100%)`;
+            });
+        });
+    </script>
 </body>
 </html>
