@@ -102,29 +102,29 @@
     <!-- 내용페이지  -->
     <div class="content">
         <div>
-            
                 <h1>거래처 관리</h1>
             
-            <!-- 거래처정보 카테고리 -->
+            <!-- 데이터 테이블 -->
             <div class="main">
+                <!-- 각 내용별 제목 -->
                 <div class="flex">
                     <div></div>
                     <div>거래처</div>
-                    <div>대표명<span>▼</span></div>
+                    <div>대표명</div>
                     <div>연락처</div>
                     <div>주소</div>
                     <div>이메일</div>
                     <div>담당자</div>
-                    <div>사업자등록증</div>
+                    <div>사업자등록번호</div>
                 </div>
 
                 <!-- 거래처 정보 -->
-                <div class="flex round">
+                <div id="data-container" class="data-container">
+                    <!-- 기존 데이터 항목 -->
+                 <div class="flex round">
                     <div><input type="checkbox" class="chk"></div>
-                    <div class="srEl">
-                        <!-- 거래처명 -->
-                        <blue>(주)지앤시</blue>
-                    </div>
+                    <!-- 거래처명 -->
+                    <div class="srEl">(주)지앤시</div>
                     <!-- 대표명 -->
                     <div class="srEl">맹채윤</div>
                     <!-- 연락처 -->
@@ -141,9 +141,18 @@
 
                 <div class="flex round">
                     <div><input type="checkbox" class="chk"></div>
-                    <div class="srEl">
-                        <blue>(주)지앤시</blue>
-                    </div>
+                    <div class="srEl">(주)지앤시</div>
+                    <div class="srEl">맹채윤</div>
+                    <div class="srEl">010-5464-1567</div>
+                    <div class="srEl">충청남도 천안시</div>
+                    <div class="srEl">maeng00@gmail.com</div>
+                    <div class="srEl">맹채윤</div>
+                    <div class="srEl">604-87-91154</div>
+                </div>
+                
+                <div class="flex round">
+                    <div><input type="checkbox" class="chk"></div>
+                    <div class="srEl">(주)지앤시</div>
                     <div class="srEl">맹채윤</div>
                     <div class="srEl">010-5464-1567</div>
                     <div class="srEl">충청남도 천안시</div>
@@ -152,21 +161,10 @@
                     <div class="srEl">604-87-91154</div>
                 </div>
 
-                <div class="flex round">
-                    <div><input type="checkbox" class="chk"></div>
-                    <div>
-                        <blue>(주)지앤시</blue>
-                    </div>
-                    <div>맹채윤</div>
-                    <div>010-5464-1567</div>
-                    <div>충청남도 천안시</div>
-                    <div>maeng00@gmail.com</div>
-                    <div>맹채윤</div>
-                    <div>604-87-91154</div>
-                </div>
+                
 
                 <div id="msg"></div>
-
+            </div>
                 <!-- 입력받는 칸 -->
                 <div class="flex round">
                     <div><input type="checkbox" class="chk"></div>
@@ -185,15 +183,16 @@
                 <div class="modal">
                     <div class="modal_body">
                         <h2>거래처 추가</h2>
-                        거래처명<br>
-                        대표명<br>
-                        연락처<br>
-                        주소<br>
-                        이메일<br>
-                        담당자명<br>
-                        사업자등록증<br>
-                        <button>등록</button>
-                        <button id="close">취소</button>
+                        <label for="comName">거  래  처  명:</label> <input type="text"><br>
+                        대  &nbsp;  표 &nbsp;   명: <input type="text"><br>
+                        연  &nbsp;  락 &nbsp;   처: <input type="text"><br>
+                        주 &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소: <input type="text"><br>
+                        이 &nbsp; &nbsp;  메 &nbsp;&nbsp;&nbsp;   일: <input type="text"><br>
+                        담&nbsp;  당 &nbsp; 자 &nbsp; 명: <input type="text"><br>
+                        사업자등록번호: <input type="text"><br>
+
+                        <button id="registration-form">등록</button>
+                        <button id="close">닫기</button>
                     </div>
                 </div>
                 <button class="btn-open-modal mbtn11 btnStyle">거래처 추가</button>

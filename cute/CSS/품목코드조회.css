@@ -7,15 +7,6 @@
             padding-right: 272px;
         }
 
-        /* 검색기능, 플러스버튼 */
-        /* .srTop {
-            width: 1000px;
-            margin-left: 100px;
-            height: 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        } */
         .srTop {
             float: right;
             width: 100%;
