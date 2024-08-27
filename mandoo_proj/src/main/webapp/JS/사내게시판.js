@@ -1,5 +1,5 @@
 ﻿document.getElementById('write-button').addEventListener('click', function() {
-    window.location.href = '사내게시판등록.html';
+    window.location.href = '사내게시판등록.jsp';
 });
 
 
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         row.innerHTML = `
             <td>${post.id}</td>
             <td>${post.category}</td>
-            <td><a href="/HTML/사내게시판상세페이지.html?postId=${post.id}">${post.title}</a></td>
+            <td><a href="/HTML/사내게시판상세페이지.jsp?postId=${post.id}">${post.title}</a></td>
             <td>${post.date}</td>
             <td>${post.author}</td>
         `;

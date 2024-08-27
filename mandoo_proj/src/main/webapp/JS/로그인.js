@@ -21,13 +21,13 @@
     };
 
     // 회원가입 폼 HTML을 가져와서 모달에 삽입
-    fetch("/HTML/회원가입.html")
+    fetch("HTML/회원가입.jsp")
         .then((response) => response.text())
         .then((data) => {
             document.getElementById("joinFormContainer").innerHTML = data;
             // 동적으로 추가된 스크립트 실행
             let script = document.createElement("script");
-            script.src = "/JS/회원가입.js";
+            script.src = "JS/회원가입.js";
             document.body.appendChild(script);
         })
         .catch((error) => console.error("회원가입 폼 로드 실패:", error));
@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // 로그인 후 이동할 페이지로 이동
             if (account.id === "worker") {
-                window.location.href = "indexEmp.html";
+                window.location.href = "indexEmp.jsp";
             } else {
-                window.location.href = "index.html";
+                window.location.href = "index.jsp";
             }
         } else {
             alert("로그인 실패: 사용자 이름 또는 비밀번호가 잘못되었습니다.");

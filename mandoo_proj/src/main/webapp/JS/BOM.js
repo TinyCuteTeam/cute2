@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    
     // (개별) 삭제 이벤트 설정
     function setupDeleteEvent(button) {
         button.addEventListener('click', function (event) {
@@ -69,7 +68,12 @@ document.addEventListener('DOMContentLoaded', function () {
         let unit = document.querySelector('.unit').value;
         let etc = document.querySelector('.etc').value;
 
-        let tables = document.querySelectorAll('#table');
+        let tables = document.querySelectorAll('.sr_bom');
+        if (tables.length < 2) {
+            console.error('테이블이 충분하지 않습니다.');
+            return;
+        }
+        
         let newRowKimchi = tables[0].insertRow();
         let newRowMeat = tables[1].insertRow();
 
@@ -93,8 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
         newRowMeat.insertCell(6).innerHTML = `<img class="pen editButton" src="/image/edit.png" title="수정">`;
         newRowMeat.insertCell(7).innerHTML = `<img class="bin delButton" src="/image/delete.png" title="삭제">`;
 
-        document.getElementById('srForm').reset();
-
         // 추가된 라인 새로운 버튼에도 이벤트 리스너 추가
         setupDeleteEvent(newRowKimchi.querySelector('.delButton'));
         setupDeleteEvent(newRowMeat.querySelector('.delButton'));
@@ -109,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
         let checkboxes = document.querySelectorAll('.chk:checked');
         checkboxes.forEach(function (checkbox) {
             let parentRow = checkbox.closest('tr');
-            let yes=confirm("삭제하시겠습니까?")
-            if (yes==true) {
+            let yes = confirm("삭제하시겠습니까?");
+            if (yes === true) {
                 parentRow.remove();
             }
         });

@@ -30,6 +30,6 @@
         sessionStorage.setItem("posts", JSON.stringify(posts));
 
         // 목록 페이지로 이동
-        window.location.href = "/HTML/사내게시판.html";
+        window.location.href = "/HTML/사내게시판.jsp";
     });
 });

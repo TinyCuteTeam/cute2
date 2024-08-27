@@ -1,11 +1,11 @@
 ﻿document.addEventListener('DOMContentLoaded', function() {
     const data = [
-        { errordate: '2024.07.01', errorcode: '<spanme title="재료 부족">E001</spanme>', worknumber: '2024-051', production: 5000, defect: '<a href="품질검사현황.html">50</a>' },
-        { errordate: '2024.07.02', errorcode: '<spanme title="재료 부족">E001</spanme>', worknumber: '2024-053', production: 4000, defect: '<a href="품질검사현황.html">40</a>' },
-        { errordate: '2024.07.01', errorcode: '<spanme title="만두 포장 오류">E002</spanme>', worknumber: '2024-062', production: 3000, defect: '<a href="품질검사현황.html">30</a>' },
-        { errordate: '2024.07.02', errorcode: '<spanme title="만두 포장 오류">E002</spanme>', worknumber: '2024-088', production: 2000, defect: '<a href="품질검사현황.html">20</a>' },
-        { errordate: '2024.07.02', errorcode: '<spanme title="찜기 고장">E003</spanme>', worknumber: '2024-102', production: 1000, defect: '<a href="품질검사현황.html">10</a>' },
-        { errordate: '2024.07.03', errorcode: '<spanme title="온도 설정 오류">E004</spanme>', worknumber: '2024-999', production: 1500, defect: '<a href="품질검사현황.html">15</a>' }
+        { errordate: '2024.07.01', errorcode: '<spanme title="재료 부족">E001</spanme>', worknumber: '2024-051', production: 5000, defect: '<a href="품질검사현황.jsp">50</a>' },
+        { errordate: '2024.07.02', errorcode: '<spanme title="재료 부족">E001</spanme>', worknumber: '2024-053', production: 4000, defect: '<a href="품질검사현황.jsp">40</a>' },
+        { errordate: '2024.07.01', errorcode: '<spanme title="만두 포장 오류">E002</spanme>', worknumber: '2024-062', production: 3000, defect: '<a href="품질검사현황.jsp">30</a>' },
+        { errordate: '2024.07.02', errorcode: '<spanme title="만두 포장 오류">E002</spanme>', worknumber: '2024-088', production: 2000, defect: '<a href="품질검사현황.jsp">20</a>' },
+        { errordate: '2024.07.02', errorcode: '<spanme title="찜기 고장">E003</spanme>', worknumber: '2024-102', production: 1000, defect: '<a href="품질검사현황.jsp">10</a>' },
+        { errordate: '2024.07.03', errorcode: '<spanme title="온도 설정 오류">E004</spanme>', worknumber: '2024-999', production: 1500, defect: '<a href="품질검사현황.jsp">15</a>' }
     ];
 
     const tbody = document.querySelector('#defectReportTable tbody');
