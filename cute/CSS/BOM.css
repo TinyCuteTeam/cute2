@@ -7,14 +7,14 @@
             padding-right: 272px;
         }
 
-        .srTop {
-            float: right;
-            width: 100%;
-            text-align: right;
-            margin: 10px 0;
+        /* 검색기능, 플러스버튼 */
+        .srTop{
+            width: 1000px;
+            margin-left: 100px;
             height: 48px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         /* select, 제품추가, 제품삭제 */
@@ -43,8 +43,10 @@
             background-color: #f38080;
         }
 
-        /* 추가버튼 */
+        /* 플러스이미지(추가버튼) */
         .plus {
+            width: 48px;
+            height: 48px;
             cursor: pointer;
         }
 

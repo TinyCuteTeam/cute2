@@ -7,14 +7,14 @@
             padding-right: 272px;
         }
 
+        /* 검색기능, 플러스버튼 */
         .srTop {
-            float: right;
-            width: 100%;
-            text-align: right;
-            margin: 10px 0;
+            width: 1000px;
+            margin-left: 100px;
             height: 48px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         /* 검색기능 */
@@ -38,8 +38,7 @@
         }
 
         #search-button,
-        #reset-button,
-        .plus {
+        #reset-button {
             padding: 10px 20px;
             border-radius: 5px;
             border: 1px solid #ccc;
@@ -67,6 +66,7 @@
 
         /* 플러스이미지(추가버튼) */
         .plus {
+            height: 48px;
             cursor: pointer;
         }
 

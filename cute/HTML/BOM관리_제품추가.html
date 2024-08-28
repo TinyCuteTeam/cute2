@@ -106,8 +106,10 @@
 
         <!--sr_mandoo: 레시피선택, 1개기준, 플러스버튼 -->
         <div class="sr_mandoo">
-             <button class="back btnStyle">뒤로가기</button>
-             <button class="save btnStyle">저장</button>
+            <!-- 되돌아가기 이미지 -->
+            <img class="imgstyle back" src="/image/뒤로가기.png" title="뒤로가기">
+            <!-- save이미지 -->
+            <img class="imgstyle save" src="/image/save.webp" title="저장">
         </div>
 
         <br>
@@ -117,7 +119,6 @@
                 <th class="srTh">제품코드</th>
                 <th class="srTh">제품명</th>
             </tr>
-
             <!-- 여기가 내용 작성하는 곳이 될 예정 -->
             <tr>
                 <td><input type="text"></td>
@@ -125,7 +126,12 @@
             </tr>
         </table>
 
-        <br>
+        <!-- 플러스이미지 -->
+         <div class="toRight">
+            <div></div>
+            <img src="/image/plus.png" class="ingrebutt mho imgstyle" title="한줄추가" onclick="addIngredient()">
+        </div>
+      
         <!-- 재료정보 작성 테이블 -->
         <table class="ingreInfo infoTable" border="solid black 1px;">
             <tr>
@@ -134,7 +140,7 @@
                 <th class="srTh">수량</th>
                 <th class="srTh">단위</th>
                 <th class="srTh">비고</th>
-                <th class="srTh">행 삭제</th>
+                <th class="srTh">작업</th>
             </tr>
             <!-- 여기가 내용 작성하는 곳이 될 예정 -->
             <tr>
@@ -179,12 +185,6 @@
                 <td><img onclick="deleteRow(this)" src="/image/delete.png" class="imgstyle" title="삭제"></td>
             </tr>
         </table>
-        <br>
-          <!-- 행 추가 버튼 -->
-          <div class="toRight">
-            <button class="ingrebutt mho btnStyle" onclick="addIngredient()">행 추가</button>
-        </div>
-      
 
         <div style="display: none;">
             <form id="srForm">

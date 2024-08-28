@@ -1,0 +1,46 @@
+﻿     /* 전체배경 */
+     .content {
+         width: 65%;
+         overflow: auto;
+         margin-left: 100px;
+         text-align: center;
+     }
+
+     /* 뒤로가기, 저장 버튼 */
+     .btnStyle {
+        padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #e6e6e6;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+     }
+
+     .back:hover,.save:hover {
+        background-color: #81b3e9;
+    }
+
+     /* 테이블 안에 행삭제 쓰레기통 이미지*/
+     .imgstyle {
+         width: 30px;
+         cursor: pointer;
+     }
+
+     /* 테이블 스타일 */
+     .infoTable {
+         border-collapse: collapse;
+         text-align: center;
+     }
+
+     /* 원재료 정보 작성칸 가로길이 설정 */
+     .ingreInfo {
+         width: 100%;
+     }
+
+     /* 테이블헤드 색상, 크기 설정 */
+     .srTh {
+         background-color: #e6e6e6;
+         height: 50px;
+     }

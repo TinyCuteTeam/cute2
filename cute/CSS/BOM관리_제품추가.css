@@ -7,22 +7,13 @@
      }
 
      /* 뒤로가기, 저장 버튼 */
-     .btnStyle {
-        padding: 10px 20px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #e6e6e6;
-            color: black;
-            font-size: 16px;
-            cursor: pointer;
-            margin-right: 10px;
+     .sr_mandoo {
+         display: flex;
+         justify-content: space-between;
+         width: 100%;
      }
 
-     .back:hover,.save:hover {
-        background-color: #81b3e9;
-    }
-
-     /* 테이블 안에 행삭제 쓰레기통 이미지*/
+     /* save 플러스 이미지로 변경 */
      .imgstyle {
          width: 30px;
          cursor: pointer;
@@ -43,4 +34,19 @@
      .srTh {
          background-color: #e6e6e6;
          height: 50px;
+     }
+
+     /* 플러스이미지버튼 오른쪽으로 배치 */
+     .toRight{
+        display: flex;
+        justify-content: space-between;
+        width:100%;
+     }
+
+     /* 플러스 이미지버튼 */
+     .ingrebutt {
+         margin-top: 30px;
+         margin-bottom: 5px;
+         padding: 5px;
+         cursor: pointer;
      }
