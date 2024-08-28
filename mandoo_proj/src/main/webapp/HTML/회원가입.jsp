@@ -10,8 +10,7 @@
 </head>
 
 <body>
-
-    <div class="square">
+    <div class="square-signup">
         <h1>회원가입</h1>
         <input type="text" placeholder="이름" class="name" required><br>
         <input type="text" placeholder="사원번호" class="id" required><br>
@@ -20,7 +19,8 @@
         <input type="email" placeholder="이메일" class="email" required><br>
         <button class='join'>회원가입</button>
     </div>
-
+    
+    <script src="${pageContext.request.contextPath}/JS/회원가입.js"></script>
 </body>
 
 </html>

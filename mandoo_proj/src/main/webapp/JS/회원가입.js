@@ -1,4 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+﻿// 회원가입.js
+document.addEventListener("DOMContentLoaded", () => {
     const name = document.querySelector(".name");
     const id = document.querySelector(".id");
     const pwd = document.querySelector(".password");

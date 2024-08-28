@@ -1,13 +1,7 @@
-﻿body {
-    background-color: lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+﻿/* 회원가입.css */
 
-.square {
+
+.square-signup {
     background-color: white;
     border: 1px solid black;
     width: 400px;
@@ -17,7 +11,7 @@
     border-radius: 4px;
 }
 
-.square h1 {
+.square-signup h1 {
     margin-bottom: 20px;
 }
 
@@ -34,7 +28,7 @@
     box-sizing: border-box;
 }
 
-.square button {
+.square-signup button {
     width: calc(100% - 20px);
     padding: 10px 20px;
     margin: 10px 5px 5px 5px;
@@ -45,7 +39,7 @@
     cursor: pointer;
 }
 
-.square button:hover {
+.square-signup button:hover {
     background-color: blue;
 }
 

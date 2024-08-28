@@ -1,4 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿// 로그인.js
+document.addEventListener("DOMContentLoaded", function () {
     // 모달을 처음에는 보이지 않도록 설정
     const joinModal = document.getElementById("joinModal");
     joinModal.style.display = "none";
@@ -21,16 +22,16 @@
     };
 
     // 회원가입 폼 HTML을 가져와서 모달에 삽입
-    fetch("HTML/회원가입.jsp")
-        .then((response) => response.text())
-        .then((data) => {
-            document.getElementById("joinFormContainer").innerHTML = data;
-            // 동적으로 추가된 스크립트 실행
-            let script = document.createElement("script");
-            script.src = "JS/회원가입.js";
-            document.body.appendChild(script);
-        })
-        .catch((error) => console.error("회원가입 폼 로드 실패:", error));
+	fetch("HTML/회원가입.jsp")
+    .then((response) => response.text())
+    .then((data) => {
+        document.getElementById("joinFormContainer").innerHTML = data;
+        let script = document.createElement("script");
+        script.src = "JS/회원가입.js";
+        script.defer = true; // defer 속성 추가
+        document.body.appendChild(script);
+    })
+    .catch((error) => console.error("회원가입 폼 로드 실패:", error));
 });
 
 const accounts = [
