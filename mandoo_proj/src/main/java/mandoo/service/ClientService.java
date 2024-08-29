@@ -16,7 +16,7 @@ public class ClientService {
 		return clientDAO.getAllClients();
 	}
 	
-	// insert 
+	// insert
 	public void clientInsert(ClientDTO client) {
 		clientDAO.clientInsert(client); 
 	}

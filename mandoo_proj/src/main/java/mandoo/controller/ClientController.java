@@ -15,17 +15,14 @@ import mandoo.service.ClientService;
 @WebServlet("/client")
 public class ClientController extends HttpServlet {
 
+	ClientService clientService = new ClientService();
+	
 	//주소로 접근 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("/client 실행");
+		System.out.println("/client doGet 실행");
 
-		ClientService clientService = new ClientService();
 		//select 를 service에서 실행
 		List<ClientDTO> clientList = clientService.getAllClients();
-		
-		// insert관련된 걸 service(서비스는 DAO로 전달)로 보내주고 추가해줌
-		// 입력된 값들을 dto에 set해줌 
-		// 내일 29일에 경민오빠가 이어서 알려줄거임 
 		
 		request.setAttribute("clients", clientList);
 		
@@ -35,4 +32,35 @@ public class ClientController extends HttpServlet {
 		
 	}
 
+	// insert관련된 걸 service(서비스는 DAO로 전달)로 보내주고 추가해줌
+			// 입력된 값들을 dto에 set해줌 
+			// 내일 29일에 경민오빠가 이어서 알려줄거임 
+			// 등록이랑 삭제 doPost로 만들예정
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	         throws ServletException, IOException {
+		System.out.println("/client doPost 실행");
+		
+		String action = request.getParameter("action");
+		
+		if("add".equals(action)) {
+			ClientDTO client = new ClientDTO();
+			
+			String clientId= "001";
+			client.setClientId(clientId);
+			
+			//다른 필드를 설정 
+			client.setClientName(request.getParameter("clientName"));
+	         client.setClientBoss(request.getParameter("clientBoss"));
+	         client.setClientTel(request.getParameter("clientTel"));
+	         client.setClientAddress(request.getParameter("clientAddress"));
+	         client.setClientEmail(request.getParameter("clientEmail"));
+	         client.setClientNumber(request.getParameter("clientNumber"));
+
+	         // 클라이언트 추가
+	         clientService.clientInsert(client);
+		}
+		
+		response.sendRedirect("/mandoo/client");
+		
+	}
 }
