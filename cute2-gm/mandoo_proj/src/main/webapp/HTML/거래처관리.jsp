@@ -108,9 +108,9 @@
             <!-- 거래처정보 카테고리 -->
             <div class="main">
                 <div class="flex">
-                    <div></div>
+                    <div><input type="checkbox" class="chk"></div>	
                     <div>거래처</div>
-                    <div>대표명<span>▼</span></div>
+                    <div>대표명</div>
                     <div>연락처</div>
                     <div>주소</div>
                     <div>이메일</div>

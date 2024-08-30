@@ -9,9 +9,9 @@
         if (progress <= 30) {
             color = '#ff0000'; // 빨간색
         } else if (progress <= 50) {
-            color = '#ffff00'; // 노란색
+            color = '#ffd400'; // 노란색
         } else {
-            color = '#00ff00'; // 녹색
+            color = '#54bd54'; // 녹색
         }
 
         // 색상과 진행률을 설정
