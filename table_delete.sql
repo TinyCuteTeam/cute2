@@ -1,0 +1,14 @@
+DROP TABLE board;
+DROP TABLE comment;
+DROP TABLE users;
+DROP TABLE account;
+DROP TABLE mypage;
+DROP TABLE item;
+DROP TABLE bom;
+DROP TABLE client;
+DROP TABLE error;
+DROP TABLE order_info;
+DROP TABLE production_plan;
+DROP TABLE work;
+DROP TABLE stock;
+DROP TABLE faulty;

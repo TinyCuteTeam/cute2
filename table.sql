@@ -1,32 +1,33 @@
 CREATE TABLE board (
-    bord_id varchar2(999) NOT NULL,
-    user_id varchar2(999) NOT NULL,
+    bord_id varchar2(100) NOT NULL,
+    user_id varchar2(100) NOT NULL,
     board_title varchar2(999),
     board_contents varchar2(999),
     board_date date,
     CONSTRAINT PK_BOARD PRIMARY KEY (bord_id)
 );
 
-CREATE TABLE comment (
-    comment_id varchar2(999) NOT NULL,
-    bord_id varchar2(999) NOT NULL,
-    user_id varchar2(999) NOT NULL,
+CREATE TABLE comments (
+    comment_id varchar2(100) NOT NULL,
+    bord_id varchar2(100) NOT NULL,
+    user_id varchar2(100) NOT NULL,
     comment_contents varchar2(999),
-    comment_date date,  -- 오타 수정
-    CONSTRAINT PK_COMMENT PRIMARY KEY (comment_id)
+    comment_date date,
+    CONSTRAINT PK_COMMENTS PRIMARY KEY (comment_id)
 );
 
+
 CREATE TABLE users (
-    user_id varchar2(999) NOT NULL,
+    user_id varchar2(100) NOT NULL,
     user_pw varchar2(999),
     user_access number(1),
-    user_name varchar2(999),  -- 오타 수정
+    user_name varchar2(999),
     user_email varchar2(999),
     CONSTRAINT PK_USER PRIMARY KEY (user_id)
 );
 
-CREATE TABLE account (  -- 테이블명 수정
-    account_id varchar2(999) NOT NULL,
+CREATE TABLE account (
+    account_id varchar2(100) NOT NULL,
     account_pw varchar2(999),
     account_email varchar2(999),
     account_name varchar2(255),
@@ -34,37 +35,37 @@ CREATE TABLE account (  -- 테이블명 수정
 );
 
 CREATE TABLE mypage (
-    mypage_id varchar2(999) NOT NULL,
-    user_id varchar2(999) NOT NULL,
+    mypage_id varchar2(100) NOT NULL,
+    user_id varchar2(100) NOT NULL,
     mypage_name varchar2(999),
     mypage_affiliation varchar2(999),
     mypage_intel varchar2(999),
     mypage_phone varchar2(999),
-    mypage_position varchar2(999),  -- 필드명 수정
+    mypage_position varchar2(999),
     mypage_mainnum varchar2(999),
-    mypage_address varchar2(999),  -- 오타 수정
+    mypage_address varchar2(999),
     mypage_birth varchar2(999),
     mypage_log varchar2(999),
     CONSTRAINT PK_MYPAGE PRIMARY KEY (mypage_id)
 );
 
 CREATE TABLE item (
-    item_code varchar2(999) NOT NULL,
+    item_code varchar2(100) NOT NULL,
     item_name varchar2(999),
     CONSTRAINT PK_ITEM PRIMARY KEY (item_code)
 );
 
 CREATE TABLE bom (
-    bom_id varchar2(999) NOT NULL,
-    item_code varchar2(999) NOT NULL,
-    bom_count number(999),
+    bom_id varchar2(100) NOT NULL,
+    item_code varchar2(100) NOT NULL,
+    bom_count number,  -- 길이를 지정하지 않음
     bom_etc varchar2(999),
     bom_unit varchar2(999),
     CONSTRAINT PK_BOM PRIMARY KEY (bom_id)
 );
 
 CREATE TABLE client (
-    client_id varchar2(999) NOT NULL,
+    client_id varchar2(100) NOT NULL,
     client_name varchar2(999),
     client_boss varchar2(999),
     client_tel varchar2(999),
@@ -75,36 +76,36 @@ CREATE TABLE client (
 );
 
 CREATE TABLE error (
-    error_id varchar2(999) NOT NULL,
+    error_id varchar2(100) NOT NULL,
     error_name varchar2(999),
     error_contents varchar2(999),
     CONSTRAINT PK_ERROR PRIMARY KEY (error_id)
 );
 
 CREATE TABLE order_info (  -- 테이블명 수정 (예약어랑 겹치는 부분이 있음)
-    order_id varchar2(999) NOT NULL,
-    client_id varchar2(999) NOT NULL,
+    order_id varchar2(100) NOT NULL,
+    client_id varchar2(100) NOT NULL,
     order_date varchar2(999),
     order_enddate varchar2(999),
     order_box varchar2(999),
-    order_count number(999),
+    order_count number,  -- 길이를 지정하지 않음
     order_price varchar2(999),
     CONSTRAINT PK_ORDER PRIMARY KEY (order_id)
 );
 
 CREATE TABLE production_plan (  -- 테이블명 수정 (예약어랑 겹치는 부분이 있음)
-    plan_id varchar2(999) NOT NULL,
+    plan_id varchar2(100) NOT NULL,
     plan_contents varchar2(999),
     plan_date date,
-    plan_count number(999),
+    plan_count number,  -- 길이를 지정하지 않음
     plan_name varchar2(999),
     CONSTRAINT PK_PLAN PRIMARY KEY (plan_id)
 );
 
 CREATE TABLE work (
-    work_id varchar2(999) NOT NULL,
-    user_id varchar2(999) NOT NULL,
-    plan_id varchar2(999) NOT NULL,
+    work_id varchar2(100) NOT NULL,
+    user_id varchar2(100) NOT NULL,
+    plan_id varchar2(100) NOT NULL,
     work_write date,
     work_endate date,
     work_name varchar2(999),
@@ -113,21 +114,21 @@ CREATE TABLE work (
 );
 
 CREATE TABLE stock (
-    stock_id varchar2(999) NOT NULL,
-    item_code varchar2(999) NOT NULL,
+    stock_id varchar2(100) NOT NULL,
+    item_code varchar2(100) NOT NULL,
     stock_name varchar2(999),
-    stock_count number(999),
-    stock_docount number(999),
+    stock_count number,  -- 길이를 지정하지 않음
+    stock_docount number,  -- 길이를 지정하지 않음
     stock_location varchar2(999),
     stock_sort varchar2(999),
     CONSTRAINT PK_STOCK PRIMARY KEY (stock_id)
 );
 
 CREATE TABLE faulty (
-    faulty_id varchar2(999) NOT NULL,
-    item_code varchar2(999) NOT NULL,
-    error_id varchar2(999) NOT NULL,
-    work_id varchar2(999) NOT NULL,
+    faulty_id varchar2(100) NOT NULL,
+    item_code varchar2(100) NOT NULL,
+    error_id varchar2(100) NOT NULL,
+    work_id varchar2(100) NOT NULL,
     faulty_count varchar2(999),
     CONSTRAINT PK_FAULTY PRIMARY KEY (faulty_id)
 );

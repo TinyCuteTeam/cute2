@@ -3,21 +3,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const cancelButton = document.querySelector(".btn1");
     
     approveButton.addEventListener("click", function () {
-        handleApprovalOrCancellation("승인되었습니다");
+        if (handleApprovalOrCancellation()) {
+            alert("승인되었습니다");
+        } else {
+            alert("계정을 선택하세요");
+            return false; // 폼 제출을 막음
+        }
     });
 
     cancelButton.addEventListener("click", function () {
-        handleApprovalOrCancellation("취소되었습니다");
+        if (handleApprovalOrCancellation()) {
+            alert("취소되었습니다");
+        } else {
+            alert("계정을 선택하세요");
+            return false; // 폼 제출을 막음
+        }
     });
 
-    function handleApprovalOrCancellation(message) {
+    function handleApprovalOrCancellation() {
         const checkboxes = document.querySelectorAll(".chk");
+        let isAnyChecked = false;
+
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
-                const divToRemove = checkbox.closest(".flex");
-                divToRemove.remove();
+                isAnyChecked = true;
             }
         });
-        alert(message);
+
+        return isAnyChecked;
     }
 });

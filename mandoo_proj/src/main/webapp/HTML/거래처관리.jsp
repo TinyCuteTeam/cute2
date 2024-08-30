@@ -1,4 +1,5 @@
 ﻿<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="kor">
 
@@ -118,71 +119,38 @@
                     <div>사업자등록증</div>
                 </div>
 
-                <!-- 거래처 정보 -->
-                <div class="flex round">
-                    <div><input type="checkbox" class="chk"></div>
-                    <div class="srEl">
-                        <!-- 거래처명 -->
-                        <blue>(주)지앤시</blue>
+                <!-- 거래처 정보 출력 -->
+                <form method="post" action="/mandoo/client">
+                    <c:forEach var="client" items="${clients}">
+                        <div class="flex round">
+                            <div><input type="checkbox" name="clientId" value="${client.clientId}" class="chk"></div>
+                            <div class="srEl"><blue>${client.clientName}</blue></div>
+                            <div class="srEl">${client.clientBoss}</div>
+                            <div class="srEl">${client.clientTel}</div>
+                            <div class="srEl">${client.clientAddress}</div>
+                            <div class="srEl">${client.clientEmail}</div>
+                            <div class="srEl">${client.clientBoss}</div>
+                            <div class="srEl">${client.clientNumber}</div>
+                        </div>
+                    </c:forEach>
+
+                    <!-- 입력받는 칸 -->
+                    <div class="flex round">
+                        <div></div>
+                        <div><input type="text" name="clientName" id="minfo1"></div>
+                        <div><input type="text" name="clientBoss" id="minfo2" class="srEl"></div>
+                        <div><input type="text" name="clientTel" id="minfo3" class="srEl"></div>
+                        <div><input type="text" name="clientAddress" id="minfo4" class="srEl"></div>
+                        <div><input type="text" name="clientEmail" id="minfo5" class="srEl"></div>
+                        <div><input type="text" name="clientBoss" id="minfo6" class="srEl"></div>
+                        <div><input type="text" name="clientNumber" id="minfo7" class="srEl"></div>
+                        <input type="hidden" name="clientId" value="${java.util.UUID.randomUUID()}">
                     </div>
-                    <!-- 대표명 -->
-                    <div class="srEl">맹채윤</div>
-                    <!-- 연락처 -->
-                    <div class="srEl">010-5464-1567</div>
-                    <!-- 주소 -->
-                    <div class="srEl">충청남도 천안시</div>
-                    <!-- 이메일 -->
-                    <div class="srEl">maeng00@gmail.com</div>
-                    <!-- 담당자 -->
-                    <div class="srEl">맹채윤</div>
-                    <!-- 사업자등록증 -->
-                    <div class="srEl">604-87-91154</div>
-                </div>
 
-                <div class="flex round">
-                    <div><input type="checkbox" class="chk"></div>
-                    <div class="srEl">
-                        <blue>(주)지앤시</blue>
-                    </div>
-                    <div class="srEl">맹채윤</div>
-                    <div class="srEl">010-5464-1567</div>
-                    <div class="srEl">충청남도 천안시</div>
-                    <div class="srEl">maeng00@gmail.com</div>
-                    <div class="srEl">맹채윤</div>
-                    <div class="srEl">604-87-91154</div>
-                </div>
-
-                <div class="flex round">
-                    <div><input type="checkbox" class="chk"></div>
-                    <div>
-                        <blue>(주)지앤시</blue>
-                    </div>
-                    <div>맹채윤</div>
-                    <div>010-5464-1567</div>
-                    <div>충청남도 천안시</div>
-                    <div>maeng00@gmail.com</div>
-                    <div>맹채윤</div>
-                    <div>604-87-91154</div>
-                </div>
-
-                <div id="msg"></div>
-
-                <!-- 입력받는 칸 -->
-                <div class="flex round">
-                    <div><input type="checkbox" class="chk"></div>
-                    <div>
-                        <blue><input type="text" id="minfo1"></blue>
-                    </div>
-                    <div><input type="text" id="minfo2" class="srEl"></div>
-                    <div><input type="text" id="minfo3" class="srEl"></div>
-                    <div><input type="text" id="minfo4" class="srEl"></div>
-                    <div><input type="text" id="minfo5" class="srEl"></div>
-                    <div><input type="text" id="minfo6" class="srEl"></div>
-                    <div><input type="text" id="minfo7" class="srEl"></div>
-                </div>
-
-                <button class="mbtn11 btnStyle">등록</button>
-                <button class="delete-btn btnStyle">삭제</button>
+                    <input type="hidden" name="action" value="add">
+                    <button type="submit" class="mbtn11 btnStyle">등록</button>
+                    <button type="submit" formaction="${pageContext.request.contextPath}/client?action=delete" class="delete-btn btnStyle">삭제</button>
+                </form>
             </div>
 
             <script src="${pageContext.request.contextPath}/JS/거래처관리.js"></script>
