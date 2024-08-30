@@ -128,13 +128,13 @@
             <div class="popup-content">
                 <span id="close-popup" class="close-popup">&times;</span>
                 <h2>생산계획 등록</h2>
-                <form id="registration-form">
+                <form id="registration-form" method="post" action="/mandoo/ProductPlan">
                     <input type="text" id="plan-number" placeholder="생산계획 ID"><br>
                     <input type="text" id="item-name" placeholder="생산계획 내용"><br>
                     <input type="date" id="plan-date" placeholder="생산계획 날짜"><br>
                     <input type="number" id="production-quantity" placeholder="생산 수량"><br>
                     <input type="text" id="status" placeholder="생산계획 이름"><br>
-                    <input type="submit" value="등록">
+                    <input type="submit" name="action" value="add">
                 </form>
             </div>
         </div>
