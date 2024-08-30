@@ -139,10 +139,10 @@
             <!-- required :  폼 데이터가 서버로 제출되기 전 반드시 채워져 있어야 하는 입력 필드 -->
             <form action="/mandoo/login" method="post">
                 <label for="user_id">아이디</label>
-                <input type="text" name="user_id" id="user_id" required><br>
+                <input type="text" name="user_id" id="user_id" value="U001" required><br>
                 <label for="user_pw">비밀번호</label>
-                <input type="password" name="user_pw" id="user_pw" required><br>
-
+                <input type="password" name="user_pw" id="user_pw" value="password1" required><br>
+            
                 <button type="submit">로그인</button>
             </form>
             <button onclick="openRegisterModal()">회원가입</button>
@@ -160,7 +160,7 @@
             <div class="modal-content">
                 <span class="close" onclick="closeRegisterModal()">&times;</span>
                 <h2>회원가입</h2>
-                <form action="RegisterServlet" method="post" onsubmit="return validateForm();">
+                <form action="../register" method="post" onsubmit="return validateForm();">
                     <label for="register_user_id">아이디:</label> <input type="text" name="user_id" id="register_user_id"
                         required><br> <label for="register_user_pw">비밀번호:</label> <input type="password" name="user_pw"
                         id="register_user_pw" required><br> <label for="register_user_pw_check">비밀번호 확인:</label> <input

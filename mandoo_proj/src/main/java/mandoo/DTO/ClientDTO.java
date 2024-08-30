@@ -9,6 +9,7 @@ public class ClientDTO {
     private String clientEmail;
     private String clientNumber;
 
+    // Getters and Setters
     public String getClientId() {
         return clientId;
     }

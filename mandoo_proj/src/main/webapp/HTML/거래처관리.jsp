@@ -9,6 +9,44 @@
     <title>Mandoo</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/거래처관리.css">
+    <style>
+        /* 모달 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -134,28 +172,53 @@
                         </div>
                     </c:forEach>
 
-                    <!-- 입력받는 칸 -->
-                    <div class="flex round">
-                        <div></div>
-                        <div><input type="text" name="clientName" id="minfo1"></div>
-                        <div><input type="text" name="clientBoss" id="minfo2" class="srEl"></div>
-                        <div><input type="text" name="clientTel" id="minfo3" class="srEl"></div>
-                        <div><input type="text" name="clientAddress" id="minfo4" class="srEl"></div>
-                        <div><input type="text" name="clientEmail" id="minfo5" class="srEl"></div>
-                        <div><input type="text" name="clientBoss" id="minfo6" class="srEl"></div>
-                        <div><input type="text" name="clientNumber" id="minfo7" class="srEl"></div>
-                        <input type="hidden" name="clientId" value="${java.util.UUID.randomUUID()}">
-                    </div>
-
-                    <input type="hidden" name="action" value="add">
-                    <button type="submit" class="mbtn11 btnStyle">등록</button>
+                    <button type="button" id="openModalBtn" class="mbtn11 btnStyle">추가</button>
                     <button type="submit" formaction="${pageContext.request.contextPath}/client?action=delete" class="delete-btn btnStyle">삭제</button>
                 </form>
             </div>
 
-            <script src="${pageContext.request.contextPath}/JS/거래처관리.js"></script>
+            <!-- 모달 -->
+            <div id="addClientModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>거래처 추가</h2>
+                    <form method="post" action="/mandoo/client">
+                        <input type="hidden" name="action" value="add">
+                        <div>거래처: <input type="text" name="clientName"></div>
+                        <div>대표명: <input type="text" name="clientBoss"></div>
+                        <div>연락처: <input type="text" name="clientTel"></div>
+                        <div>주소: <input type="text" name="clientAddress"></div>
+                        <div>이메일: <input type="text" name="clientEmail"></div>
+                        <div>담당자: <input type="text" name="clientBoss"></div>
+                        <div>사업자등록증: <input type="text" name="clientNumber"></div>
+                        <div><button type="submit" class="btnStyle">등록</button></div>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
+
+    <script>
+        // 모달 관련 스크립트
+        var modal = document.getElementById("addClientModal");
+        var btn = document.getElementById("openModalBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 

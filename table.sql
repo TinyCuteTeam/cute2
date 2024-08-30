@@ -58,7 +58,7 @@ CREATE TABLE item (
 CREATE TABLE bom (
     bom_id varchar2(100) NOT NULL,
     item_code varchar2(100) NOT NULL,
-    bom_count number,  -- 길이를 지정하지 않음
+    bom_count number,  
     bom_etc varchar2(999),
     bom_unit varchar2(999),
     CONSTRAINT PK_BOM PRIMARY KEY (bom_id)
@@ -82,22 +82,23 @@ CREATE TABLE error (
     CONSTRAINT PK_ERROR PRIMARY KEY (error_id)
 );
 
-CREATE TABLE order_info (  -- 테이블명 수정 (예약어랑 겹치는 부분이 있음)
+CREATE TABLE order_info (  
     order_id varchar2(100) NOT NULL,
     client_id varchar2(100) NOT NULL,
     order_date varchar2(999),
     order_enddate varchar2(999),
     order_box varchar2(999),
-    order_count number,  -- 길이를 지정하지 않음
+    order_count number,  
     order_price varchar2(999),
     CONSTRAINT PK_ORDER PRIMARY KEY (order_id)
 );
 
-CREATE TABLE production_plan (  -- 테이블명 수정 (예약어랑 겹치는 부분이 있음)
+CREATE TABLE production_plan (  
     plan_id varchar2(100) NOT NULL,
     plan_contents varchar2(999),
     plan_date date,
-    plan_count number,  -- 길이를 지정하지 않음
+    plan_end_date date,
+    plan_count number, 
     plan_name varchar2(999),
     CONSTRAINT PK_PLAN PRIMARY KEY (plan_id)
 );
@@ -106,6 +107,8 @@ CREATE TABLE work (
     work_id varchar2(100) NOT NULL,
     user_id varchar2(100) NOT NULL,
     plan_id varchar2(100) NOT NULL,
+    item_code varchar2(100) NOT NULL,
+    
     work_write date,
     work_endate date,
     work_name varchar2(999),
@@ -117,8 +120,7 @@ CREATE TABLE stock (
     stock_id varchar2(100) NOT NULL,
     item_code varchar2(100) NOT NULL,
     stock_name varchar2(999),
-    stock_count number,  -- 길이를 지정하지 않음
-    stock_docount number,  -- 길이를 지정하지 않음
+    stock_count number,  
     stock_location varchar2(999),
     stock_sort varchar2(999),
     CONSTRAINT PK_STOCK PRIMARY KEY (stock_id)
@@ -131,4 +133,13 @@ CREATE TABLE faulty (
     work_id varchar2(100) NOT NULL,
     faulty_count varchar2(999),
     CONSTRAINT PK_FAULTY PRIMARY KEY (faulty_id)
+);
+
+CREATE TABLE todo (
+    todo_id NUMBER NOT NULL,
+    user_id varchar2(100) NOT NULL,
+    todo_date DATE,
+    todo_title VARCHAR2(999),  
+    todo_contents VARCHAR2(999),
+    CONSTRAINT PK_todo PRIMARY KEY (todo_id)
 );
