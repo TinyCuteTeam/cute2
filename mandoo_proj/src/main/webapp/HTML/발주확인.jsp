@@ -46,9 +46,8 @@
 			<a href="/발주확인.jsp" class="category-link title">생산계획</a>
 			<div class="_category">
 				<a href="/발주확인.jsp" class="category-link title">발주확인</a><br> <a
-					href="/생산계획.jsp" class="category-link">생산계획</a><br> <a
-					href="/작업지시서(관리자용).jsp" class="category-link">작업지시서 작성</a><br>
-				<a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서 확인</a><br>
+					href="/생산계획.jsp" class="category-link">생산계획</a><br> 
+				<a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서</a><br>
 			</div>
 		</div>
 
@@ -100,10 +99,7 @@
 		<ul id="sidebar-content">
 			<li><a href="/발주확인.jsp" class="category-link title">발주확인</a></li>
 			<li><a href="/생산계획.jsp" class="category-link">생산계획</a></li>
-			<li><a href="/작업지시서(관리자용).jsp" class="category-link">작업지시서
-					작성</a></li>
-			<li><a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서
-					확인</a></li>
+			<li><a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서</a></li>
 		</ul>
 	</div>
 

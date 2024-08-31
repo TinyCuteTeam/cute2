@@ -153,8 +153,7 @@
 		<ul id="sidebar-content">
 			<li><a href="발주확인.jsp" class="category-link">발주확인</a></li>
 			<li><a href="생산계획.jsp" class="category-link">생산계획</a></li>
-			<li><a href="작업지시서(작업자용).jsp" class="category-link title">작업지시서
-					확인</a></li>
+			<li><a href="작업지시서(작업자용).jsp" class="category-link title">작업지시서</a></li>
 		</ul>
 	</div>
 
