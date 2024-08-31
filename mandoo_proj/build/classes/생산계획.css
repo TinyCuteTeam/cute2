@@ -1,7 +1,7 @@
 .content{
-    
-margin-left: 250px;
+    margin-left: 350px;
 }
+
 blue{
     color: blue;
 }
@@ -64,50 +64,7 @@ blue{
     margin: 10px;
 }
 
-.sr_search{
-    width: 1000px;
-    /* text-align: center; */
-    width:50%;
-    margin:auto;
-}
-
-.sr_search_text{
-    border: 1px solid black;
-    border-radius: 30px;
-    width: 400px;
-    height: 40px;
-    position: relative;
-    top: 40px;
-    right: 100px;
-}
-
-.sr_searchbar{
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 45px;
-    right: 80px;
-}
-
-.sr_button{
-    background-color: hsl(220, 91%, 74%);
-    border-radius:30px;
-    font-size:15px;
-    width: 80px;
-    height: 40px;
-}
-
-.mho:link {
-    color: initial; /* 기본 링크 색상 */
-    text-decoration: none; /* 기본 밑줄 제거 */
-}
-.mho:visited {
-    color: initial; /* 방문한 링크 색상 */
-    text-decoration: none; /* 방문한 링크 밑줄 제거 */
-}
-
-
-
+/* 검색창 스타일 */
 .search-container {
     position: fixed;
     top: 680px;
@@ -119,15 +76,11 @@ blue{
     padding: 10px;
     border-radius: 5px;
     z-index: 1000;
-}
-
-
-/* 검색창 스타일 */
-.search-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    margin-left: 75px;
 }
 
 #search-input {
@@ -135,6 +88,7 @@ blue{
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin-left: 50px;
 }
 
 #search-button,
@@ -145,13 +99,18 @@ blue{
     color: black;
     cursor: pointer;
     margin-left: 5px;
-    width: 100px;
-
+    width: 80px;
     background-color: #e6e6e6;
 }
 
+/* 호버가 안들어감 */
+#search-button:hover{
+    background-color: #81b3e9;
+}
 
-
+#cancel-button:hover{
+    background-color: #f38080;
+}
 
 /* 팝업창 스타일 */
 .popup {
@@ -179,7 +138,7 @@ blue{
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
+    font-size: 25px;
     cursor: pointer;
 }
 
@@ -187,7 +146,7 @@ blue{
     margin-top: 0;
 }
 
-/* 등록, 수정, 삭제 버튼 스타일 */
+/* 등록, 삭제 버튼 스타일 */
 .action-buttons {
     display: flex;
     justify-content: center;
@@ -203,14 +162,22 @@ blue{
     cursor: pointer;
 }
 
-#add-button , #edit-button ,#delete-button{
+#add-button, #delete-button{
     background-color: #e6e6e6;
     color: black;
+} 
+
+#add-button{
+    margin-left: 200px;
 }
 
+/* 호버가 안들어감 */
+#add-button:hover{
+    background-color: #81b3e9;
+}
 
-#add-button:hover ,#edit-button:hover,#delete-button:hover {
-    background-color: #e6e6e6;
+#delete-button:hover{
+    background-color: #f38080;
 }
 
 .warp{

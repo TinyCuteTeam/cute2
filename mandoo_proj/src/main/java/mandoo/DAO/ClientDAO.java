@@ -13,7 +13,7 @@ public class ClientDAO {
 
     // 다음 클라이언트 ID를 생성하는 메서드
     private String generateNextClientId() throws Exception {
-        String lastClientId = "C020"; // 시작값
+        String lastClientId = "C020"; // 시작값 
         try (Connection conn = Database.getConnection();
              PreparedStatement pstmt = conn.prepareStatement("SELECT MAX(client_id) FROM client")) {
             try (ResultSet rs = pstmt.executeQuery()) {
