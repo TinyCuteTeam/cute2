@@ -112,29 +112,27 @@
 
         <!-- BOM 정보 입력 -->
         <form action="/mandoo/BOM" method="post">
+            <input type="hidden" name="action" value="addBom">
+            <input type="hidden" name="bomId" value="${nextBomId}">
             <table class="productInfo infoTable" border="solid black 1px;">
                 <tr>
-                    <th class="srTh">BOM ID</th>
                     <th class="srTh">품목명</th>
                     <th class="srTh">수량</th>
                     <th class="srTh">단위</th>
                     <th class="srTh">비고</th>
                 </tr>
-                <c:forEach var="i" begin="0" end="2">
-                    <tr>
-                        <td><input type="text" name="bomId" value="${nextBomId}" readonly></td>
-                        <td>
-                            <select name="itemCode">
-                                <c:forEach var="item" items="${itemList}">
-                                    <option value="${item.itemCode}">${item.itemName}</option>
-                                </c:forEach>
-                            </select>
-                        </td>
-                        <td><input type="number" name="bomCount"></td>
-                        <td><input type="text" name="bomUnit"></td>
-                        <td><input type="text" name="bomEtc"></td>
-                    </tr>
-                </c:forEach>
+                <tr>
+                    <td>
+                        <select name="itemCode">
+                            <c:forEach var="item" items="${itemList}">
+                                <option value="${item.itemCode}">${item.itemName}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                    <td><input type="number" name="bomCount"></td>
+                    <td><input type="text" name="bomUnit"></td>
+                    <td><input type="text" name="bomEtc"></td>
+                </tr>
             </table>
 
             <!-- 행 추가 버튼 -->
@@ -153,12 +151,12 @@
         document.addEventListener("DOMContentLoaded", function() {
             const addRowBtn = document.getElementById('addRowBtn');
             const table = document.querySelector('.infoTable');
-            
+            const bomId = "${nextBomId}"; // JSP에서 전달된 BOM ID
+
             addRowBtn.addEventListener('click', function() {
                 const newRow = document.createElement('tr');
                 
                 newRow.innerHTML = `
-                    <td><input type="text" name="bomId" value="${nextBomId}" readonly></td>
                     <td>
                         <select name="itemCode">
                             <c:forEach var="item" items="${itemList}">

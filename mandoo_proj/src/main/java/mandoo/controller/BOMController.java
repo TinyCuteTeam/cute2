@@ -47,24 +47,27 @@ public class BOMController extends HttpServlet {
         String bomId = request.getParameter("bomId");
 
         try {
-            if ("add".equals(action)) {
-                BOMDTO bom = new BOMDTO();
-                bom.setBomId(bomId);
-                bom.setItemCode(request.getParameter("itemCode"));
-                bom.setBomCount(Integer.parseInt(request.getParameter("bomCount")));
-                bom.setBomEtc(request.getParameter("bomEtc"));
-                bom.setBomUnit(request.getParameter("bomUnit"));
+            if ("add".equals(action) || "update".equals(action)) {
+                // 여러 행 처리
+                String[] itemCodes = request.getParameterValues("itemCode");
+                String[] bomCounts = request.getParameterValues("bomCount");
+                String[] bomUnits = request.getParameterValues("bomUnit");
+                String[] bomEtcs = request.getParameterValues("bomEtc");
 
-                bomService.addBOM(bom);
-            } else if ("update".equals(action)) {
-                BOMDTO bom = new BOMDTO();
-                bom.setBomId(bomId);
-                bom.setItemCode(request.getParameter("itemCode"));
-                bom.setBomCount(Integer.parseInt(request.getParameter("bomCount")));
-                bom.setBomEtc(request.getParameter("bomEtc"));
-                bom.setBomUnit(request.getParameter("bomUnit"));
+                for (int i = 0; i < itemCodes.length; i++) {
+                    BOMDTO bom = new BOMDTO();
+                    bom.setBomId(bomId);
+                    bom.setItemCode(itemCodes[i]);
+                    bom.setBomCount(Integer.parseInt(bomCounts[i]));
+                    bom.setBomUnit(bomUnits[i]);
+                    bom.setBomEtc(bomEtcs[i]);
 
-                bomService.updateBOM(bom);
+                    if ("add".equals(action)) {
+                        bomService.addBOM(bom);
+                    } else if ("update".equals(action)) {
+                        bomService.updateBOM(bom);
+                    }
+                }
             } else if ("delete".equals(action)) {
                 String itemCode = request.getParameter("itemCode");
                 bomService.deleteBOM(bomId, itemCode);
@@ -73,6 +76,6 @@ public class BOMController extends HttpServlet {
             throw new ServletException(e);
         }
 
-        response.sendRedirect("/mandoo/BOM");
+        response.sendRedirect(request.getContextPath() + "/BOM?bomId=" + bomId);
     }
 }
