@@ -47,6 +47,31 @@
 	text-decoration: none;
 	cursor: pointer;
 }
+
+.pagination {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+}
+
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+	border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
 </style>
 </head>
 
@@ -108,67 +133,81 @@
 						formaction="${pageContext.request.contextPath}/client?action=delete"
 						class="delete-btn btnStyle">삭제</button>
 				</form>
-			</div>
 
-			<!-- 모달 -->
-			<div id="addClientModal" class="modal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
-					<h2>거래처 추가</h2>
-					<form method="post" action="/mandoo/client">
-						<input type="hidden" name="action" value="add">
-						<div>
-							거래처: <input type="text" name="clientName">
-						</div>
-						<div>
-							대표명: <input type="text" name="clientBoss">
-						</div>
-						<div>
-							연락처: <input type="text" name="clientTel">
-						</div>
-						<div>
-							주소: <input type="text" name="clientAddress">
-						</div>
-						<div>
-							이메일: <input type="text" name="clientEmail">
-						</div>
-						<div>
-							담당자: <input type="text" name="clientBoss">
-						</div>
-						<div>
-							사업자등록증: <input type="text" name="clientNumber">
-						</div>
-						<div>
-							<button type="submit" class="btnStyle">등록</button>
-						</div>
-					</form>
+				<!-- 페이징 -->
+				<div class="pagination">
+					<c:if test="${totalPages > 1}">
+						<c:if test="${currentPage > 1}">
+							<a href="?page=${currentPage - 1}">&laquo; Previous</a>
+						</c:if>
+						<c:forEach begin="1" end="${totalPages}" var="i">
+							<a href="?page=${i}" class="${currentPage == i ? 'active' : ''}">${i}</a>
+						</c:forEach>
+						<c:if test="${currentPage < totalPages}">
+							<a href="?page=${currentPage + 1}">Next &raquo;</a>
+						</c:if>
+					</c:if>
 				</div>
+
+
+				<!-- 모달 -->
+				<div id="addClientModal" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<h2>거래처 추가</h2>
+						<form method="post" action="/mandoo/client">
+							<input type="hidden" name="action" value="add">
+							<div>
+								거래처: <input type="text" name="clientName">
+							</div>
+							<div>
+								대표명: <input type="text" name="clientBoss">
+							</div>
+							<div>
+								연락처: <input type="text" name="clientTel">
+							</div>
+							<div>
+								주소: <input type="text" name="clientAddress">
+							</div>
+							<div>
+								이메일: <input type="text" name="clientEmail">
+							</div>
+							<div>
+								담당자: <input type="text" name="clientBoss">
+							</div>
+							<div>
+								사업자등록증: <input type="text" name="clientNumber">
+							</div>
+							<div>
+								<button type="submit" class="btnStyle">등록</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
 			</div>
-
 		</div>
-	</div>
 
-	<script>
-		// 모달 관련 스크립트
-		var modal = document.getElementById("addClientModal");
-		var btn = document.getElementById("openModalBtn");
-		var span = document.getElementsByClassName("close")[0];
+		<script>
+			// 모달 관련 스크립트
+			var modal = document.getElementById("addClientModal");
+			var btn = document.getElementById("openModalBtn");
+			var span = document.getElementsByClassName("close")[0];
 
-		btn.onclick = function() {
-			modal.style.display = "block";
-		}
+			btn.onclick = function() {
+				modal.style.display = "block";
+			}
 
-		span.onclick = function() {
-			modal.style.display = "none";
-		}
-
-		window.onclick = function(event) {
-			if (event.target == modal) {
+			span.onclick = function() {
 				modal.style.display = "none";
 			}
-		}
-	</script>
 
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+		</script>
 </body>
 
 </html>

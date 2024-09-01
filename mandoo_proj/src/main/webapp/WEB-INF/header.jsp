@@ -18,7 +18,7 @@
         <a href="/mandoo/Item" class="category-link">기준관리</a>
         <div class="_category">
             <a href="/mandoo/Item" class="category-link">품목 코드 조회</a><br>
-            <a href="/mandoo/BOM" class="category-link">BOM(레시피관리)</a><br>
+            <a href="mandoo/BOM?bomId=A00001" class="category-link">BOM(레시피관리)</a><br>
             <a href="/mandoo/client" class="category-link">거래처 관리</a><br>
             <a href="/mandoo/Error" class="category-link">에러코드</a><br>
         </div>
