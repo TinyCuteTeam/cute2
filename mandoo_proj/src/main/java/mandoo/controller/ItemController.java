@@ -27,7 +27,7 @@ public class ItemController extends HttpServlet {
         List<ItemDTO> itemList = itemService.getAllItems();
         request.setAttribute("itemList", itemList);
 
-        request.getRequestDispatcher("/HTML/품목코드조회.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/품목코드조회.jsp").forward(request, response);
     }
 
     @Override

@@ -60,7 +60,7 @@ public class RegisterController extends HttpServlet {
                 response.getWriter().println("<p>3초 후에 로그인 페이지로 이동합니다...</p>");
                 response.getWriter().println("</div></div>");
                 response.getWriter().println("<script>");
-                response.getWriter().println("setTimeout(function(){ window.location.href = 'HTML/login.jsp'; }, 3000);");
+                response.getWriter().println("setTimeout(function(){ window.location.href = 'mandoo/login'; }, 3000);");
                 response.getWriter().println("</script>");
             } else {
                 response.getWriter().println("<div id='failModal' class='modal'>");
@@ -69,7 +69,7 @@ public class RegisterController extends HttpServlet {
                 response.getWriter().println("<p>이미 존재하는 아이디이거나 시스템 오류가 발생했습니다. 3초 후에 다시 시도할 수 있습니다.</p>");
                 response.getWriter().println("</div></div>");
                 response.getWriter().println("<script>");
-                response.getWriter().println("setTimeout(function(){ window.location.href = 'HTML/login.jsp'; }, 3000);");
+                response.getWriter().println("setTimeout(function(){ window.location.href = 'mandoo/login'; }, 3000);");
                 response.getWriter().println("</script>");
             }
 
@@ -89,7 +89,7 @@ public class RegisterController extends HttpServlet {
             response.getWriter().println("<p>비밀번호가 일치하지 않습니다. 3초 후에 다시 시도할 수 있습니다.</p>");
             response.getWriter().println("</div></div>");
             response.getWriter().println("<script>");
-            response.getWriter().println("setTimeout(function(){ window.location.href = 'HTML/login.jsp'; }, 3000);");
+            response.getWriter().println("setTimeout(function(){ window.location.href = 'mandoo/login'; }, 3000);");
             response.getWriter().println("</script>");
             response.getWriter().println("</body></html>");
         }

@@ -41,7 +41,7 @@ public class ClientController extends HttpServlet {
             request.setAttribute("totalPages", totalPages);
             request.setAttribute("currentPage", page);
 
-            request.getRequestDispatcher("/HTML/거래처관리.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/거래처관리.jsp").forward(request, response);
         } catch (Exception e) {
             throw new ServletException(e);
         }

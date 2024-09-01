@@ -36,7 +36,7 @@ public class WorkController extends HttpServlet {
             req.setAttribute("currentPage", page);
             req.setAttribute("totalPages", totalPages);
 
-            req.getRequestDispatcher("/HTML/작업지시서(작업자용).jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/작업지시서(작업자용).jsp").forward(req, resp);
         } catch (Exception e) {
             throw new ServletException(e);
         }

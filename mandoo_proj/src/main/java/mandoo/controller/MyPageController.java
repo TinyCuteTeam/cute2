@@ -26,7 +26,7 @@ public class MyPageController extends HttpServlet {
             try {
                 MyPageDTO mypage = myPageService.getMyPageByUserId(user.getUserId());
                 request.setAttribute("mypage", mypage);
-                request.getRequestDispatcher("/HTML/마이페이지.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/마이페이지.jsp").forward(request, response);
             } catch (Exception e) {
                 throw new ServletException(e);
             }

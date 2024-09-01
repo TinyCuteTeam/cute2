@@ -25,7 +25,7 @@ public class ErrorController extends HttpServlet {
         try {
             List<ErrorDTO> errors = errorService.getAllErrors();
             req.setAttribute("errors", errors);
-            req.getRequestDispatcher("/HTML/에러코드.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/에러코드.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new ServletException(e);
         }

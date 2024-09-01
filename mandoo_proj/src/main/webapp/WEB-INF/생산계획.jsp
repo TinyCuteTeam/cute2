@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>생산 계획 관리</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/style.css">
+	href="${pageContext.request.contextPath}/CSS/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/CSS/생산계획.css">
 <style>
@@ -32,90 +32,15 @@
 </style>
 </head>
 <body>
-	<div class="category">
-
-        <!-- 메뉴 아이콘 -->
-        <div class="menu-icon">
-            <img class="menu-icon" src="${pageContext.request.contextPath}/image/menu.png">
-        </div>
-
-        <!-- 로고 아이콘 -->
-        <div class="category-item">
-            <a href="/index.jsp" class="category-link">
-                <img class="logo-icon" src="${pageContext.request.contextPath}/image/logo.png">
-            </a>
-        </div>
-
-        <!-- 카테고리 -->
-        <div class="category-item">
-            <a href="/품목코드조회.jsp" class="category-link">기준관리</a>
-            <div class="_category">
-                <a href="/품목코드조회.jsp" class="category-link">품목 코드 조회</a><br>
-                <a href="/BOM.jsp" class="category-link">BOM(레시피관리)</a><br>
-                <a href="/거래처관리.jsp" class="category-link">거래처 관리</a><br>
-                <a href="/에러코드.jsp" class="category-link">에러코드</a><br>
-            </div>
-        </div>
-        <div class="category-item">
-            <a href="/발주확인.jsp" class="category-link title">생산계획</a>
-            <div class="_category">
-                <a href="/발주확인.jsp" class="category-link title">발주확인</a><br>
-                <a href="/생산계획.jsp" class="category-link">생산계획</a><br>
-                <a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서</a><br>
-            </div>
-        </div>
-
-        <div class="category-item">
-            <a href="/재고현황.jsp" class="category-link">재고관리</a>
-            <div class="_category">
-                <a href="/재고현황.jsp" class="category-link">재고현황</a>
-            </div>
-        </div>
-
-        <div class="category-item">
-            <a href="/생산현황.jsp" class="category-link">공정관리</a>
-            <div class="_category">
-                <a href="/생산현황.jsp" class="category-link">생산현황</a>
-            </div>
-        </div>
-
-        <div class="category-item">
-            <a href="/불량률파악보고서.jsp" class="category-link">품질관리</a>
-            <div class="_category">
-                <a href="/불량률파악보고서.jsp" class="category-link">불량률파악보고서</a><br>
-            </div>
-        </div>
-
-        <div class="category-item">
-            <a href="/실적마감.jsp" class="category-link">실적 및 출하</a>
-            <div class="_category">
-                <a href="/실적마감.jsp" class="category-link">실적마감</a><br>
-                <a href="/출하확인.jsp" class="category-link">출하확인</a><br>
-            </div>
-        </div>
-
-        <div class="category-item">
-            <a href="/마이페이지.jsp">
-                <img class="mypage-icon" src="${pageContext.request.contextPath}/image/mypage.png">
-            </a>
-
-            <div class="_category">
-                <a href="/마이페이지.jsp" class="category-link">마이페이지</a><br>
-                <a href="/계정관리.jsp" class="category-link">계정관리</a><br>
-                <a href="/사내게시판.jsp" class="category-link">사내게시판</a><br>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- 사이드바 -->
-    <div class="sidebar">
-        <ul id="sidebar-content">
-            <li><a href="/발주확인.jsp" class="category-link title">발주확인</a></li>
-            <li><a href="/생산계획.jsp" class="category-link">생산계획</a></li>
-            <li><a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서</a></li>
-        </ul>
-    </div>
+	<jsp:include page="/WEB-INF/header.jsp" />
+	<!-- 사이드바 -->
+	<div class="sidebar">
+		<ul id="sidebar-content">
+			<li><a href="/발주확인.jsp" class="category-link">발주확인</a></li>
+			<li><a href="/생산계획.jsp" class="category-link title">생산계획</a></li>
+			<li><a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서</a></li>
+		</ul>
+	</div>
 	<!-- 내용페이지 -->
 	<div class="content">
 		<!-- 검색 입력 필드 및 버튼 추가 -->
@@ -190,7 +115,8 @@
 		<div class="popup-content">
 			<span id="close-popup" class="close-popup">&times;</span>
 			<h2>생산계획 등록</h2>
-			<form id="registration-form" method="post" action="/mandoo/ProductPlan">
+			<form id="registration-form" method="post"
+				action="/mandoo/ProductPlan">
 				<input type="hidden" name="action" value="add"> <label
 					for="plan-number">생산계획 ID:</label><br> <input type="text"
 					id="plan-number" name="plan-number" placeholder="생산계획 ID" required><br>
@@ -204,8 +130,7 @@
 					type="number" id="production-quantity" name="production-quantity"
 					placeholder="생산 수량" required><br> <label for="status">생산계획
 					이름:</label><br> <input type="text" id="status" name="status"
-					placeholder="생산계획 이름" required><br>
-				<br>
+					placeholder="생산계획 이름" required><br> <br>
 				<button type="submit">등록</button>
 			</form>
 		</div>

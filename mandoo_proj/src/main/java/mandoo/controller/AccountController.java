@@ -75,7 +75,7 @@ public class AccountController extends HttpServlet {
 	        request.setAttribute("accounts", accounts);
 	        request.setAttribute("totalPages", totalPages);
 	        request.setAttribute("currentPage", page);
-	        request.getRequestDispatcher("/HTML/계정관리.jsp").forward(request, response);
+	        request.getRequestDispatcher("/WEB-INF/계정관리.jsp").forward(request, response);
 	    } catch (Exception e) {
 	        throw new ServletException(e);
 	    }

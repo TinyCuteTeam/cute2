@@ -32,7 +32,7 @@ public class BOMController extends HttpServlet {
 
             request.setAttribute("bomIds", bomIds);
             request.setAttribute("bomList", bomList);
-            request.getRequestDispatcher("/HTML/BOM.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/BOM.jsp").forward(request, response);
         } catch (Exception e) {
             throw new ServletException(e);
         }

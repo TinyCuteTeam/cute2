@@ -36,7 +36,7 @@ public class ProductPlanController extends HttpServlet {
             req.setAttribute("currentPage", page);
             req.setAttribute("totalPages", totalPages);
 
-            req.getRequestDispatcher("/HTML/생산계획.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/생산계획.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new ServletException(e);
         }

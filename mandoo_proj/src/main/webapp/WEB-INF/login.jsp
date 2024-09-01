@@ -129,10 +129,10 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
 
 <body>
 	<div class="loginmain">
-		<img class="logo-icon" src="../image/logo.png">
+		<img class="logo-icon" src="${pageContext.request.contextPath}/image/logo.png">
 
 		<!-- required :  폼 데이터가 서버로 제출되기 전 반드시 채워져 있어야 하는 입력 필드 -->
-		<form action="/mandoo/login" method="post">
+		<form action="${pageContext.request.contextPath}/login" method="post">
 			<label for="user_id">아이디</label> <input type="text" name="user_id"
 				id="user_id" value="U001" required><br> <label
 				for="user_pw">비밀번호</label> <input type="password" name="user_pw"
@@ -157,7 +157,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
 		<div class="modal-content">
 			<span class="close" onclick="closeRegisterModal()">&times;</span>
 			<h2>회원가입</h2>
-			<form action="../register" method="post"
+			<form action="${pageContext.request.contextPath}/register" method="post"
 				onsubmit="return validateForm();">
 				<label for="register_user_id">아이디:</label> <input type="text"
 					name="user_id" id="register_user_id" required><br> <label
@@ -182,7 +182,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
 			<span class="close" onclick="closeSuccessModal()">&times;</span>
 			<h2>로그인 성공</h2>
 			<p>로그인에 성공했습니다. 메인 페이지로 이동합니다.</p>
-			<button onclick="window.location.href='/mandoo/index.jsp';">확인</button>
+			<button onclick="window.location.href='${pageContext.request.contextPath}/index.jsp';">확인</button>
 		</div>
 	</div>
 

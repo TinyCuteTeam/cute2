@@ -36,7 +36,7 @@ public class OrderInfoController extends HttpServlet {
             req.setAttribute("currentPage", page);
             req.setAttribute("totalPages", totalPages);
 
-            req.getRequestDispatcher("/HTML/발주확인.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/발주확인.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new ServletException(e);
         }
