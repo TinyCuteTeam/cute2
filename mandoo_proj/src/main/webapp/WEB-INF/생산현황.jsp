@@ -1,5 +1,4 @@
 ﻿<%@ page contentType="text/html; charset=UTF-8" language="java"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kor">
 
@@ -10,293 +9,217 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/CSS/style.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/CSS/재고현황.css">
+	href="${pageContext.request.contextPath}/CSS/생산현황.css">
 </head>
 
 <body>
 
 	<!-- 메인 -->
-	<div class="category">
-
-		<!-- 메뉴 아이콘 -->
-		<div class="menu-icon">
-			<img class="menu-icon"
-				src="${pageContext.request.contextPath}/image/menu.png">
-		</div>
-
-		<!-- 로고 아이콘 -->
-		<div class="category-item">
-			<a href="index.jsp" class="category-link"> <img class="logo-icon"
-				src="${pageContext.request.contextPath}/image/logo.png">
-			</a>
-		</div>
-
-		<!-- 카테고리 -->
-		<div class="category-item">
-			<a href="품목코드조회.jsp" class="category-link">기준관리</a>
-			<div class="_category">
-				<a href="품목코드조회.jsp" class="category-link">품목 코드 조회</a><br> <a
-					href="BOM.jsp" class="category-link">BOM(레시피관리)</a><br> <a
-					href="거래처관리.jsp" class="category-link">거래처 관리</a><br> <a
-					href="에러코드.jsp" class="category-link">에러코드</a><br>
-			</div>
-		</div>
-		<div class="category-item">
-			<a href="발주확인.jsp" class="category-link">생산계획</a>
-			<div class="_category">
-				<a href="발주확인.jsp" class="category-link">발주확인</a><br> <a
-					href="생산계획.jsp" class="category-link">생산계획</a><br> <a
-					href="작업지시서(작업자용).jsp" class="category-link">작업지시서 확인</a><br>
-			</div>
-		</div>
-
-		<div class="category-item">
-			<a href="재고현황.jsp" class="category-link title">재고관리</a>
-			<div class="_category">
-				<a href="재고현황.jsp" class="category-link title">재고현황</a>
-			</div>
-		</div>
-
-		<div class="category-item">
-			<a href="생산현황.jsp" class="category-link">공정관리</a>
-			<div class="_category">
-				<a href="생산현황.jsp" class="category-link">생산현황</a>
-			</div>
-		</div>
-
-		<div class="category-item">
-			<a href="불량률파악보고서.jsp" class="category-link">품질관리</a>
-			<div class="_category">
-				<a href="불량률파악보고서.jsp" class="category-link">불량률파악보고서</a><br>
-			</div>
-		</div>
-
-		<div class="category-item">
-			<a href="실적마감.jsp" class="category-link">실적 및 출하</a>
-			<div class="_category">
-				<a href="실적마감.jsp" class="category-link">실적마감</a><br> <a
-					href="출하확인.jsp" class="category-link">출하확인</a><br>
-			</div>
-		</div>
-
-		<div class="category-item">
-			<a href="마이페이지.jsp"> <img class="mypage-icon"
-				src="${pageContext.request.contextPath}/image/mypage.png">
-			</a>
-			<div class="_category">
-				<a href="마이페이지.jsp" class="category-link">마이페이지</a><br> <a
-					href="계정관리.jsp" class="category-link">계정관리</a><br> <a
-					href="사내게시판.jsp" class="category-link">사내게시판</a><br>
-			</div>
-		</div>
-	</div>
-
+	<jsp:include page="/WEB-INF/header.jsp" />
 	<!-- 사이드바 -->
 	<div class="sidebar">
 		<ul id="sidebar-content">
-			<li><a href="재고현황.jsp" class="category-link title">재고현황</a></li>
-			<ul>
-				<li><a href="재고현황(원자재).jsp" class="category-link">원자재</a></li>
-				<li><a href="재고현황(부자재).jsp" class="category-link">부자재</a></li>
-			</ul>
+			<li><a href="생산현황.jsp" class="category-link title">생산현황</a></li>
 		</ul>
 	</div>
 
-	<!-- 내용 페이지 -->
+	<!-- 내용페이지  -->
 	<div class="content">
-		<div class="rightnow">
-			<h1>재고 현황</h1>
+		<div class="headtitle">생산현황</div>
+		<div class="progress-container">
+			<div class="progress-wrapper">
+				<div class="progress-label">1번 라인</div>
+				<div class="progress-circle" data-progress="30">
+					<div class="progress-text">가동중 30%</div>
+				</div>
+				<div>비비고/물만두</div>
+				<a class="mho"
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+			</div>
+			<div class="progress-wrapper">
+				<div class="progress-label">2번 라인</div>
+				<div class="progress-circle" data-progress="50">
+					<div class="progress-text">가동중 50%</div>
+				</div>
+				<div>비비고/김치만두</div>
+				<a class="mho"
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+			</div>
+			<div class="progress-wrapper">
+				<div class="progress-label">3번 라인</div>
+				<div class="progress-circle" data-progress="70">
+					<div class="progress-text">가동중 70%</div>
+				</div>
+				<div>비비고/물만두</div>
+				<a class="mho"
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+			</div>
+			<div class="progress-wrapper">
+				<div class="progress-label">4번 라인</div>
+				<div class="progress-circle" data-progress="90">
+					<div class="progress-text">가동중 90%</div>
+				</div>
+				<div>비비고/고기만두</div>
+				<a class="mho"
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+			</div>
+			<div class="progress-wrapper">
+				<div class="progress-label">5번 라인</div>
+				<div class="progress-circle" data-progress="100">
+					<div class="progress-text">완료</div>
+				</div>
+				<div>비비고/고기만두</div>
+				<a class="mho"
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+			</div>
+			<div class="progress-wrapper">
+				<div class="progress-label">6번 라인</div>
+				<div class="progress-circle" data-progress="0">
+					<div class="progress-text">비가동</div>
+				</div>
+				<div>비비고/고기만두</div>
+				<a class="mho"
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+			</div>
 		</div>
 
-		<div class="mtab">
-			<input type="text" id="search-input" placeholder="검색어 입력">
-			<button id="search-button">검색</button>
-			<button id="reset-button">초기화</button>
-			<button id="open-popup">재고 추가</button>
+		<div>
+			<div class="main">
+				<div class="flex mfont">
+					<div>작업지시NO.</div>
+					<div>작성일자</div>
+					<div>납기일자</div>
+					<div>품목명</div>
+					<div>수량</div>
+					<div>작성자</div>
+					<div>진행상태</div>
+				</div>
+
+				<div class="m_llist">
+					<div class="flex round page-item">
+						<div>
+							<a class="mho"
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+						</div>
+						<div>2024.04.18</div>
+						<div>2024.07.23</div>
+						<div class="over" title="비비고/물만두">비비고/물만두</div>
+						<div>500BOX</div>
+						<div>이정은</div>
+						<div>
+							<color class="green">작업중</color>
+						</div>
+					</div>
+
+					<div class="flex round page-item">
+						<div>
+							<a class="mho"
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+						</div>
+						<div>2024.06.18</div>
+						<div>2024.07.26</div>
+						<div class="over" title="비비고/김치만두">비비고/김치만두</div>
+						<div>20BOX</div>
+						<div>강희연</div>
+						<div>
+							<color class="green">작업중</color>
+						</div>
+					</div>
+
+
+					<div class="flex round page-item">
+						<div>
+							<a class="mho"
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+						</div>
+						<div>2024.04.18</div>
+						<div>2024.07.23</div>
+						<div class="over" title="비비고/물만두">비비고/물만두</div>
+						<div>500BOX</div>
+						<div>이정은</div>
+						<div>
+							<color class="green">작업중</color>
+						</div>
+					</div>
+
+
+					<div class="flex round page-item">
+						<div>
+							<a class="mho"
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+						</div>
+						<div>2024.07.18</div>
+						<div>2024.07.31</div>
+						<div class="over" title="비비고/고기만두">비비고/고기만두</div>
+						<div>2BOX</div>
+						<div>박경민</div>
+						<div>
+							<color class="green">작업중</color>
+						</div>
+					</div>
+
+					<div class="flex round page-item">
+						<div>
+							<a class="mho"
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+						</div>
+						<div>2024.07.18</div>
+						<div>2024.07.31</div>
+						<div class="over" title="비비고/고기만두">비비고/고기만두</div>
+						<div>2BOX</div>
+						<div>박경민</div>
+						<div>
+							<color class="green">작업중</color>
+						</div>
+					</div>
+
+					<div class="flex round page-item">
+						<div>
+							<a class="mho"
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
+						</div>
+						<div>2024.07.18</div>
+						<div>2024.07.31</div>
+						<div class="over" title="비비고/고기만두">비비고/고기만두</div>
+						<div>2BOX</div>
+						<div>현준수</div>
+						<div>
+							<color class="">비가동</color>
+						</div>
+					</div>
+
+
+				</div>
+
+				<!-- <div class="m_pagination"></div> -->
+
+				<!-- <div class="mnum">
+                        <button class="mbox" data-page="1">1</button>
+                        <button class="mbox" data-page="2">2</button>
+                        <button class="mbox" data-page="3">3</button>
+                    </div>
+        
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="검색어를 입력하세요...">
+                        <button id="search-button">검색</button>
+                        <button id="reset-button">취소</button>
+                    </div> -->
+			</div>
+			<script src="${pageContext.request.contextPath}/JS/생산현황.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 		</div>
-
-		<form method="post"
-			action="${pageContext.request.contextPath}/InventoryDelete">
-			<table border="1" class="inventory_table">
-				<thead>
-					<tr>
-						<th>품목 코드</th>
-						<th>품목명</th>
-						<th>재고 수량</th>
-						<th>창고</th>
-						<th>수정</th>
-						<th>삭제</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="inventory" items="${selectInventory}">
-						<tr>
-							<td><c:out value="${inventory.itemCode}" /></td>
-							<td><c:out value="${inventory.inventoryName}" /></td>
-							<td><c:out value="${inventory.inventoryCount}" /></td>
-							<td><c:out value="${inventory.inventoryLocation}" /></td>
-							<td>
-								<button type="button" class="update-button"
-									data-id="${inventory.inventoryId}"
-									data-code="${inventory.itemCode}"
-									data-name="${inventory.inventoryName}"
-									data-count="${inventory.inventoryCount}"
-									data-location="${inventory.inventoryLocation}"
-									data-sort="${inventory.inventorySort}">수정</button>
-							</td>
-							<td>
-								<form method="post"
-									action="${pageContext.request.contextPath}/InventoryDelete"
-									style="display: inline;">
-									<input type="hidden" name="inventoryId"
-										value="${inventory.inventoryId}"> <input type="submit"
-										value="삭제">
-								</form>
-							</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</form>
-
-		<div class="pagination">
-			<!-- 페이지 버튼 추가될 부분 -->
-		</div>
-	</div>
-
-	<!-- Add Item Popup -->
-	<div id="popup-overlay" class="modal">
-		<div class="modal-content">
-			<span id="close-popup" class="close">&times;</span>
-			<h2>재고 추가</h2>
-			<form method="post"
-				action="${pageContext.request.contextPath}/InventoryInsert">
-				<input type="hidden" name="action" value="add"> 품목id : <input
-					type="text" id="item-id" name="InventoryId" required> <br>
-				품목코드 : <input type="text" id="item-code" name="ItemCode" required>
-				<br> 품목명 : <input type="text" id="item-name"
-					name="InventoryName" required> <br> 재고수량 : <input
-					type="number" id="item-stock" name="InventoryCount" required>
-				<br> 창고 : <input type="text" id="item-location"
-					name="InventoryLocation" required> <br> 종류 : <input
-					type="text" id="item-sort" name="InventorySort" required> <br>
-				<input type="submit" id="add-item" value="등록">
-			</form>
-		</div>
-	</div>
-
-	<!-- Update Popup -->
-	<div id="update-modal" class="modal">
-		<div class="modal-content">
-			<span id="close-update-popup" class="close">&times;</span>
-			<h2>재고 수정</h2>
-			<form id="update-form" method="post"
-				action="${pageContext.request.contextPath}/InventoryUpdate">
-				<input type="hidden" name="action" value="update"> <input
-					type="hidden" id="update-item-id" name="InventoryId"> <label
-					for="update-item-code">품목코드:</label> <input type="text"
-					id="update-item-code" name="ItemCode" required><br> <label
-					for="update-item-name">품목명:</label> <input type="text"
-					id="update-item-name" name="InventoryName" required><br>
-				<label for="update-item-stock">재고수량:</label> <input type="number"
-					id="update-item-stock" name="InventoryCount" required><br>
-				<label for="update-item-location">창고:</label> <input type="text"
-					id="update-item-location" name="InventoryLocation" required><br>
-				<label for="update-item-sort">종류:</label> <input type="text"
-					id="update-item-sort" name="InventorySort" required><br>
-				<input type="submit" value="수정">
-			</form>
-		</div>
-	</div>
-
-
-
-
-
-
-
-
-	<script src="${pageContext.request.contextPath}/JS/재고현황.js"></script>
-	<script>
-		document
-				.addEventListener(
-						'DOMContentLoaded',
-						function() {
-							var updateModal = document
-									.getElementById('update-modal');
-							var addItemPopup = document
-									.getElementById('popup-overlay');
-							var closeUpdateModal = updateModal
-									.querySelector('.close');
-							var closeAddItemPopup = addItemPopup
-									.querySelector('#close-popup');
-
-							// Open Add Item Popup
-							document.getElementById('open-popup')
-									.addEventListener('click', function() {
-										addItemPopup.style.display = 'block';
-									});
-
-							// Close Add Item Popup
-							closeAddItemPopup.addEventListener('click',
-									function() {
-										addItemPopup.style.display = 'none';
-									});
-
-							// Close Update Modal
-							closeUpdateModal.addEventListener('click',
-									function() {
-										updateModal.style.display = 'none';
-									});
-
-							// Close modal if clicked outside
-							window.onclick = function(event) {
-								if (event.target == updateModal) {
-									updateModal.style.display = 'none';
-								}
-								if (event.target == addItemPopup) {
-									addItemPopup.style.display = 'none';
-								}
-							}
-
-							// Open Update Modal
-							document
-									.querySelectorAll('.update-button')
-									.forEach(
-											function(button) {
-												button
-														.addEventListener(
-																'click',
-																function() {
-																	document
-																			.getElementById('update-item-id').value = button
-																			.getAttribute('data-id');
-																	document
-																			.getElementById('update-item-code').value = button
-																			.getAttribute('data-code');
-																	document
-																			.getElementById('update-item-name').value = button
-																			.getAttribute('data-name');
-																	document
-																			.getElementById('update-item-stock').value = button
-																			.getAttribute('data-count');
-																	document
-																s			.getElementById('update-item-location').value = button
-																			.getAttribute('data-location');
-																	document
-																			.getElementById('update-item-sort').value = button
-																			.getAttribute('data-sort');
-
-																	updateModal.style.display = 'block';
-																});
-											});
-						});
-	</script>
-
-
-
-
-
+		<!— content div —>
 </body>
-
 </html>

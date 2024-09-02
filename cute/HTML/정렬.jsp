@@ -1,217 +1,167 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
-    <!DOCTYPE html>
-    <html lang="ko">
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>로그인</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
+        <!DOCTYPE html>
+        <html lang="kor">
 
-            .loginmain {
-                text-align: center;
-                width: 350px;
-                padding: 20px;
-                background-color: #ffffff;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                border-radius: 8px;
-            }
-
-            h1,
-            h2 {
-                color: #333;
-                margin-bottom: 20px;
-            }
-
-            /* 모달 스타일 */
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.4);
-                padding-top: 60px;
-            }
-
-            .modal-content {
-                background-color: #fff;
-                margin: 5% auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 300px;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-                border-radius: 8px;
-                animation-name: animatetop;
-                animation-duration: 0.4s;
-            }
-
-            @keyframes animatetop {
-                from {
-                    top: -300px;
-                    opacity: 0;
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Mandoo</title>
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/style.css">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/실적마감.css">
+            <style>
+                /* Flexbox를 사용하여 테이블과 차트를 양 옆에 배치 */
+                .content-display {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    gap: 20px;
+                    /* 테이블과 차트 사이의 간격 */
                 }
 
-                to {
-                    top: 0;
-                    opacity: 1;
+                .content-display .table-container {
+                    flex: 1;
+                    /* 테이블의 너비를 조절 */
+                    max-width: 50%;
                 }
-            }
 
-            /* 닫기 버튼 스타일 */
-            .close {
-                color: #aaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-                margin-top: -10px;
-            }
-
-            .close:hover,
-            .close:focus {
-                color: #000;
-                text-decoration: none;
-                cursor: pointer;
-            }
-
-            /* 버튼 스타일 */
-            button {
-                background-color: #698fcc;
-                color: white;
-                padding: 10px 20px;
-                margin: 10px 0;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                width: 100%;
-                box-sizing: border-box;
-                font-size: 16px;
-            }
-
-            button:hover {
-                background-color: #577cbf;
-            }
-
-            input[type=text],
-            input[type=password],
-            input[type=email] {
-                width: 100%;
-                padding: 10px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-
-            input[type=text]:focus,
-            input[type=password]:focus,
-            input[type=email]:focus {
-                border-color: #698fcc;
-                outline: none;
-                box-shadow: 0 0 5px rgba(105, 143, 204, 0.5);
-            }
-
-            .logo-icon {
-                width: 200px;
-                margin-bottom: 20px;
-            }
-        </style>
-
-    </head>
-
-    <body>
-        <div class="loginmain">
-            <img class="logo-icon" src="../image/logo.png">
-
-            <!-- required :  폼 데이터가 서버로 제출되기 전 반드시 채워져 있어야 하는 입력 필드 -->
-            <form action="/mandoo/login" method="post">
-                <label for="user_id">아이디</label>
-                <input type="text" name="user_id" id="user_id" value="U001" required><br>
-                <label for="user_pw">비밀번호</label>
-                <input type="password" name="user_pw" id="user_pw" value="password1" required><br>
-            
-                <button type="submit">로그인</button>
-            </form>
-            <button onclick="openRegisterModal()">회원가입</button>
-        </div>
-
-        <div>
-            <% String error=request.getParameter("error"); if (error !=null && "invalid" .equals(error)) {
-                out.println("<p style='color:red;'>아이디 또는 비밀번호가 잘못되었습니다.</p>");
+                .content-display .chart-container {
+                    flex: 1;
+                    /* 차트의 너비를 조절 */
+                    max-width: 50%;
                 }
-                %>
-        </div>
 
-        <!-- 회원가입 모달 -->
-        <div id="registerModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeRegisterModal()">&times;</span>
-                <h2>회원가입</h2>
-                <form action="../register" method="post" onsubmit="return validateForm();">
-                    <label for="register_user_id">아이디:</label> <input type="text" name="user_id" id="register_user_id"
-                        required><br> <label for="register_user_pw">비밀번호:</label> <input type="password" name="user_pw"
-                        id="register_user_pw" required><br> <label for="register_user_pw_check">비밀번호 확인:</label> <input
-                        type="password" name="user_pw_check" id="register_user_pw_check" required><br> <label
-                        for="register_user_name">이름:</label>
-                    <input type="text" name="user_name" id="register_user_name" required><br>
+                .production-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin: 20px 0;
+                    font-size: 18px;
+                    text-align: left;
+                }
 
-                    <label for="register_user_email">이메일:</label> <input type="email" name="user_email"
-                        id="register_user_email" required><br>
+                .production-table th,
+                .production-table td {
+                    padding: 12px 15px;
+                    border: 1px solid #ddd;
+                }
 
-                    <button type="submit">가입 신청</button>
-                </form>
+                .production-table thead tr {
+                    background-color: #e6e6e6;
+                    
+                    text-align: left;
+                    font-weight: bold;
+                }
+
+                .production-table tbody tr {
+                    border-bottom: 1px solid #ddd;
+                }
+
+                .production-table tbody tr:nth-of-type(even) {
+                    background-color: #f3f3f3;
+                }
+
+                .production-table tbody tr:last-of-type {
+                    border-bottom: 2px solid #009879;
+                }
+
+                .production-table tbody tr:hover {
+                    background-color: #f1f1f1;
+
+                }
+
+
+                .chart-container canvas {
+                    width: 700px;
+                    /* 원하는 너비 */
+                    height: 500px;
+                    /* 원하는 높이 */
+                }
+            </style>
+        </head>
+
+        <body>
+            <!-- 메인 -->
+            <jsp:include page="/WEB-INF/header.jsp" />
+
+            <!-- 사이드바 -->
+            <div class="sidebar">
+                <ul id="sidebar-content">
+                    <li><a href="실적마감.jsp" class="category-link title">실적마감</a></li>
+                    <li><a href="출하확인.jsp" class="category-link">출하확인</a></li>
+                </ul>
             </div>
-        </div>
 
-        <!-- 로그인 성공 모달 -->
-        <div id="successModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeSuccessModal()">&times;</span>
-                <h2>로그인 성공</h2>
-                <p>로그인에 성공했습니다. 메인 페이지로 이동합니다.</p>
-                <button onclick="window.location.href='/mandoo/index.jsp';">확인</button>
+            <!-- 내용페이지 -->
+            <div class="content">
+                <h1>작업지시서 목록</h1>
+                <div class="content-display">
+                    <div class="table-container">
+                        <table class="production-table">
+                            <thead>
+                                <tr>
+                                    <th>작업지시서 번호</th>
+                                    <th>생산량</th>
+                                    <th>작업 날짜</th>
+                                    <th>작업 내용</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="order" items="${productionOrderList}">
+                                    <tr>
+                                        <td>${order.orderId}</td>
+                                        <td>${order.productionQty}</td>
+                                        <td>${order.orderEndate}</td>
+                                        <td>${order.orderName}</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="line-chart"></canvas>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <script>
-            function openRegisterModal() {
-                document.getElementById("registerModal").style.display = "block";
-            }
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+            <script>
+                const labels = [];
+                const data = [];
 
-            function closeRegisterModal() {
-                document.getElementById("registerModal").style.display = "none";
-            }
+                <c:forEach var="order" items="${monthlyProductionData}">
+                    labels.push('${order.orderMonth}');
+                    data.push(${order.productionQty});
+                </c:forEach>;
 
-            function openSuccessModal() {
-                document.getElementById("successModal").style.display = "block";
-            }
+                const ctx = document.getElementById('line-chart').getContext('2d');
+                const chartData = {
+                    labels: labels,
+                    datasets: [{
+                        label: '월별 생산량',
+                        data: data,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1,
+                        fill: false
+                    }]
+                };
 
-            function closeSuccessModal() {
-                document.getElementById("successModal").style.display = "none";
-            }
+                const myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: chartData,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            },
+                            x: {
+                                type: 'category'
+                            }
+                        }
+                    }
+                });
+            </script>
+        </body>
 
-            window.onload = function () {
-                // 로그인 성공 시 성공 모달 자동 표시
-                if (new URLSearchParams(window.location.search).has('success')) {
-                    openSuccessModal();
-                }
-            }
-
-
-        </script>
-    </body>
-
-    </html>
+        </html>

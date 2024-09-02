@@ -46,9 +46,9 @@
 	</div>
 
 	<div class="category-item">
-		<a href="/WEB-INF/생산현황.jsp" class="category-link">공정관리</a>
+		<a href="/mandoo/productionStatus" class="category-link">공정관리</a>
 		<div class="_category">
-			<a href="/WEB-INF/생산현황.jsp" class="category-link">생산현황</a>
+			<a href="/mandoo/productionStatus" class="category-link">생산현황</a>
 		</div>
 	</div>
 
@@ -60,10 +60,11 @@
 	</div>
 
 	<div class="category-item">
-		<a href="실적마감.jsp" class="category-link">실적 및 출하</a>
+		<a href="/mandoo/productionOrder/monthly" class="category-link">실적
+			및 출하</a>
 		<div class="_category">
-			<a href="실적마감.jsp" class="category-link">실적마감</a><br> <a
-				href="출하확인.jsp" class="category-link">출하확인</a><br>
+			<a href="/mandoo/productionOrder/monthly" class="category-link">실적마감</a><br>
+			<a href="출하확인.jsp" class="category-link">출하확인</a><br>
 		</div>
 	</div>
 
