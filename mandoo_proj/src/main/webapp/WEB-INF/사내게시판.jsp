@@ -19,20 +19,12 @@
 <body>
 	<jsp:include page="/WEB-INF/header.jsp" />
 	<!-- 사이드바 -->
-	<div class="sidebar">
-		<ul id="sidebar-content">
-			<li><a href="마이페이지.jsp">마이페이지</a></li>
-			<li><a href="계정관리.jsp">계정관리</a></li>
-			<li><a href="사내게시판.jsp" class="title">사내게시판</a></li>
-		</ul>
-	</div>
-
+	<jsp:include page="/WEB-INF/sidebar_마이페이지.jsp" />
 	<div class="content">
 		<h1>사내 게시판</h1>
 		<div id="id"><%=((UserDTO) session.getAttribute("user")).getUserName()%>님
 		</div>
-		<button id="write-button"
-			onclick="window.location.href='/boardAdd'">글쓰기</button>
+		<button id="write-button" onclick="window.location.href='/boardAdd'">글쓰기</button>
 
 		<table id="posts-table">
 			<thead>

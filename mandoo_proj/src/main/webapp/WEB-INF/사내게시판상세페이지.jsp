@@ -16,17 +16,13 @@
 </head>
 
 <body>
+	<!-- 메인 -->
 	<jsp:include page="/WEB-INF/header.jsp" />
 
 	<!-- 사이드바 -->
-	<div class="sidebar">
-		<ul id="sidebar-content">
-			<li><a href="마이페이지.jsp">마이페이지</a></li>
-			<li><a href="계정관리.jsp">계정관리</a></li>
-			<li><a href="사내게시판.jsp" class="title">사내게시판</a></li>
-		</ul>
-	</div>
+	<jsp:include page="/WEB-INF/sidebar_마이페이지.jsp" />
 
+	<!-- 내용페이지 -->
 	<div class="content">
 		<div class="post-details">
 			<h2 id="post-title">${post.boardTitle}</h2>

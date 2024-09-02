@@ -84,15 +84,7 @@
     <!-- 메인 -->    
     <jsp:include page="/WEB-INF/header.jsp" /> 
        <!-- 사이드바 -->
-    <div class="sidebar">
-        <ul id="sidebar-content">
-            <li><a href="품목코드조회.jsp" class="category-link">품목 코드 조회</a></li>
-            <li><a href="BOM.jsp" class="category-link title">BOM(레시피관리)</a></li>
-            <li><a href="거래처관리.jsp" class="category-link">거래처 관리</a></li>
-            <li><a href="에러코드.jsp" class="category-link">에러코드</a><br></li>
-        </ul>
-    </div>
-
+    <jsp:include page="/WEB-INF/sidebar_기준관리.jsp" /> 
     <!-- 내용페이지 -->
     <div class="content">
         <div class="srBack">

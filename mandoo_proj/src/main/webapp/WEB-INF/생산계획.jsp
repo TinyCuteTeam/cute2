@@ -34,13 +34,7 @@
 <body>
 	<jsp:include page="/WEB-INF/header.jsp" />
 	<!-- 사이드바 -->
-	<div class="sidebar">
-		<ul id="sidebar-content">
-			<li><a href="/발주확인.jsp" class="category-link">발주확인</a></li>
-			<li><a href="/생산계획.jsp" class="category-link title">생산계획</a></li>
-			<li><a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서</a></li>
-		</ul>
-	</div>
+	<jsp:include page="/WEB-INF/sidebar_생산계획.jsp" />
 	<!-- 내용페이지 -->
 	<div class="content">
 		<!-- 검색 입력 필드 및 버튼 추가 -->
