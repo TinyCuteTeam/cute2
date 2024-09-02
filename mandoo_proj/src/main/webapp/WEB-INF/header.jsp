@@ -70,7 +70,7 @@
         <div class="_category">
             <a href="/mandoo/mypage" class="category-link">마이페이지</a><br>
             <a href="/mandoo/account" class="category-link">계정관리</a><br>
-            <a href="사내게시판.jsp" class="category-link">사내게시판</a><br>
+            <a href="/mandoo/boardList" class="category-link">사내게시판</a><br>
         </div>
     </div>
 </div>

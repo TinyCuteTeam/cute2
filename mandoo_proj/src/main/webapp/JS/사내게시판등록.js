@@ -2,34 +2,10 @@
     const boardForm = document.getElementById("board-form");
 
     boardForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+        // 서버로 데이터를 보내므로 기본 폼 동작을 유지
+        // event.preventDefault(); // 이 부분을 제거
 
-        const category = document.getElementById("board-category").value;
-        const title = document.getElementById("title").value;
-        const content = document.getElementById("content").value.replace(/\n/g, "<br>");
-        const date = new Date().toLocaleDateString();
-        const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
-
-        let posts = JSON.parse(sessionStorage.getItem("posts")) || [];
-        let newId = 1;
-
-        if (posts.length > 0) {
-            newId = posts[posts.length - 1].id + 1;
-        }
-
-        const newPost = {
-            id: newId,
-            category: category,
-            title: title,
-            date: date,
-            author: userInfo.username,
-            content: content
-        };
-
-        posts.push(newPost);
-        sessionStorage.setItem("posts", JSON.stringify(posts));
-
-        // 목록 페이지로 이동
-        window.location.href = "/HTML/사내게시판.jsp";
+        // 폼 데이터를 자동으로 수집하고 서버로 전송함
+        // 폼 태그에 action과 method 속성으로 경로와 POST 방식을 설정했으므로 JS에서 따로 처리할 필요 없음
     });
 });
