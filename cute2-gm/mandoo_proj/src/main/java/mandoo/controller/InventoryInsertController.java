@@ -26,7 +26,6 @@ public class InventoryInsertController extends HttpServlet {
         if ("add".equals(action)) {
             addInventory(request, response);
         }
-        // Handle other actions if necessary
     }
 
     private void addInventory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,7 +34,6 @@ public class InventoryInsertController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
     	
-    	// Retrieve parameters from request
         String inventoryId = request.getParameter("InventoryId");
         String itemCode = request.getParameter("ItemCode");
         String inventoryName = request.getParameter("InventoryName");
@@ -43,7 +41,6 @@ public class InventoryInsertController extends HttpServlet {
         String inventoryLocation = request.getParameter("InventoryLocation");
         String inventorySort = request.getParameter("InventorySort");
 
-        // Create an InventoryDTO object and set its properties
         InventoryDTO inventoryDTO = new InventoryDTO();
         inventoryDTO.setInventoryId(inventoryId);
         inventoryDTO.setItemCode(itemCode);
@@ -52,10 +49,8 @@ public class InventoryInsertController extends HttpServlet {
         inventoryDTO.setInventoryLocation(inventoryLocation);
         inventoryDTO.setInventorySort(inventorySort);
 
-        // Call the service method to add inventory
         inventoryService.addinventory(inventoryDTO);
 
-        // Redirect to the inventory page or another appropriate page
-        response.sendRedirect("/mandoo/Inventory");  // Adjust URL as needed
+        response.sendRedirect("/mandoo/Inventory");  
     }
 }
