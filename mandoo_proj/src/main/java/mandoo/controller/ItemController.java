@@ -18,52 +18,69 @@ import mandoo.service.ItemService;
 @WebServlet("/Item")
 @MultipartConfig
 public class ItemController extends HttpServlet {
-    private ItemService itemService = new ItemService();
+	private ItemService itemService = new ItemService();
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 
-        List<ItemDTO> itemList = itemService.getAllItems();
-        request.setAttribute("itemList", itemList);
+		List<ItemDTO> itemList = itemService.getAllItems();
+		request.setAttribute("itemList", itemList);
 
-        request.getRequestDispatcher("/WEB-INF/품목코드조회.jsp").forward(request, response);
-    }
+		request.getRequestDispatcher("/WEB-INF/품목코드조회.jsp").forward(request, response);
+	}
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 
-        String action = request.getParameter("action");
-        if ("add".equals(action)) {
-            String itemCode = request.getParameter("itemCode");
-            String itemName = request.getParameter("itemName");
+		String action = request.getParameter("action");
+		if ("add".equals(action)) {
+			String itemCode = request.getParameter("itemCode");
+			String itemName = request.getParameter("itemName");
 
-            // 이미지 파일 업로드 처리
-            Part filePart = request.getPart("image");
-            if (filePart != null && filePart.getSize() > 0) {
-                String fileName = itemCode + ".jpg";  // 파일명은 itemCode.jpg로 설정
-                String uploadPath = getServletContext().getRealPath("/image");
-                File file = new File(uploadPath, fileName);
-                filePart.write(file.getAbsolutePath());
-            }
+			Part filePart = request.getPart("itemImage"); // 이름 수정됨
+			if (filePart != null && filePart.getSize() > 0) {
+				String fileName = itemCode + ".jpg"; // 파일명은 itemCode.jpg로 설정
+				String uploadPath = getServletContext().getRealPath("/image");
+				File uploadDir = new File(uploadPath);
+				if (!uploadDir.exists()) {
+					uploadDir.mkdirs(); // 디렉토리가 존재하지 않으면 생성
+				}
+				File file = new File(uploadPath, fileName);
+				filePart.write(file.getAbsolutePath());
+			}
 
-            ItemDTO item = new ItemDTO(itemCode, itemName);
-            itemService.addItem(item);
-            response.sendRedirect("Item");
+			ItemDTO item = new ItemDTO(itemCode, itemName);
+			itemService.addItem(item);
+			response.sendRedirect("Item");
 
-        } else if ("update".equals(action)) {
-            String itemCode = request.getParameter("itemCode");
-            String itemName = request.getParameter("itemName");
+		} else if ("update".equals(action)) {
+			String itemCode = request.getParameter("itemCode");
+			String itemName = request.getParameter("itemName");
 
-            ItemDTO item = new ItemDTO(itemCode, itemName);
-            itemService.updateItem(item);
-            response.sendRedirect("Item");
+			Part filePart = request.getPart("itemImage"); // 이름 수정됨
+			if (filePart != null && filePart.getSize() > 0) {
+				String fileName = itemCode + ".jpg"; // 파일명은 itemCode.jpg로 설정
+				String uploadPath = getServletContext().getRealPath("/image");
+				File uploadDir = new File(uploadPath);
+				if (!uploadDir.exists()) {
+					uploadDir.mkdirs(); // 디렉토리가 존재하지 않으면 생성
+				}
+				File file = new File(uploadPath, fileName);
+				filePart.write(file.getAbsolutePath());
+			}
 
-        } else if ("delete".equals(action)) {
-            String itemCode = request.getParameter("itemCode");
-            itemService.deleteItem(itemCode);
-            response.sendRedirect("Item");
-        }
-    }
+			ItemDTO item = new ItemDTO(itemCode, itemName);
+			itemService.updateItem(item);
+			response.sendRedirect("Item");
+
+		} else if ("delete".equals(action)) {
+			String itemCode = request.getParameter("itemCode");
+			itemService.deleteItem(itemCode);
+			response.sendRedirect("Item");
+		}
+	}
 }

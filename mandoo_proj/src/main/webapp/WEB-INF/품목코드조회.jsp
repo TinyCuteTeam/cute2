@@ -1,7 +1,7 @@
 ﻿<%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="kor">
+<html lang="ko">
 
 <head>
 <meta charset="UTF-8">
@@ -110,7 +110,7 @@
 						src="${pageContext.request.contextPath}/image/${item.itemCode}.jpg"></td>
 					<td><img class="pen editButton"
 						src="${pageContext.request.contextPath}/image/edit.png" title="수정"
-						onclick="openEditModal('${item.itemCode}', '${item.itemName}', '${item.itemCode}.jpg')"></td>
+						onclick="openEditModal('${item.itemCode}', '${item.itemName}')"></td>
 					<td>
 						<form action="${pageContext.request.contextPath}/Item"
 							method="post">
@@ -128,12 +128,13 @@
 			<span class="close">&times;</span>
 			<h2 id="modalTitle">품목 추가</h2>
 			<!-- 모달 내용 -->
-			<form id="itemForm">
-				<input type="hidden" id="itemId"> <input type="text"
-					id="itemCode" placeholder="품목코드"> <input type="text"
-					id="itemName" placeholder="품목명"> <input type="file"
-					id="itemImage" accept="image/*">
-				<button type="button" id="saveItem">저장</button>
+			<form id="itemForm" action="${pageContext.request.contextPath}/Item"
+				method="post" enctype="multipart/form-data">
+				<input type="hidden" id="itemId" name="itemId"> <input
+					type="text" id="itemCode" name="itemCode" placeholder="품목코드">
+				<input type="text" id="itemName" name="itemName" placeholder="품목명">
+				<input type="file" id="itemImage" name="itemImage" accept="image/*">
+				<button type="submit" id="saveItem">저장</button>
 			</form>
 		</div>
 
@@ -141,16 +142,15 @@
 			function openAddModal() {
 				document.getElementById('modalTitle').textContent = '품목 추가';
 				document.getElementById('itemForm').reset(); // 폼 리셋
+				document.getElementById('itemForm').action = '${pageContext.request.contextPath}/Item?action=add';
 				document.getElementById('addModal').style.display = 'block';
 			}
 
-			function openEditModal(code, name, imageUrl) {
+			function openEditModal(code, name) {
 				document.getElementById('modalTitle').textContent = '품목 수정';
 				document.getElementById('itemCode').value = code;
 				document.getElementById('itemName').value = name;
-				// 이미지 URL 설정
-				const imageInput = document.getElementById('itemImage');
-				imageInput.value = ''; // 파일 인풋 리셋
+				document.getElementById('itemForm').action = '${pageContext.request.contextPath}/Item?action=update';
 				document.getElementById('addModal').style.display = 'block';
 			}
 
@@ -170,7 +170,7 @@
 		</script>
 	</div>
 
-	<script src="${pageContext.request.contextPath}/JS/품목코드조회.js"></script>
+	<%-- <script src="${pageContext.request.contextPath}/JS/품목코드조회.js"></script> --%>
 </body>
 
 </html>

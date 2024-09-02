@@ -12,66 +12,63 @@ import mandoo.db.Database;
 
 public class ItemDAO {
 
-    public List<ItemDTO> getAllItems() {
-        List<ItemDTO> itemList = new ArrayList<>();
-        String query = "SELECT * FROM item";
-        try (Connection conn = Database.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query);
-             ResultSet rs = pstmt.executeQuery()) {
+	public List<ItemDTO> getAllItems() {
+		List<ItemDTO> itemList = new ArrayList<>();
+		String query = "SELECT * FROM item";
+		try (Connection conn = Database.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(query);
+				ResultSet rs = pstmt.executeQuery()) {
 
-            while (rs.next()) {
-                ItemDTO item = new ItemDTO(rs.getString("item_code"), rs.getString("item_name"));
-                itemList.add(item);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return itemList;
-    }
+			while (rs.next()) {
+				ItemDTO item = new ItemDTO(rs.getString("item_code"), rs.getString("item_name"));
+				itemList.add(item);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace(); // 예외 처리 강화 필요
+		} catch (Exception e) {
+			e.printStackTrace(); // 예외 처리 강화 필요
+		}
+		return itemList;
+	}
 
-    public void addItem(ItemDTO item) {
-        String query = "INSERT INTO item (item_code, item_name) VALUES (?, ?)";
-        try (Connection conn = Database.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
+	public void addItem(ItemDTO item) {
+		String query = "INSERT INTO item (item_code, item_name) VALUES (?, ?)";
+		try (Connection conn = Database.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
 
-            pstmt.setString(1, item.getItemCode());
-            pstmt.setString(2, item.getItemName());
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			pstmt.setString(1, item.getItemCode());
+			pstmt.setString(2, item.getItemName());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace(); // 예외 처리 강화 필요
+		} catch (Exception e) {
+			e.printStackTrace(); // 예외 처리 강화 필요
+		}
+	}
 
-    public void updateItem(ItemDTO item) {
-        String query = "UPDATE item SET item_name = ? WHERE item_code = ?";
-        try (Connection conn = Database.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
+	public void updateItem(ItemDTO item) {
+		String query = "UPDATE item SET item_name = ? WHERE item_code = ?";
+		try (Connection conn = Database.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
 
-            pstmt.setString(1, item.getItemName());
-            pstmt.setString(2, item.getItemCode());
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			pstmt.setString(1, item.getItemName());
+			pstmt.setString(2, item.getItemCode());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace(); // 예외 처리 강화 필요
+		} catch (Exception e) {
+			e.printStackTrace(); // 예외 처리 강화 필요
+		}
+	}
 
-    public void deleteItem(String itemCode) {
-        String query = "DELETE FROM item WHERE item_code = ?";
-        try (Connection conn = Database.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
+	public void deleteItem(String itemCode) {
+		String query = "DELETE FROM item WHERE item_code = ?";
+		try (Connection conn = Database.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
 
-            pstmt.setString(1, itemCode);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			pstmt.setString(1, itemCode);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace(); // 예외 처리 강화 필요
+		} catch (Exception e) {
+			e.printStackTrace(); // 예외 처리 강화 필요
+		}
+	}
 }
