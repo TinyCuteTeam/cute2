@@ -1,30 +1,20 @@
-﻿function updateProgressBars() {
-    const selectedValue = document.getElementById('progress-select').value;
-    const progressBars = document.querySelectorAll('.probar');
+﻿document.addEventListener('DOMContentLoaded', function() {
+    var circles = document.querySelectorAll('.progress-circle');
 
-    if (selectedValue === 'all') {
-        progressBars.forEach(bar => bar.style.display = 'block');
-    } else {
-        progressBars.forEach(bar => {
-            if (bar.id === selectedValue) {
-                bar.style.display = 'block';
-            } else {
-                bar.style.display = 'none';
-            }
-        });
-    }
-    // 추가: 선택된 프로그레스 바가 보이도록 스크롤 위치 조정
-    const visibleBar = document.querySelector('.probar[style*="block"]');
-    if (visibleBar) {
-        visibleBar.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-}
+    circles.forEach(function(circle) {
+        var progress = parseInt(circle.getAttribute('data-progress'), 10);
+        
+        // 색상 결정
+        var color;
+        if (progress <= 30) {
+            color = '#ff0000'; // 빨간색
+        } else if (progress <= 50) {
+            color = '#ffd400'; // 노란색
+        } else {
+            color = '#54bd54'; // 녹색
+        }
 
-// 초기화 시 '전체' 상태로 설정
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('progress-select').value = 'all';
-    updateProgressBars();
+        // 색상과 진행률을 설정
+        circle.style.background = `conic-gradient(${color} 0% ${progress}%, #e0e0e0 ${progress}% 100%)`;
+    });
 });
-
-// 옵션 변경 시 업데이트
-document.getElementById('progress-select').addEventListener('change', updateProgressBars);

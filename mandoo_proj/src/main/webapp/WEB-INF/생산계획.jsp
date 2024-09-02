@@ -55,7 +55,30 @@
 				</form>
 			</div>
 		</div>
+		<div class="flex round" style="border: 0px;">
+			<div>
+				<strong>선택</strong>
+			</div>
+			<div>
+				<strong>계획 ID</strong>
+			</div>
+			<div>
+				<strong>계획 이름</strong>
+			</div>
+			<div>
+				<strong>계획 시작일</strong>
+			</div>
+			<div>
+				<strong>계획 종료일</strong>
+			</div>
+			<div>
+				<strong>계획 수량</strong>
+			</div>
+			<div>
+				<strong>계획 내용</strong>
+			</div>
 
+		</div>
 		<!-- 계획 리스트 -->
 		<form id="plan-list-form" method="post" action="/mandoo/ProductPlan">
 			<input type="hidden" name="action" value="delete">

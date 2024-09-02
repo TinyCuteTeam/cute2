@@ -1,41 +1,69 @@
-﻿document.addEventListener('DOMContentLoaded', function() {
-    const data = [
-        { errordate: '2024.07.01', errorcode: '<spanme title="재료 부족">E001</spanme>', worknumber: '2024-051', production: 5000, defect: '<a href="품질검사현황.jsp">50</a>' },
-        { errordate: '2024.07.02', errorcode: '<spanme title="재료 부족">E001</spanme>', worknumber: '2024-053', production: 4000, defect: '<a href="품질검사현황.jsp">40</a>' },
-        { errordate: '2024.07.01', errorcode: '<spanme title="만두 포장 오류">E002</spanme>', worknumber: '2024-062', production: 3000, defect: '<a href="품질검사현황.jsp">30</a>' },
-        { errordate: '2024.07.02', errorcode: '<spanme title="만두 포장 오류">E002</spanme>', worknumber: '2024-088', production: 2000, defect: '<a href="품질검사현황.jsp">20</a>' },
-        { errordate: '2024.07.02', errorcode: '<spanme title="찜기 고장">E003</spanme>', worknumber: '2024-102', production: 1000, defect: '<a href="품질검사현황.jsp">10</a>' },
-        { errordate: '2024.07.03', errorcode: '<spanme title="온도 설정 오류">E004</spanme>', worknumber: '2024-999', production: 1500, defect: '<a href="품질검사현황.jsp">15</a>' }
-    ];
+﻿const canvas = document.getElementById('line-chart');
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
 
-    const tbody = document.querySelector('#defectReportTable tbody');
-    let totalDefect = 0;
+        const ctx = canvas.getContext('2d');
+        let myChart;
 
-    data.forEach(row => {
-        const tr = document.createElement('tr');
-        Object.values(row).forEach(text => {
-            const td = document.createElement('td');
-            td.innerHTML = text;
-            tr.appendChild(td);
+        const updateChart = (labels, data) => {
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "불량 발생량",
+                        data: data,
+                        borderColor: "#e74c3c",
+                        backgroundColor: "rgba(231, 76, 60, 0.2)",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false, // 비율 유지 여부
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        };
+
+        const fetchData = (period) => {
+            let labels, data;
+
+            switch (period) {
+                case 'weekly':
+                    labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                    data = [12, 19, 3, 5, 2, 3, 7];
+                    break;
+                case 'monthly':
+                    labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    data = [65, 59, 80, 81, 56, 55, 40, 72, 90, 100, 65, 80];
+                    break;
+                case 'quarterly':
+                    labels = ['Q1', 'Q2', 'Q3', 'Q4'];
+                    data = [600, 400, 450, 300];
+                    break;
+                default:
+                    labels = [];
+                    data = [];
+            }
+
+            updateChart(labels, data);
+        };
+
+        document.getElementById('chart-selector').addEventListener('change', (event) => {
+            fetchData(event.target.value);
         });
-        
-        // 불량 수량에서 숫자만 추출하여 총계 계산
-        const defectValue = parseInt(row.defect.match(/\d+/)[0]);
-        totalDefect += defectValue;
 
-        tbody.appendChild(tr);
-    });
-
-    // 총계 행 추가
-    const totalProduction = data.reduce((sum, row) => sum + row.production, 0);
-    const summaryRow = document.createElement('tr');
-    summaryRow.classList.add('defect-summary-row');
-    summaryRow.innerHTML = `
-        <td>총계</td>
-        <td></td>
-        <td></td>
-        <td><strong>${totalProduction}</strong></td>
-        <td><strong>${totalDefect}</strong></td>
-    `;
-    tbody.appendChild(summaryRow);
-});
+        // Initial chart load
+        fetchData('weekly');

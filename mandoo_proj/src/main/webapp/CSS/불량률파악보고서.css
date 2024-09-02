@@ -4,8 +4,8 @@
     height: 843px;
     width: 1692px;
     position: absolute;
-    left: 230px;
-    top: 260px;
+    left: 220px;
+    top: 170px;
 }
 .defect-table-container {
     width: 80%;
@@ -36,4 +36,46 @@
 
 .defect-summary-row {
     font-weight: bold;
+}
+/* 페이징 컨테이너 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* 각 페이징 링크 스타일 */
+.pagination a {
+    display: block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 현재 페이지 강조 */
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    font-weight: bold;
+}
+
+/* 링크 hover 스타일 */
+.pagination a:hover {
+    background-color: #e9ecef;
+    color: #007bff;
+    border-color: #007bff;
+}
+
+#line-chart {
+    width: 90% !important;
+    height: 250px !important;
+    
+}
+#chart-container {
+	margin-left : 170px;
 }
