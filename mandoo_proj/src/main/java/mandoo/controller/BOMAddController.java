@@ -1,71 +1,68 @@
 package mandoo.controller;
 
-import mandoo.DTO.BOMDTO;
-import mandoo.DTO.ItemDTO;
-import mandoo.service.BOMService;
-import mandoo.service.ItemService;
+import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/bom/add")
-public class BOMAddController extends HttpServlet {
-    private BOMService bomService = new BOMService();
-    private ItemService itemService = new ItemService();
+import mandoo.DAO.ItemDAO;
+import mandoo.DTO.BomAddDTO;
+import mandoo.DTO.ItemDTO;
+import mandoo.service.BomAddService;
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            // 다음 BOM ID를 생성
-            String nextBomId = bomService.getNextBomId();
-            request.setAttribute("nextBomId", nextBomId);
+@WebServlet("/BOMAdd")
+public class BomAddController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private BomAddService bomAddService = new BomAddService();
+	private ItemDAO itemDAO = new ItemDAO();
 
-            // 품목 목록을 가져옴
-            List<ItemDTO> itemList = itemService.getAllItems();
-            request.setAttribute("itemList", itemList);
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// Fetching item list for the dropdown
+		try {
+			List<ItemDTO> itemList = itemDAO.getAllItems(); // 모든 품목 목록을 가져옴
+			request.setAttribute("itemList", itemList); // itemList를 JSP에 전달
 
-            // JSP로 포워드
-            request.getRequestDispatcher("/HTML/BOM관리_제품추가.jsp").forward(request, response);
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
-    }
+			// Forward to JSP
+			request.getRequestDispatcher("/WEB-INF/BOM관리_제품추가.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.sendRedirect(request.getContextPath() + "/error.jsp"); // 오류 페이지로 리디렉션
+		}
+	}
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            // 폼 데이터에서 BOM 정보를 추출
-            String bomId = request.getParameter("bomId");
-            String[] itemCodes = request.getParameterValues("itemCode");
-            String[] bomCounts = request.getParameterValues("bomCount");
-            String[] bomUnits = request.getParameterValues("bomUnit");
-            String[] bomEtcs = request.getParameterValues("bomEtc");
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 
-            // BOM 추가
-            if (itemCodes != null) {
-                for (int i = 0; i < itemCodes.length; i++) {
-                    BOMDTO bom = new BOMDTO();
-                    bom.setBomId(bomId);
-                    bom.setItemCode(itemCodes[i]);
-                    bom.setBomCount(Integer.parseInt(bomCounts[i]));
-                    bom.setBomUnit(bomUnits[i]);
-                    bom.setBomEtc(bomEtcs[i]);
+		try {
+			String itemCode = request.getParameter("itemCode");
+			int bomCount = Integer.parseInt(request.getParameter("bomCount"));
+			String bomUnit = request.getParameter("bomUnit");
 
-                    bomService.addBOM(bom);  // BOM을 데이터베이스에 추가
-                }
-            }
+			// BOM ID는 DB 시퀀스로 생성되므로 따로 설정하지 않음
+			BomAddDTO bom = new BomAddDTO();
+			bom.setItemCode(itemCode);
+			bom.setBomCount(bomCount);
+			bom.setBomUnit(bomUnit);
 
-            // 추가 후 BOM 상세 페이지로 리다이렉트
-            response.sendRedirect(request.getContextPath() + "/BOM?bomId=" + bomId);
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
-    }
+			// BOM 추가 수행
+			bomAddService.addBom(bom);
+
+			// 추가된 BOM의 ID를 얻음
+			String newBomId = bom.getBomId();
+
+			// 작업 후 특정 페이지로 리디렉트, 새롭게 추가된 BOM ID를 사용
+			response.sendRedirect(request.getContextPath() + "/mandoo/BOM?bomId=A00001");
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.sendRedirect(request.getContextPath() + "/BOM관리_제품추가.jsp?error=true");
+		}
+	}
 }

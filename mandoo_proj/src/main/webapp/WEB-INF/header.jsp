@@ -39,9 +39,9 @@
 	</div>
 
 	<div class="category-item">
-		<a href="/mandoo/Inventory" class="category-link">재고관리</a>
+		<a href="/mandoo/StockInventory" class="category-link">재고관리</a>
 		<div class="_category">
-			<a href="/mandoo/Inventory" class="category-link">재고현황</a>
+			<a href="/mandoo/StockInventory" class="category-link">재고현황</a>
 		</div>
 	</div>
 

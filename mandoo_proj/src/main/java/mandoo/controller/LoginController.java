@@ -27,8 +27,9 @@ public class LoginController extends HttpServlet {
             if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                session.setMaxInactiveInterval(60 * 60);
-                
+                session.setAttribute("user_access", user.getUserAccess());  // user_access를 세션에 추가
+                session.setMaxInactiveInterval(60 * 30);  // 세션 타임아웃 설정 (30분)
+
                 // 로그인 성공 시 WEB-INF 폴더의 index.jsp로 포워딩
                 request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
             } else {

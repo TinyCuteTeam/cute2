@@ -25,7 +25,7 @@ public class ProductPlanController extends HttpServlet {
 
         String pageParam = req.getParameter("page");
         int page = pageParam != null ? Integer.parseInt(pageParam) : 1;
-        int pageSize = 5;
+        int pageSize = 4;
 
         try {
             List<ProductionPlanDTO> plans = planService.getPlans(page, pageSize);

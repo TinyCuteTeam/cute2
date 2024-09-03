@@ -15,7 +15,7 @@ public class BOMDAO {
 	// BOM ID로 BOM 리스트 조회
 	public List<BOMDTO> getBOMsByBomId(String bomId) throws Exception {
 		List<BOMDTO> bomList = new ArrayList<>();
-		String sql = "SELECT b.bom_id, b.item_code, b.bom_count, b.bom_unit, b.bom_etc, i.item_name FROM bom b JOIN item i ON b.item_code = i.item_code WHERE b.bom_id = ?";
+		String sql = "SELECT b.bom_id, b.item_code, b.bom_count, b.bom_unit, i.item_name FROM bom b JOIN item i ON b.item_code = i.item_code WHERE b.bom_id = ?";
 		try (Connection con = Database.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setString(1, bomId);
 			ResultSet rs = ps.executeQuery();
@@ -26,7 +26,6 @@ public class BOMDAO {
 				bom.setItemName(rs.getString("item_name"));
 				bom.setBomCount(rs.getInt("bom_count"));
 				bom.setBomUnit(rs.getString("bom_unit"));
-				bom.setBomEtc(rs.getString("bom_etc"));
 				bomList.add(bom);
 			}
 		}
@@ -49,13 +48,12 @@ public class BOMDAO {
 
 	// BOM 추가
 	public void addBOM(BOMDTO bom) throws Exception {
-		String sql = "INSERT INTO bom (bom_id, item_code, bom_count, bom_unit, bom_etc) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO bom (bom_id, item_code, bom_count, bom_unit) VALUES (?, ?, ?, ?)";
 		try (Connection con = Database.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setString(1, bom.getBomId());
 			ps.setString(2, bom.getItemCode());
 			ps.setInt(3, bom.getBomCount());
 			ps.setString(4, bom.getBomUnit());
-			ps.setString(5, bom.getBomEtc());
 			ps.executeUpdate();
 		}
 	}
@@ -66,9 +64,8 @@ public class BOMDAO {
 		try (Connection con = Database.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setInt(1, bom.getBomCount());
 			ps.setString(2, bom.getBomUnit());
-			ps.setString(3, bom.getBomEtc());
-			ps.setString(4, bom.getBomId());
-			ps.setString(5, bom.getItemCode());
+			ps.setString(3, bom.getBomId());
+			ps.setString(4, bom.getItemCode());
 			ps.executeUpdate();
 		}
 	}
