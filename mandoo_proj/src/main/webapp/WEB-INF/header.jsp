@@ -11,7 +11,7 @@
 	</div>
 
 	<!-- 로고 아이콘 -->
-	<div class="category-item">
+	<div class="category-item logo-item">
 		<a href="${pageContext.request.contextPath}/index.jsp"
 			class="category-link"> <img class="logo-icon"
 			src="${pageContext.request.contextPath}/image/logo.png">
@@ -46,9 +46,9 @@
 	</div>
 
 	<div class="category-item">
-		<a href="/mandoo/productionStatus" class="category-link">공정관리</a>
+		<a href="/mandoo/ProductionStatusRead" class="category-link">공정관리</a>
 		<div class="_category">
-			<a href="/mandoo/productionStatus" class="category-link">생산현황</a>
+			<a href="/mandoo/ProductionStatusRead" class="category-link">생산현황</a>
 		</div>
 	</div>
 
@@ -68,7 +68,20 @@
 		</div>
 	</div>
 
-	<div><%=((UserDTO) session.getAttribute("user")).getUserName()%>님
+	<!-- 사용자 정보 -->
+	<div class="category-item user-info">
+		<c:choose>
+			<c:when test="${sessionScope.user_access == 1}">
+				<span class="user-role">관리자</span>
+			</c:when>
+			<c:when test="${sessionScope.user_access == 2}">
+				<span class="user-role">작업자</span>
+			</c:when>
+			<c:otherwise>
+				<span class="user-role">손님</span>
+			</c:otherwise>
+		</c:choose>
+		<span>|</span> <span class="user-name"><%=((UserDTO) session.getAttribute("user")).getUserName()%>님</span>
 	</div>
 
 	<div class="category-item">

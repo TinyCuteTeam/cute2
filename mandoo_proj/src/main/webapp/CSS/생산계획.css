@@ -26,7 +26,7 @@
 	font-size: 14px;
 }
 
-.flex>div {
+.flex > div {
 	flex: 1;
 	text-align: center;
 	line-height: 50px;
@@ -64,8 +64,8 @@
 #search-button, #cancel-button {
 	padding: 10px 20px;
 	border-radius: 5px;
-	border: 1px solid #e6e6e6;
-	background-color: #e6e6e6;
+	border: 1px solid #e6e6e6; 
+	background-color : #e6e6e6;
 	color: black;
 	font-size: 16px;
 	cursor: pointer;
@@ -150,8 +150,7 @@
 }
 
 .pagination {
-	margin-top: 30px;
-	text-align: center;
+	margin-top: 30px; text-align : center;
 	width: 840px;
 	text-align: center;
 }

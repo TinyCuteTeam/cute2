@@ -39,20 +39,6 @@
 	border-radius: 10px; /* 모서리 둥글게 */
 }
 
-/* 모달 닫기 버튼 */
-.close-popup {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-}
-
-.close-popup:hover, .close-popup:focus {
-	color: black;
-	text-decoration: none;
-	cursor: pointer;
-}
-
 /* 입력 필드 스타일 */
 #popup input[type="text"], #popup textarea {
 	width: 100%;
@@ -79,6 +65,20 @@
 #popup button:hover {
 	background-color: #45a049;
 }
+
+/* 모달 닫기 버튼 */
+.close-popup {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close-popup:hover, .close-popup:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
 </style>
 </head>
 
@@ -90,48 +90,43 @@
 	<!-- 내용페이지  -->
 	<div class="content">
 
-		<div class="errorwrap">
+		<!--       <div class="errorwrap"> -->
 
-			<!-- 타이틀 -->
-			<div class="errortitle">
-				<span class="errortext"><strong>에러 코드</strong></span>
-			</div>
+		<!-- 타이틀 -->
+		<h1>에러코드</h1>
 
-			<!-- 버튼 -->
-			<div class="errorfloat">
-				<img class="imgStyle errorbtn" id="addButton"
-					src="${pageContext.request.contextPath}/image/plus.png">
-			</div>
-
-			<br>
-			<!-- 표 -->
-			<div>
-				<table border="1" class="errortable" id="errorTable">
-					<tr>
-						<th>오류코드</th>
-						<th>이름</th>
-						<th class="errorexplain">내용</th>
-						<th>수정</th>
-						<th>삭제</th>
-					</tr>
-					<c:forEach var="error" items="${errors}">
-						<tr>
-							<td>${error.errorId}</td>
-							<td>${error.errorName}</td>
-							<td>${error.errorContents}</td>
-							<td><img class="imgStyle erroreditButton"
-								src="${pageContext.request.contextPath}/image/수정.png" title="수정"
-								data-error-id="${error.errorId}"
-								data-error-name="${error.errorName}"
-								data-error-contents="${error.errorContents}"></td>
-							<td><img class="imgStyle errordelButton"
-								src="${pageContext.request.contextPath}/image/삭제.png" title="삭제"
-								data-error-id="${error.errorId}"></td>
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
+		<!-- 버튼 -->
+		<div class="errorfloat">
+			<button class="plus errorAdd" id="addButton">에러추가</button>
 		</div>
+
+		<!-- 표 -->
+		<div>
+			<table border="1" class="errortable" id="errorTable">
+				<tr>
+					<th>오류코드</th>
+					<th>이름</th>
+					<th class="errorexplain">내용</th>
+					<th>수정</th>
+					<th>삭제</th>
+				</tr>
+				<c:forEach var="error" items="${errors}">
+					<tr>
+						<td>${error.errorId}</td>
+						<td>${error.errorName}</td>
+						<td>${error.errorContents}</td>
+						<td><button class="editBtn" data-error-id="${error.errorId}"
+								data-error-name="${error.errorName}"
+								data-error-contents="${error.errorContents}">수정</button></td>
+						<td>
+							<button class="editBtn" data-error-id="${error.errorId}">삭제
+							</button>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+		<!--       </div> -->
 
 		<!-- 모달창 -->
 		<div id="popup" class="popup">

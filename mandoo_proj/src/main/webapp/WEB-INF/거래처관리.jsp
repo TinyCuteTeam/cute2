@@ -33,8 +33,37 @@
 	padding: 20px;
 	border: 1px solid #888;
 	width: 80%;
+	max-width: 500px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+	border-radius: 10px; /* 모서리 둥글게 */
 }
 
+#addClientModal input[type="text"] {
+	width: 100%;
+	padding: 10px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+#addClientModal button {
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#addClientModal button:hover {
+	background-color: #45a049;
+}
+
+/* 모달창 닫기 */
 .close {
 	color: #aaa;
 	float: right;
@@ -85,14 +114,16 @@
 		<div>
 			<h1>거래처 관리</h1>
 
+			<div class="plusTop">
+				<button type="button" id="openModalBtn" class="mbtn11 btnStyle">거래처
+					추가</button>
+			</div>
+
 			<!-- 거래처정보 카테고리 -->
 			<div class="main">
 				<div class="flex">
-					<div></div>
 					<div>거래처</div>
-					<div>
-						대표명<span>▼</span>
-					</div>
+					<div>대표명</div>
 					<div>연락처</div>
 					<div>주소</div>
 					<div>이메일</div>
@@ -104,10 +135,6 @@
 				<form method="post" action="/mandoo/client">
 					<c:forEach var="client" items="${clients}">
 						<div class="flex round">
-							<div>
-								<input type="checkbox" name="clientId"
-									value="${client.clientId}" class="chk">
-							</div>
 							<div class="srEl">
 								<blue>${client.clientName}</blue>
 							</div>
@@ -120,10 +147,7 @@
 						</div>
 					</c:forEach>
 
-					<button type="button" id="openModalBtn" class="mbtn11 btnStyle">추가</button>
-					<button type="submit"
-						formaction="${pageContext.request.contextPath}/client?action=delete"
-						class="delete-btn btnStyle">삭제</button>
+
 				</form>
 
 				<!-- 페이징 -->
@@ -150,28 +174,34 @@
 						<form method="post" action="/mandoo/client">
 							<input type="hidden" name="action" value="add">
 							<div>
-								거래처: <input type="text" name="clientName">
+								거래처: <br>
+								<input type="text" name="clientName">
 							</div>
 							<div>
-								대표명: <input type="text" name="clientBoss">
+								대표명: <br>
+								<input type="text" name="clientBoss">
 							</div>
 							<div>
-								연락처: <input type="text" name="clientTel">
+								연락처: <br>
+								<input type="text" name="clientTel">
 							</div>
 							<div>
-								주소: <input type="text" name="clientAddress">
+								주소: <br>
+								<input type="text" name="clientAddress">
 							</div>
 							<div>
-								이메일: <input type="text" name="clientEmail">
+								이메일: <br>
+								<input type="text" name="clientEmail">
 							</div>
 							<div>
-								담당자: <input type="text" name="clientBoss">
+								담당자: <br>
+								<input type="text" name="clientBoss">
 							</div>
 							<div>
-								사업자등록증: <input type="text" name="clientNumber">
+								사업자등록증: <br> <input type="text" name="clientNumber">
 							</div>
 							<div>
-								<button type="submit" class="btnStyle">등록</button>
+								<button type="submit">등록</button>
 							</div>
 						</form>
 					</div>

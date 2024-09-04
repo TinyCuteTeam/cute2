@@ -14,37 +14,50 @@
 <style>
 /* 스타일 */
 /* 모달창 스타일 */
-#addModal {
-	display: none;
+#addModal { /*모달창 열었을 때 까만배경*/
+	display: none; /* 기본적으로 숨김 */
 	position: fixed;
-	z-index: 1000;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 400px;
-	background-color: white;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4); /* 배경을 반투명하게 */
+	padding-top: 60px;
+}
+
+.modalContent {
+	background-color: #fefefe;
+	margin: 5% auto;
 	padding: 20px;
 	border: 1px solid #888;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-	border-radius: 8px;
+	width: 80%;
+	max-width: 500px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+	border-radius: 10px; /* 모서리 둥글게 */
 }
 
 #addModal input[type="text"], #addModal input[type="file"] {
 	width: 100%;
-	padding: 8px;
-	margin: 5px 0;
+	padding: 10px;
+	margin: 8px 0;
+	display: inline-block;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	box-sizing: border-box;
 }
 
 #addModal button {
+	width: 100%;
 	background-color: #4CAF50;
 	color: white;
-	padding: 10px 20px;
-	margin: 10px 0;
+	padding: 14px 20px;
+	margin: 8px 0;
 	border: none;
-	cursor: pointer;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
 #addModal button:hover {
@@ -57,8 +70,8 @@
 	float: right;
 	font-size: 28px;
 	font-weight: bold;
-	margin-right: -15px;
-	margin-top: -15px;
+	/*    margin-right: -15px; */
+	/*    margin-top: -15px; */
 }
 
 #addModal .close:hover, #addModal .close:focus {
@@ -76,13 +89,11 @@
 	<jsp:include page="/WEB-INF/sidebar_기준관리.jsp" />
 	<!-- 내용페이지 -->
 	<div class="content">
-		<h1>품목코드 표</h1>
+		<h1>품목 코드 조회</h1>
 
 		<!-- 추가 버튼 -->
 		<div class="srPlus">
-			<img class="plus addBtn"
-				src="${pageContext.request.contextPath}/image/plus.png" title="추가"
-				onclick="openAddModal()">
+			<button class="plus addBtn" onclick="openAddModal()">품목추가</button>
 		</div>
 
 		<!-- 품목코드표 테이블 -->
@@ -100,15 +111,17 @@
 					<td>${item.itemName}</td>
 					<td><img class="ingre"
 						src="${pageContext.request.contextPath}/image/${item.itemCode}.jpg"></td>
-					<td><img class="pen editButton"
-						src="${pageContext.request.contextPath}/image/edit.png" title="수정"
-						onclick="openEditModal('${item.itemCode}', '${item.itemName}')"></td>
+					<td>
+						<button class="pen editButton"
+							onclick="openEditModal('${item.itemCode}', '${item.itemName}')">
+							수정</button>
+					</td>
 					<td>
 						<form action="${pageContext.request.contextPath}/Item"
 							method="post">
 							<input type="hidden" name="action" value="delete"> <input
 								type="hidden" name="itemCode" value="${item.itemCode}">
-							<button type="submit">삭제</button>
+							<button class="editButton" type="submit">삭제</button>
 						</form>
 					</td>
 				</tr>
@@ -117,17 +130,21 @@
 
 		<!-- 모달페이지 -->
 		<div id="addModal">
-			<span class="close">&times;</span>
-			<h2 id="modalTitle">품목 추가</h2>
-			<!-- 모달 내용 -->
-			<form id="itemForm" action="${pageContext.request.contextPath}/Item"
-				method="post" enctype="multipart/form-data">
-				<input type="hidden" id="itemId" name="itemId"> <input
-					type="text" id="itemCode" name="itemCode" placeholder="품목코드">
-				<input type="text" id="itemName" name="itemName" placeholder="품목명">
-				<input type="file" id="itemImage" name="itemImage" accept="image/*">
-				<button type="submit" id="saveItem">저장</button>
-			</form>
+			<div class="modalContent">
+				<span class="close">&times;</span>
+				<h2 id="modalTitle">품목 추가</h2>
+				<!-- 모달 내용 -->
+				<form id="itemForm" action="${pageContext.request.contextPath}/Item"
+					method="post" enctype="multipart/form-data">
+					<input type="hidden" id="itemId" name="itemId"> 품목 코드: <br>
+					<input type="text" id="itemCode" name="itemCode" placeholder="품목코드">
+					<br>품 목 명: <br>
+					<input type="text" id="itemName" name="itemName" placeholder="품목명">
+					이미지추가:<input type="file" id="itemImage" name="itemImage"
+						accept="image/*"> <br>
+					<button type="submit" id="saveItem">저장</button>
+				</form>
+			</div>
 		</div>
 
 		<script>

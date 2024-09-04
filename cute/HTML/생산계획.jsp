@@ -11,78 +11,36 @@
 	href="${pageContext.request.contextPath}/CSS/생산계획.css">
 <style>
 .popup {
-   display: none; /* 기본적으로 숨김 */
-   position: fixed;
-   z-index: 1;
-   left: 0;
-   top: 0;
-   width: 100%;
-   height: 100%;
-   overflow: auto;
-   background-color: rgb(0, 0, 0);
-   background-color: rgba(0, 0, 0, 0.4); /* 배경을 반투명하게 */
-   padding-top: 60px;
+	display: none; /* 기본 상태에서 숨김 */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
 }
 
-/* 모달 콘텐츠 */
 .popup-content {
-   background-color: #fefefe;
-   margin: 5% auto;
-   padding: 20px;
-   border: 1px solid #888;
-   width: 80%;
-   height: 600px;
-   max-width: 500px;
-   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
-   border-radius: 10px; /* 모서리 둥글게 */
-}
-
-/* 입력 필드 스타일 */
-#popup input[type="text"], #popup input[type="date"], #popup input[type="number"], #popup textarea {
-   width: 100%;
-   padding: 10px;
-   margin: 8px 0;
-   display: inline-block;
-   border: 1px solid #ccc;
-   border-radius: 4px;
-   box-sizing: border-box;
-}
-
-/* 저장 버튼 스타일 */
-#popup button {
-   width: 100%;
-   background-color: #4CAF50;
-   color: white;
-   padding: 14px 20px;
-   margin: 8px 0;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
-}
-
-#popup button:hover {
-   background-color: #45a049;
-}
-
-/* 모달 닫기 버튼 */
-.close-popup {
-   color: #aaa;
-   float: right;
-   font-size: 28px;
-   font-weight: bold;
-}
-
-.close-popup:hover, .close-popup:focus {
-   color: black;
-   text-decoration: none;
-   cursor: pointer;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 </style>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/header.jsp" />
-		<jsp:include page="/WEB-INF/sidebar_생산계획.jsp" />
-
+	<!-- 사이드바 -->
+	<div class="sidebar">
+		<ul id="sidebar-content">
+			<li><a href="/발주확인.jsp" class="category-link">발주확인</a></li>
+			<li><a href="/생산계획.jsp" class="category-link title">생산계획</a></li>
+			<li><a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서</a></li>
+		</ul>
+	</div>
 	<!-- 내용페이지 -->
 	<div class="content">
 		<!-- 검색 입력 필드 및 버튼 추가 -->

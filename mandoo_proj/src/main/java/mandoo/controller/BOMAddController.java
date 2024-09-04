@@ -59,7 +59,7 @@ public class BomAddController extends HttpServlet {
 			String newBomId = bom.getBomId();
 
 			// 작업 후 특정 페이지로 리디렉트, 새롭게 추가된 BOM ID를 사용
-			response.sendRedirect(request.getContextPath() + "/mandoo/BOM?bomId=A00001");
+			response.sendRedirect(request.getContextPath() + "/BOM?bomId=A00001");
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect(request.getContextPath() + "/BOM관리_제품추가.jsp?error=true");
