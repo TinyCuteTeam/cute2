@@ -1,11 +1,15 @@
-﻿/* 품목추가 버튼 오른쪽에 붙이기  */
-.srPlus {
-	text-align: right;
-	width:1000px;
+﻿.content {
+	overflow: auto;
+	margin-left: 100px;
+	text-align: center;
+	width: 65%;
+	height: 100%;
 }
 
 .plusTop {
 	text-align: right;
+	width: 980px;
+	height: 70px;
 }
 
 blue {
@@ -37,9 +41,10 @@ blue {
 /* 거래처 추가 버튼 */
 .btnStyle {
 	width: 120px;
-	padding: 13px;
+	height: 50px;
+	margin: 20px;
+	border: none;
 	border-radius: 5px;
-	border: 1px solid #ccc;
 	font-size: 15px;
 	background-color: #e6e6e6;
 	cursor: pointer;
@@ -64,14 +69,6 @@ input[type="text"] {
 	white-space: nowrap;
 	/* 자동 줄바꿈을 방지 */
 	overflow: hidden;
-}
-
-.content {
-	overflow: auto;
-	margin-left: 100px;
-	text-align: center;
-	width: 65%;
-	height: 100%;
 }
 
 .flex.round {

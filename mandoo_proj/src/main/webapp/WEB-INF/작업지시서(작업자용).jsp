@@ -23,7 +23,7 @@
 	height: 100%;
 	overflow: auto;
 	background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.4); /* 배경을 반투명하게 */
 	padding-top: 60px;
 }
 
@@ -34,7 +34,38 @@
 	padding: 20px;
 	border: 1px solid #888;
 	width: 80%;
+	height: 750px;
 	max-width: 500px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+	border-radius: 10px; /* 모서리 둥글게 */
+}
+
+/* 입력 필드 스타일 */
+#popup input[type="text"], #popup input[type="date"], #popup textarea,
+	#popup input[type="number"], #popup select {
+	width: 100%;
+	padding: 10px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+/* 저장 버튼 스타일 */
+#popup button {
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#popup button:hover {
+	background-color: #45a049;
 }
 
 /* 모달 닫기 버튼 */
@@ -50,32 +81,16 @@
 	text-decoration: none;
 	cursor: pointer;
 }
+</style>
 
-.madd {
-	padding: 10px 15px;
-	border: none;
-	border-radius: 5px;
-	margin: 0 3px;
-	cursor: pointer;
-	background-color: #e6e6e6;
-}
-
-.madd:hover {
-	background-color: #81b3e9;
-}
 </style>
 
 </head>
 
 <body>
 	<jsp:include page="/WEB-INF/header.jsp" />
-	<div class="sidebar">
-		<ul id="sidebar-content">
-			<li><a href="발주확인.jsp" class="category-link">발주확인</a></li>
-			<li><a href="생산계획.jsp" class="category-link">생산계획</a></li>
-			<li><a href="작업지시서(작업자용).jsp" class="category-link title">작업지시서</a></li>
-		</ul>
-	</div>
+	<!-- 사이드바 -->
+	<jsp:include page="/WEB-INF/sidebar_생산계획.jsp" />
 
 	<div class="content">
 		<div class="wrap">

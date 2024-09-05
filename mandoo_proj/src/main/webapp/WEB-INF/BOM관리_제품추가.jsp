@@ -27,7 +27,7 @@
 		<!-- 뒤로가기 버튼 -->
 		<div class="srPlus">
 			<button class="plus">
-				<a href="/mandooBOM?bomId=A00001">뒤로가기</a>
+				<a href="/mandoo/BOM?bomId=A00001">뒤로가기</a>
 			</button>
 		</div>
 
