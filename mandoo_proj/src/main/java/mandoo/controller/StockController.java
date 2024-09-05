@@ -18,8 +18,12 @@ public class StockController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        
 		int pageNumber = 1;
-		int pageSize = 4;
+		int pageSize = 3;
 		String searchKeyword = request.getParameter("search") != null ? request.getParameter("search") : "";
 
 		String pageParam = request.getParameter("page");
@@ -41,6 +45,11 @@ public class StockController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+		
+		
 		String action = request.getParameter("action");
 		if ("add".equals(action)) {
 			StockDTO stock = new StockDTO();
@@ -67,7 +76,13 @@ public class StockController extends HttpServlet {
 		} else if ("delete".equals(action)) {
 			String stockId = request.getParameter("stockId");
 			stockService.deleteStock(stockId);
-		}
+			
+		} else if ("updateQuantity".equals(action)) {
+	        // 재고 수량 수정 로직
+	        String stockId = request.getParameter("stockId");
+	        int stockCount = Integer.parseInt(request.getParameter("stockCount"));
+	        stockService.updateStockCount(stockId, stockCount);
+	    }
 
 		response.sendRedirect(request.getContextPath() + "/StockInventory");
 	}

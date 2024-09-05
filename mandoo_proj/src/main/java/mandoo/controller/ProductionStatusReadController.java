@@ -14,35 +14,22 @@ import mandoo.service.ProductionStatusService;
 
 @WebServlet("/ProductionStatusRead")
 public class ProductionStatusReadController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    private ProductionStatusService psService = new ProductionStatusService();
+	private ProductionStatusService psService = new ProductionStatusService();
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        System.out.println("doGet 실행");
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html; charset=UTF-8");
+		// 작업 현황 및 라인별 생산량 데이터 가져오기
+		List<ProductionstatusDTO> productionLines = psService.getProductionStatusByLine();
 
-        int pageSize = 6; // 한 페이지에 보여줄 데이터 수
-        int page = 1; // 현재 페이지 기본값
-        
-        String pageStr = request.getParameter("page");
-        if (pageStr != null && !pageStr.isEmpty()) {
-            page = Integer.parseInt(pageStr);
-        }
-        
-        int offset = (page - 1) * pageSize;
-        
-        List<ProductionstatusDTO> productionStatusList = psService.ProductionstatusRead(offset, pageSize);
-        int totalRecords = psService.getTotalCount();
-        int totalPages = (int) Math.ceil((double) totalRecords / pageSize);
-        
-        request.setAttribute("ProductionstatusRead", productionStatusList);
-        request.setAttribute("currentPage", page);
-        request.setAttribute("totalPages", totalPages);
-        request.getRequestDispatcher("/WEB-INF/ProductionStatusRead.jsp").forward(request, response);
-    }
+		// 데이터 전달
+		request.setAttribute("productionLines", productionLines);
+
+		request.getRequestDispatcher("/WEB-INF/ProductionStatusRead.jsp").forward(request, response);
+	}
 }

@@ -7,14 +7,9 @@ import mandoo.DTO.ProductionstatusDTO;
 
 public class ProductionStatusService {
 
-    private ProductionstatusDAO productionstatusDAO = new ProductionstatusDAO();
+	private ProductionstatusDAO productionstatusDAO = new ProductionstatusDAO();
 
-    public List<ProductionstatusDTO> ProductionstatusRead(int offset, int limit) {
-    	
-        return productionstatusDAO.ProductionstatusRead(offset, limit);
-    }
-
-    public int getTotalCount() {
-        return productionstatusDAO.getTotalCount();
-    }
+	public List<ProductionstatusDTO> getProductionStatusByLine() {
+		return productionstatusDAO.getProductionStatusByLine();
+	}
 }

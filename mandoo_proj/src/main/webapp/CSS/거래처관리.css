@@ -1,6 +1,7 @@
 ﻿/* 품목추가 버튼 오른쪽에 붙이기  */
 .srPlus {
 	text-align: right;
+	width:1000px;
 }
 
 .plusTop {
@@ -35,7 +36,7 @@ blue {
 
 /* 거래처 추가 버튼 */
 .btnStyle {
-	width: 150px;
+	width: 120px;
 	padding: 13px;
 	border-radius: 5px;
 	border: 1px solid #ccc;

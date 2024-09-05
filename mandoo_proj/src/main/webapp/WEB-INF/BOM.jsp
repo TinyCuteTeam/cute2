@@ -103,7 +103,7 @@
 					</c:forEach>
 				</select>
 				<!-- BOM추가 버튼 -->
-				<a href="/mandoo/BOM관리_제품추가"><button type="button"
+				<a href="/mandoo/BOMAdd"><button type="button"
 						class="mho plus" id="addNewBomBtn">BOM 추가</button></a>
 				<!-- 행 추가 버튼 -->
 				<button type="button" class="mho plus" id="addRowBtn">행 추가</button>

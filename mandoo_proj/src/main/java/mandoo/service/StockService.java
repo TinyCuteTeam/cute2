@@ -26,4 +26,8 @@ public class StockService {
 	public void deleteStock(String stockId) {
 		stockDAO.deleteStock(stockId);
 	}
+	
+	public void updateStockCount(String stockId, int stockCount) {
+        stockDAO.updateStockCount(stockId, stockCount);
+    }
 }

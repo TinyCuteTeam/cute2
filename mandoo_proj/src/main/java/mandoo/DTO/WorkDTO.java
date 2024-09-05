@@ -3,77 +3,95 @@ package mandoo.DTO;
 import java.util.Date;
 
 public class WorkDTO {
-    private String workId;
-    private String userId;
-    private String planId;
-    private String itemCode;
-    private Date workWrite;
-    private Date workEndate;
-    private String workName;
-    private String workDo;
+	private String workId;
+	private String userId;
+	private String itemCode;
+	private Date workWrite;
+	private Date workEndate;
+	private String workName;
+	private String workDo;
+	private int productionQty;
+	private int productionCompletedQty;
+	private String lineNo;
 
-    // Getters and Setters
-    public String getWorkId() {
-        return workId;
-    }
+	// Getters and Setters
+	public String getWorkId() {
+		return workId;
+	}
 
-    public void setWorkId(String workId) {
-        this.workId = workId;
-    }
+	public void setWorkId(String workId) {
+		this.workId = workId;
+	}
 
-    public String getUserId() {
-        return userId;
-    }
+	public String getUserId() {
+		return userId;
+	}
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
-    public String getPlanId() {
-        return planId;
-    }
+	public String getItemCode() {
+		return itemCode;
+	}
 
-    public void setPlanId(String planId) {
-        this.planId = planId;
-    }
+	public void setItemCode(String itemCode) {
+		this.itemCode = itemCode;
+	}
 
-    public String getItemCode() {
-        return itemCode;
-    }
+	public Date getWorkWrite() {
+		return workWrite;
+	}
 
-    public void setItemCode(String itemCode) {
-        this.itemCode = itemCode;
-    }
+	public void setWorkWrite(Date workWrite) {
+		this.workWrite = workWrite;
+	}
 
-    public Date getWorkWrite() {
-        return workWrite;
-    }
+	public Date getWorkEndate() {
+		return workEndate;
+	}
 
-    public void setWorkWrite(Date workWrite) {
-        this.workWrite = workWrite;
-    }
+	public void setWorkEndate(Date workEndate) {
+		this.workEndate = workEndate;
+	}
 
-    public Date getWorkEndate() {
-        return workEndate;
-    }
+	public String getWorkName() {
+		return workName;
+	}
 
-    public void setWorkEndate(Date workEndate) {
-        this.workEndate = workEndate;
-    }
+	public void setWorkName(String workName) {
+		this.workName = workName;
+	}
 
-    public String getWorkName() {
-        return workName;
-    }
+	public String getWorkDo() {
+		return workDo;
+	}
 
-    public void setWorkName(String workName) {
-        this.workName = workName;
-    }
+	public void setWorkDo(String workDo) {
+		this.workDo = workDo;
+	}
 
-    public String getWorkDo() {
-        return workDo;
-    }
+	public int getProductionQty() {
+		return productionQty;
+	}
 
-    public void setWorkDo(String workDo) {
-        this.workDo = workDo;
-    }
+	public void setProductionQty(int productionQty) {
+		this.productionQty = productionQty;
+	}
+
+	public int getProductionCompletedQty() {
+		return productionCompletedQty;
+	}
+
+	public void setProductionCompletedQty(int productionCompletedQty) {
+		this.productionCompletedQty = productionCompletedQty;
+	}
+
+	public String getLineNo() {
+		return lineNo;
+	}
+
+	public void setLineNo(String lineNo) {
+		this.lineNo = lineNo;
+	}
 }

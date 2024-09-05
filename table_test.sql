@@ -21,6 +21,11 @@ SELECT * FROM order_info;
 SELECT * FROM production_plan;
 
 SELECT * FROM work;
+commit;
+UPDATE work
+SET work_do = '작업 대기'
+WHERE work_name = '작업 20';
+
 
 SELECT * FROM stock;
 
@@ -98,3 +103,20 @@ CREATE SEQUENCE BOM_SEQ
 START WITH 1
 INCREMENT BY 1;
 
+desc work;
+
+ALTER TABLE work DROP COLUMN plan_id;
+
+ALTER TABLE work ADD (
+    line_no VARCHAR2(50),                 -- 라인 번호 추가
+    production_completed_qty NUMBER DEFAULT 0  -- 완료된 생산량 필드 추가
+);
+
+update work set work_do='작업 대기' where work_name='작업 18' ;
+commit;
+select * from work;
+
+update work set PRODUCTION_COMPLETED_QTY = 150
+where WORK_NAME = '작업 19';
+
+commit;

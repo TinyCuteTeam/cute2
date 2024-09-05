@@ -106,4 +106,15 @@ public class StockDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void updateStockCount(String stockId, int stockCount) {
+        String query = "UPDATE stock SET stock_count = ? WHERE stock_id = ?";
+        try (Connection con = Database.getConnection(); PreparedStatement ps = con.prepareStatement(query)) {
+        	ps.setInt(1, stockCount);
+        	ps.setString(2, stockId);
+        	ps.executeUpdate();
+        } catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
 }

@@ -26,6 +26,7 @@
          border-radius:5px;
          background-color:#e6e6e6;
          font-size:15px;
+         cursor:pointer;
       }
       
       /*    수정, 삭제버튼 css */

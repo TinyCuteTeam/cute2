@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
-    // DAO를 이용하여 월별 생산량 데이터를 가져옵니다.
+    // DAO를 이용하여 월별 생산량 데이터를 가져온다.
     ProductionOrderDAO dao = new ProductionOrderDAO();
     List<ProductionOrderDTO> monthlyProductionData = dao.getMonthlyProductionData();
     dao.close();
@@ -23,8 +23,8 @@
         .content-display {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* 수직 정렬을 가운데로 맞춤 */
-            gap: 20px; /* 표와 차트 사이의 간격 */
+            /* align-items: center; /* 수직 정렬을 가운데로 맞춤 */ */
+            /* gap: 20px; /* 표와 차트 사이의 간격 */ */
         }
 
         .table-container {
@@ -72,13 +72,21 @@
         }
 
         .chart-container {
-            height: 500px; /* 차트의 높이 설정 */
-        }
+		    width: 45%; /* 차트의 너비 조절 */
+		    height: 500px; /* 차트의 높이 조절 */
+		    position: relative; /* 차트의 위치 조정 */
+		}
+
+		#line-chart {
+		    width: 100% !important; /* 캔버스의 너비를 차트 컨테이너의 너비에 맞춤 */
+		    height: 100% !important; /* 캔버스의 높이를 차트 컨테이너의 높이에 맞춤 */
+		}
 
         .chart-container canvas {
-            width: 100%;
-            height: 100%;
+            
+            margin-top: -165px;
         }
+        
     </style>
 </head>
 <body>
@@ -95,7 +103,7 @@
 
     <!-- 내용페이지 -->
     <div class="content">
-        <h1>월별 생산량</h1>
+        <h1 id="head_title">월별 생산량</h1>
         <div class="content-display">
             <div class="table-container">
                 <table class="production-table">
@@ -124,41 +132,73 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
     <script>
-        const labels = [];
-        const data = [];
+    const canvas = document.getElementById('line-chart');
+    const ctx = canvas.getContext('2d');
 
-        <c:forEach var="order" items="${monthlyProductionData}">
-            labels.push('${order.orderMonth}');
-            data.push(${order.productionQty});
-        </c:forEach>;
+    // 캔버스의 CSS 크기 설정
+    canvas.style.width = '100%';
+    canvas.style.height = '100%'; // CSS에서 설정한 높이
 
-        const ctx = document.getElementById('line-chart').getContext('2d');
-        const chartData = {
-            labels: labels,
-            datasets: [{
-                label: '월별 생산량',
-                data: data,
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 2,
-                fill: false,
-                tension: 0.1 // 부드러운 곡선으로 연결
-            }]
-        };
+    // 캔버스의 실제 해상도 설정
+    const resizeCanvas = () => {
+        // CSS에서 설정된 크기를 가져온다
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
 
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: chartData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    },
-                    x: {
-                        type: 'category'
-                    }
+        // 실제 캔버스의 크기를 설정한다
+        canvas.width = width * window.devicePixelRatio;
+        canvas.height = height * window.devicePixelRatio;
+
+        // 캔버스의 스타일 크기를 설정한다
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+
+        // 차트의 해상도를 유지하기 위해 컨텍스트의 스케일을 조정한다
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    // 창 크기 변경 시 캔버스 크기 조정
+    window.addEventListener('resize', resizeCanvas);
+
+    // 초기 캔버스 크기 조정
+    resizeCanvas();
+
+    const labels = [];
+    const data = [];
+
+    <c:forEach var="order" items="${monthlyProductionData}">
+        labels.push('${order.orderMonth}');
+        data.push(${order.productionQty});
+    </c:forEach>;
+
+    const chartData = {
+        labels: labels,
+        datasets: [{
+            label: '월별 생산량',
+            data: data,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 2,
+            fill: false,
+            tension: 0.1 // 부드러운 곡선으로 연결
+        }]
+    };
+
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // 차트의 비율을 유지하지 않도록 설정
+            scales: {
+                y: {
+                    beginAtZero: true
+                },
+                x: {
+                    type: 'category'
                 }
             }
-        });
+        }
+    });
     </script>
 </body>
 </html>

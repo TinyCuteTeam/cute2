@@ -206,19 +206,6 @@
                     </div> -->
 			</div>
 			<script src="${pageContext.request.contextPath}/JS/생산현황.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 		</div>
 		<!— content div —>
 </body>

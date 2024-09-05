@@ -11,7 +11,7 @@
 	href="${pageContext.request.contextPath}/CSS/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/CSS/품목코드조회.css">
-<style>
+	<style>
 /* 스타일 */
 /* 모달창 스타일 */
 #addModal { /*모달창 열었을 때 까만배경*/
@@ -128,20 +128,36 @@
 			</c:forEach>
 		</table>
 
-		<!-- 모달페이지 -->
+		<!-- 페이징 네비게이션 -->
+		<div class="pagination">
+			<c:if test="${currentPage > 1}">
+				<a
+					href="${pageContext.request.contextPath}/Item?page=${currentPage - 1}">이전</a>
+			</c:if>
+
+			<c:forEach begin="1" end="${totalPages}" var="i">
+				<a href="${pageContext.request.contextPath}/Item?page=${i}"
+					class="${i == currentPage ? 'active' : ''}"> ${i} </a>
+			</c:forEach>
+
+			<c:if test="${currentPage < totalPages}">
+				<a
+					href="${pageContext.request.contextPath}/Item?page=${currentPage + 1}">다음</a>
+			</c:if>
+		</div>
+
+		<!-- 모달 창 -->
 		<div id="addModal">
 			<div class="modalContent">
 				<span class="close">&times;</span>
 				<h2 id="modalTitle">품목 추가</h2>
-				<!-- 모달 내용 -->
 				<form id="itemForm" action="${pageContext.request.contextPath}/Item"
 					method="post" enctype="multipart/form-data">
 					<input type="hidden" id="itemId" name="itemId"> 품목 코드: <br>
-					<input type="text" id="itemCode" name="itemCode" placeholder="품목코드">
-					<br>품 목 명: <br>
-					<input type="text" id="itemName" name="itemName" placeholder="품목명">
-					이미지추가:<input type="file" id="itemImage" name="itemImage"
-						accept="image/*"> <br>
+					<input type="text" id="itemCode" name="itemCode" placeholder="품목코드"><br>
+					품 목 명: <br> <input type="text" id="itemName" name="itemName"
+						placeholder="품목명"><br> 이미지추가:<input type="file"
+						id="itemImage" name="itemImage" accept="image/*"><br>
 					<button type="submit" id="saveItem">저장</button>
 				</form>
 			</div>
@@ -178,8 +194,5 @@
 			}
 		</script>
 	</div>
-
-	<%-- <script src="${pageContext.request.contextPath}/JS/품목코드조회.js"></script> --%>
 </body>
-
 </html>

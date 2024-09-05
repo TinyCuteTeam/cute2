@@ -81,7 +81,7 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/header.jsp" />
-		<jsp:include page="/WEB-INF/sidebar_생산계획.jsp" />
+	<jsp:include page="/WEB-INF/sidebar_생산계획.jsp" />
 
 	<!-- 내용페이지 -->
 	<div class="content">
