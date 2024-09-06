@@ -139,9 +139,7 @@
 							<input type="checkbox" class="item-checkbox" name="selectedPlans"
 								value="${plan.planId}">
 						</div>
-						<div>
-							<a class="mho" href="/html/생산계획상세.html?planId=${plan.planId}">${plan.planId}</a>
-						</div>
+						<div>${plan.planId}</div>
 						<div>${plan.planContents}</div>
 						<div>${plan.planDate}</div>
 						<div>${plan.planEndDate}</div>

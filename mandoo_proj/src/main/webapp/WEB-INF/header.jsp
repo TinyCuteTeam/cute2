@@ -64,7 +64,7 @@
 					및 출하</a>
 				<div class="_category">
 					<a href="/mandoo/productionOrder/monthly" class="category-link">실적마감</a><br>
-					<a href="출하확인.jsp" class="category-link">출하확인</a><br>
+					<a href="/mandoo/shipment" class="category-link">출하확인</a><br>
 				</div>
 			</div>
 
@@ -76,6 +76,7 @@
 					<a href="/mandoo/mypage" class="category-link">마이페이지</a><br> <a
 						href="/mandoo/account" class="category-link">계정관리</a><br> <a
 						href="/mandoo/boardList" class="category-link">사내게시판</a><br>
+					<a href="/mandoo/todo" class="category-link">일정관리</a><br>
 				</div>
 			</div>
 
@@ -102,9 +103,12 @@
 				<a href="/mandoo/boardList" class="category-link">사내게시판</a>
 			</div>
 
-			<!-- 마이페이지 -->
 			<div class="category-item">
 				<a href="/mandoo/mypage" class="category-link">마이페이지</a>
+			</div>
+
+			<div class="category-item">
+				<a href="/mandoo/todo" class="category-link">일정관리</a>
 			</div>
 		</c:otherwise>
 	</c:choose>

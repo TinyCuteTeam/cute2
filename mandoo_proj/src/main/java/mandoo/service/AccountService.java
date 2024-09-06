@@ -15,7 +15,7 @@ public class AccountService {
 	public boolean registerAccount(AccountDTO account) throws Exception {
 		try {
 			if (accountDAO.getAccountById(account.getAccountId()) != null) {
-				return false; // 이미 존재하는 아이디
+				return false; 
 			}
 			accountDAO.createAccount(account);
 			return true;

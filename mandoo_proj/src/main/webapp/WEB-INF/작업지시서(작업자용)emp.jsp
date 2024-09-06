@@ -54,7 +54,7 @@
     <!-- 사이드바 -->
     <div class="sidebar">
         <ul id="sidebar-content">
-            <li><a href="${pageContext.request.contextPath}/작업지시서(작업자용)emp.jsp" class="category-link title">작업지시서 확인</a></li>
+            <li><a href="${pageContext.request.contextPath}/workdetail" class="category-link title">작업지시서 확인</a></li>
         </ul>
     </div>
 

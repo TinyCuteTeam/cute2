@@ -120,3 +120,7 @@ update work set PRODUCTION_COMPLETED_QTY = 150
 where WORK_NAME = 'ÀÛ¾÷ 19';
 
 commit;
+
+select * from todo;
+
+desc todo;

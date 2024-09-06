@@ -19,7 +19,7 @@
     <div class="content">
         <h1 id="head_title">재고 현황</h1>
 
-        <div class="mtab">
+        <div class="mtab" style="background-color:white;">
             <form method="get" action="${pageContext.request.contextPath}/StockInventory">
                 <input type="text" name="search" value="${searchKeyword}" placeholder="검색어 입력">
                 <button type="submit" id="search-button">검색</button>

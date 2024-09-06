@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+	<!-- 메인 -->
 	<jsp:include page="/WEB-INF/header.jsp" />
 	<!-- 사이드바 -->
 	<jsp:include page="/WEB-INF/sidebar_마이페이지.jsp" />

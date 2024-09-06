@@ -52,7 +52,7 @@
             border-collapse: collapse;
             text-align: center;
             border: solid 1px #e6e6e6;
-            height: 500px;
+            /* height: 500px; */
         }
 
         /* 테이블헤드 색상, 크기 설정 */

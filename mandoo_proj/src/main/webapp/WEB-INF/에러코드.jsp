@@ -115,12 +115,13 @@
 						<td>${error.errorId}</td>
 						<td>${error.errorName}</td>
 						<td>${error.errorContents}</td>
-						<td><button class="editBtn" data-error-id="${error.errorId}"
+						<td><button class="editBtn erroreditButton"
+								data-error-id="${error.errorId}"
 								data-error-name="${error.errorName}"
 								data-error-contents="${error.errorContents}">수정</button></td>
 						<td>
-							<button class="editBtn" data-error-id="${error.errorId}">삭제
-							</button>
+							<button class="editBtn errordelButton"
+								data-error-id="${error.errorId}">삭제</button>
 						</td>
 					</tr>
 				</c:forEach>

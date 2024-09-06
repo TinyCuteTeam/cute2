@@ -25,17 +25,20 @@
 			<div>거래처</div>
 			<div>발주일</div>
 			<div>출고예정일</div>
-			<div>박스(Box)</div>
+			<div>상품명</div>
 			<div>개수(EA)</div>
 			<div>단가(원)</div>
 		</div>
 
 		<c:forEach var="order" items="${orders}">
 			<div class="flex round">
-				<div>${order.clientId}</div>
+				<div>
+					<a href="/mandoo/client">${order.clientId}</a>
+				</div>
 				<div>${order.orderDate}</div>
 				<div>${order.orderEndDate}</div>
-				<div>${order.orderBox}</div>
+				<div>${order.productName}</div>
+				<!-- 변경된 부분 -->
 				<div>${order.orderCount}</div>
 				<div>${order.orderPrice}</div>
 			</div>

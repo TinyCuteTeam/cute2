@@ -24,7 +24,7 @@ public class OrderInfoDAO {
         return 0;
     }
 
-    // 특정 페이지의 주문 목록 가져오기
+ // 특정 페이지의 주문 목록 가져오기
     public List<OrderInfoDTO> getOrdersByPage(int page, int pageSize) throws Exception {
         List<OrderInfoDTO> orders = new ArrayList<>();
         String sql = "SELECT * FROM (SELECT A.*, ROWNUM R FROM order_info A WHERE ROWNUM <= ?) WHERE R >= ?";
@@ -43,7 +43,7 @@ public class OrderInfoDAO {
                 order.setClientId(rs.getString("client_id"));
                 order.setOrderDate(rs.getString("order_date"));
                 order.setOrderEndDate(rs.getString("order_enddate"));
-                order.setOrderBox(rs.getString("order_box"));
+                order.setProductName(rs.getString("product_name"));  // 변경된 부분
                 order.setOrderCount(rs.getInt("order_count"));
                 order.setOrderPrice(rs.getString("order_price"));
 
@@ -53,4 +53,5 @@ public class OrderInfoDAO {
 
         return orders;
     }
+
 }

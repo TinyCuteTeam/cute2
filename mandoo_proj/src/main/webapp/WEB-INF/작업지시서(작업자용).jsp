@@ -14,7 +14,8 @@
 <style>
 /* 모달 배경 */
 .popup {
-	display: none; /* 기본적으로 숨김 */
+	display: none;
+	/* 기본적으로 숨김 */
 	position: fixed;
 	z-index: 1;
 	left: 0;
@@ -23,7 +24,8 @@
 	height: 100%;
 	overflow: auto;
 	background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.4); /* 배경을 반투명하게 */
+	background-color: rgba(0, 0, 0, 0.4);
+	/* 배경을 반투명하게 */
 	padding-top: 60px;
 }
 
@@ -36,8 +38,10 @@
 	width: 80%;
 	height: 750px;
 	max-width: 500px;
-	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
-	border-radius: 10px; /* 모서리 둥글게 */
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+	/* 그림자 효과 */
+	border-radius: 10px;
+	/* 모서리 둥글게 */
 }
 
 /* 입력 필드 스타일 */
@@ -128,9 +132,7 @@
 			<div class="m_llist">
 				<c:forEach var="work" items="${works}">
 					<div class="flex round page-item">
-						<div>
-							<a target="_blank" class="mho" href="/html/작업지시서(새창).html">${work.workId}</a>
-						</div>
+						<div>${work.workId}</div>
 						<div>${work.workWrite}</div>
 						<div>${work.workEndate}</div>
 						<div class="over" title="${work.itemCode}">${work.itemCode}</div>
@@ -232,26 +234,26 @@
 		</div>
 
 		<script>
-			document.getElementById('add-button').addEventListener('click', function() {
-				document.getElementById('popup').style.display = 'block';
-			});
+                    document.getElementById('add-button').addEventListener('click', function () {
+                        document.getElementById('popup').style.display = 'block';
+                    });
 
-			document.getElementById('close-popup').addEventListener('click', function() {
-				document.getElementById('popup').style.display = 'none';
-			});
-			
-			document.querySelectorAll('.start-button').forEach(button => {
-				button.addEventListener('click', function () {
-					const workId = this.getAttribute('data-work-id');
-					document.getElementById('selectedWorkId').value = workId;
-					document.getElementById('lineModal').style.display = 'block';
-				});
-			});
+                    document.getElementById('close-popup').addEventListener('click', function () {
+                        document.getElementById('popup').style.display = 'none';
+                    });
 
-			document.getElementById('close-line-popup').addEventListener('click', function () {
-				document.getElementById('lineModal').style.display = 'none';
-			});
-		</script>
+                    document.querySelectorAll('.start-button').forEach(button => {
+                        button.addEventListener('click', function () {
+                            const workId = this.getAttribute('data-work-id');
+                            document.getElementById('selectedWorkId').value = workId;
+                            document.getElementById('lineModal').style.display = 'block';
+                        });
+                    });
+
+                    document.getElementById('close-line-popup').addEventListener('click', function () {
+                        document.getElementById('lineModal').style.display = 'none';
+                    });
+                </script>
 	</div>
 </body>
 

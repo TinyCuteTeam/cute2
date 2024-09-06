@@ -8,8 +8,17 @@ public class OrderInfoDTO {
     private String orderBox;
     private int orderCount;
     private String orderPrice;
+    private String productName;  // 추가된 부분
 
-    public String getOrderId() {
+    public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getOrderId() {
         return orderId;
     }
 
