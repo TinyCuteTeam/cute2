@@ -42,7 +42,7 @@
 /* 차트 내부 텍스트 스타일 */
 .chart-text {
 	position: absolute;
-	top: 53%; /* 중앙보다 조금 위로 조정 */
+	top: 44%; /* 중앙보다 조금 위로 조정 */
 	left: 50%;
 	transform: translate(-50%, -50%);
 	font-size: 20px; /* 텍스트 크기 조정 */

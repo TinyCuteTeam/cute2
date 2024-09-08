@@ -84,7 +84,7 @@
 
 		<c:otherwise>
 			<div class="category-item">
-				<a href="/mandoo/Work" class="category-link">작업지시서 확인</a>
+				<a href="/mandoo/Work" class="category-link">작업지시서</a>
 			</div>
 
 			<div class="category-item">

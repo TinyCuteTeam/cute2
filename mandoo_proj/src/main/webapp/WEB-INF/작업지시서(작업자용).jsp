@@ -99,8 +99,11 @@
 	<div class="content">
 		<div class="wrap">
 			<div class="action-buttons">
-				<button id="add-button">등록</button>
-				<button id="delete-button">삭제</button>
+				<!-- user_access가 2일 경우 삭제 버튼 숨기기 -->
+				<c:if test="${sessionScope.user_access != 2}">
+					<button id="add-button">등록</button>
+					<button id="delete-button">삭제</button>
+				</c:if>
 			</div>
 		</div>
 

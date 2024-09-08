@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('errorId').value = '';
         document.getElementById('errorName').value = '';
         document.getElementById('errorContents').value = '';
+        errorForm.action = '/mandoo/Error';  // 명확하게 action 설정
     });
 
     // 모달창 닫기
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('errorId').value = errorId;
             document.getElementById('errorName').value = errorName;
             document.getElementById('errorContents').value = errorContents;
+            errorForm.action = '/mandoo/Error';  // 명확하게 action 설정
         });
     });
 
@@ -44,9 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener('click', function() {
             const errorId = this.dataset.errorId;
             if (confirm('정말로 이 에러 코드를 삭제하시겠습니까?')) {
-                errorForm.action = '/mandoo/Error';
                 document.getElementById('action').value = 'delete';
                 document.getElementById('errorId').value = errorId;
+                errorForm.action = '/mandoo/Error';  // 명확하게 action 설정
                 errorForm.submit();
             }
         });

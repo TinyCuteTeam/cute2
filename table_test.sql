@@ -21,6 +21,27 @@ SELECT * FROM order_info;
 SELECT * FROM production_plan;
 
 SELECT * FROM work;
+
+UPDATE work
+SET work_endate = (
+    CASE 
+        WHEN work_id IN ('W001', 'W002', 'W003', 'W004') THEN TO_DATE('2024/01/31', 'YYYY/MM/DD')
+        WHEN work_id IN ('W005', 'W006', 'W007', 'W008') THEN TO_DATE('2024/02/28', 'YYYY/MM/DD')
+        WHEN work_id IN ('W009', 'W010', 'W011') THEN TO_DATE('2024/03/31', 'YYYY/MM/DD')
+        WHEN work_id IN ('W012', 'W013', 'W014') THEN TO_DATE('2024/04/30', 'YYYY/MM/DD')
+        WHEN work_id IN ('W015', 'W016', 'W017') THEN TO_DATE('2024/05/31', 'YYYY/MM/DD')
+        WHEN work_id IN ('W018') THEN TO_DATE('2024/06/30', 'YYYY/MM/DD')
+        WHEN work_id IN ('W019') THEN TO_DATE('2024/07/30', 'YYYY/MM/DD')
+        WHEN work_id IN ('W020') THEN TO_DATE('2024/08/30', 'YYYY/MM/DD')
+        WHEN work_id IN ('W021', 'W022') THEN TO_DATE('2024/07/31', 'YYYY/MM/DD')
+        ELSE TO_DATE('2024/09/30', 'YYYY/MM/DD')
+    END
+)
+WHERE WORK_DO = '출고 완료' AND WORK_NAME LIKE '작업%';
+
+
+
+
 commit;
 UPDATE work
 SET work_do = '작업 대기'

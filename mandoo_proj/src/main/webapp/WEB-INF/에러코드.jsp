@@ -22,7 +22,6 @@
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.4); /* 배경을 반투명하게 */
 	padding-top: 60px;
 }
@@ -90,9 +89,6 @@
 	<!-- 내용페이지  -->
 	<div class="content">
 
-		<!--       <div class="errorwrap"> -->
-
-		<!-- 타이틀 -->
 		<h1>에러코드</h1>
 
 		<!-- 버튼 -->
@@ -119,35 +115,49 @@
 								data-error-id="${error.errorId}"
 								data-error-name="${error.errorName}"
 								data-error-contents="${error.errorContents}">수정</button></td>
-						<td>
-							<button class="editBtn errordelButton"
-								data-error-id="${error.errorId}">삭제</button>
-						</td>
+						<td><button class="editBtn errordelButton"
+								data-error-id="${error.errorId}">삭제</button></td>
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
-		<!--       </div> -->
 
-		<!-- 모달창 -->
-		<div id="popup" class="popup">
-			<div class="popup-content">
-				<span id="close-popup" class="close-popup">&times;</span>
-				<h2>에러 코드 등록/수정</h2>
-				<form id="errorForm" method="post" action="/mandoo/Error">
-					<input type="hidden" name="action" id="action" value="add">
-					<input type="hidden" name="errorId" id="errorId"> <label
-						for="errorName">에러 이름:</label><br> <input type="text"
-						id="errorName" name="errorName" placeholder="에러 이름" required><br>
-					<label for="errorContents">에러 내용:</label><br>
-					<textarea id="errorContents" name="errorContents"
-						placeholder="에러 내용" required></textarea>
-					<br> <br>
-					<button type="submit">저장</button>
-				</form>
-			</div>
+		<!-- 페이징 -->
+		<div class="pagination">
+			<c:if test="${currentPage > 1}">
+				<a href="/mandoo/Error?page=${currentPage - 1}">&laquo; 이전</a>
+			</c:if>
+
+			<c:forEach var="i" begin="1" end="${totalPages}">
+				<a href="/mandoo/Error?page=${i}"
+					class="${i == currentPage ? 'active' : ''}">${i}</a>
+			</c:forEach>
+
+			<c:if test="${currentPage < totalPages}">
+				<a href="/mandoo/Error?page=${currentPage + 1}">다음 &raquo;</a>
+			</c:if>
 		</div>
 
+	</div>
+
+	<!-- 모달 창 -->
+	<div id="popup" class="popup">
+		<div class="popup-content">
+			<span class="close-popup" id="close-popup">&times;</span>
+			<h2>에러 코드 등록/수정</h2>
+			<form id="errorForm" method="post" action="/mandoo/Error">
+				<input type="hidden" name="action" id="action" value="add">
+				<input type="hidden" name="errorId" id="errorId"> <label
+					for="errorName">에러 이름:</label><br> <input type="text"
+					id="errorName" name="errorName" placeholder="에러 이름" required><br>
+				<label for="errorContents">에러 내용:</label><br>
+				<textarea id="errorContents" name="errorContents"
+					placeholder="에러 내용" required></textarea>
+				<br>
+				<br>
+				<button type="submit">저장</button>
+			</form>
+		</div>
 	</div>
 
 	<script src="${pageContext.request.contextPath}/JS/에러코드.js"></script>
