@@ -22,8 +22,6 @@
 	<jsp:include page="/WEB-INF/sidebar_마이페이지.jsp" />
 	<div class="content">
 		<h1>사내 게시판</h1>
-		<div id="id"><%=((UserDTO) session.getAttribute("user")).getUserName()%>님
-		</div>
 		<button id="write-button" onclick="window.location.href='/boardAdd'">글쓰기</button>
 
 		<table id="posts-table">
@@ -52,24 +50,27 @@
 		<!-- 페이징 처리 -->
 		<div class="pagination">
 			<c:if test="${currentPage > 1}">
-				<a href="?page=${currentPage - 1}">이전</a>
+				<a href="/mandoo/boardList?page=${currentPage - 1}">이전</a>
 			</c:if>
 
 			<c:forEach var="i" begin="1" end="${totalPages}">
-				<c:choose>
-					<c:when test="${i == currentPage}">
-						<strong>${i}</strong>
-					</c:when>
-					<c:otherwise>
-						<a href="?page=${i}">${i}</a>
-					</c:otherwise>
-				</c:choose>
+				<a href="/mandoo/boardList?page=${i}"
+					class="${i == currentPage ? 'active' : ''}">${i}</a>
 			</c:forEach>
 
 			<c:if test="${currentPage < totalPages}">
-				<a href="?page=${currentPage + 1}">다음</a>
+				<a href="/mandoo/boardList?page=${currentPage + 1}">다음</a>
 			</c:if>
 		</div>
+
+		<!-- 성공 및 오류 메시지 표시 -->
+		<c:if test="${not empty param.success}">
+			<div class="success-message">${param.success}</div>
+		</c:if>
+		<c:if test="${not empty param.error}">
+			<div class="error-message">${param.error}</div>
+		</c:if>
+	</div>
 	</div>
 	<script src="${pageContext.request.contextPath}/JS/사내게시판.js"></script>
 </body>

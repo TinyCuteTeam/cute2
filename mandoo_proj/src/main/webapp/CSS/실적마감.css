@@ -84,8 +84,8 @@
 }
 
 #line-chart {
-    width: 100% !important; /* 캔버스의 너비를 차트 컨테이너의 너비에 맞춤 */
-    height: 100% !important; /* 캔버스의 높이를 차트 컨테이너의 높이에 맞춤 */
+        height: 500px; /* 원하는 높이 설정 */
+        width: 100%; /* 너비는 100%로 설정 */
 }
 
 .chart-container canvas {

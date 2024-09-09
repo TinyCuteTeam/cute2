@@ -56,17 +56,6 @@ span {
     font-size: 10px;
 }
 
-.btn {
-    border: none;
-    background-color: #e6e6e6;
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-    position: absolute;
-    right: 420px;
-    top: 20px;
-}
-
 .btn1 {
     border: none;
     background-color: #e6e6e6;
@@ -74,15 +63,28 @@ span {
     height: 40px;
     border-radius: 5px;
     position: absolute;
-    right: 300px;
+    right: 450px;
     top: 20px;
 }
 
-.btn:hover {
-    background-color: #0085FF;
+.btn2 {
+    border: none;
+    background-color: #e6e6e6;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    position: absolute;
+    right: 330px;
+    top: 20px;
 }
+
 .btn1:hover {
+    background-color: #0085FF;
+    color: white;
+}
+.btn2:hover {
     background-color: #ff5252;
+    color: white;
 }
 
 .chk {
@@ -108,11 +110,10 @@ span {
     margin-top: 70px;
 }
 
-
 .pagination {
 	display: inline-block;
 	margin-top: 20px;
-	margin-left: 38%;
+    margin-left: 30%;
 }
 
 .pagination a {
@@ -174,4 +175,13 @@ span {
 .scroll::-webkit-scrollbar-thumb:hover {
     background: #007bff;
     /* �ڵ� ȣ�� ���� */
+}
+
+
+.srTh {
+	background-color: #e6e6e6;
+	font-weight: bold;
+	border-radius: 15px;
+	margin-bottom: 20px;
+	margin-top: 90px;
 }

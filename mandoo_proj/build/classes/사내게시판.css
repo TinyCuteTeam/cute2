@@ -1,5 +1,5 @@
 ﻿/* styles.css */
-body {
+body {         
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@ body {
 .content {
     width: 65%;
 }
-
+       
 h1 {
     text-align: center;
     color: #333;
@@ -48,18 +48,26 @@ th {
 }
 
 
-#posts-table th:nth-child(5),
-#posts-table td:nth-child(5),
 #posts-table th:nth-child(1),
-#posts-table td:nth-child(1),
+#posts-table td:nth-child(1) {
+    width: 80px;
+}
+
 #posts-table th:nth-child(2),
 #posts-table td:nth-child(2) {
-    width: 100px;
+    width: 200px;
 }
+
+
+#posts-table th:nth-child(3),
+#posts-table td:nth-child(3) {
+    width: 80px;
+}
+
 
 #posts-table th:nth-child(4),
 #posts-table td:nth-child(4) {
-    width: 200px;
+    width: 50px;
 }
 
 
@@ -192,9 +200,13 @@ span {
     display: block-inline; 
     position: relative;
     padding: 10px; 
-    background-color: #0085FF;
-    color: white;   
+    background-color: #e6e6e6;
     border-radius: 5px;
     border: none;
     width: 80px; 
+}
+
+#write-button:hover {
+    color: white;
+    background-color: #0085FF;
 }

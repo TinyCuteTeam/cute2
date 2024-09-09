@@ -26,7 +26,7 @@
 			<h1>출하 목록</h1>
 			<form method="post" action="shipment"
 				onsubmit="return confirmShipment();">
-				<div class="flex">
+				<div class="flex srTh">
 					<div>선택</div>
 					<div>주문 ID</div>
 					<div>거래처 ID</div>

@@ -51,6 +51,10 @@
     border-color: #007bff;
 }
 
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
 .pagination .prev-next.disabled {
     border-color: #ccc;
     cursor: not-allowed;
@@ -65,7 +69,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #E6E6E6;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -160,7 +163,7 @@
 /* 저장 버튼 스타일 */
 .modal-content input[type="submit"], .modal-content button {
    width: 100%;
-   background-color: #4CAF50;
+   background-color: #0085FF;
    color: white;
    padding: 14px 20px;
    margin: 8px 0;
@@ -170,42 +173,24 @@
 }
 
 .modal-content input[type="submit"]:hover, .modal-content button:hover {
-   background-color: #45a049;
-}
-
-/* 페이징  */
-.prev-next {
-    text-decoration: none;
-    color: #007bff;
-    padding: 0.5em;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-}
-
-.prev-next.disabled {
-    color: #ccc;
-    border-color: #ccc;
-    cursor: not-allowed;
-    pointer-events: none; /* 비활성화된 링크 클릭 방지 */
-}
- 페이징  */
-.prev-next {
-    text-decoration: none;
-    color: #007bff;
-    padding: 0.5em;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-}
-
-.prev-next.disabled {
-    color: #ccc;
-    border-color: #ccc;
-    cursor: not-allowed;
-    pointer-events: none; /* 비활성화된 링크 클릭 방지 */
+   background-color: #0085FF;
 }
 
 
 
 .content {
     margin-left: 100px;
+}
+
+
+.btn {
+    background-color:rgba(0, 0, 0, 0);
+    border: none;
+    text-decoration: underline;
+	text-decoration-thickness: 1px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    font-weight: bold;
 }

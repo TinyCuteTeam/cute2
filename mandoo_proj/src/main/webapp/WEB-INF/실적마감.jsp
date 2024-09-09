@@ -28,9 +28,7 @@ dao.close();
 	display: flex;
 	justify-content: space-between;
 	/* align-items: center; /* 수직 정렬을 가운데로 맞춤 */
-	*/
-	/* gap: 20px; /* 표와 차트 사이의 간격 */
-	*/
+
 }
 
 .table-container {
@@ -55,7 +53,7 @@ dao.close();
 }
 
 .production-table thead tr {
-	background-color: #009879;
+	background-color: #007bff;
 	color: #ffffff;
 	text-align: left;
 	font-weight: bold;
@@ -70,7 +68,7 @@ dao.close();
 }
 
 .production-table tbody tr:last-of-type {
-	border-bottom: 2px solid #009879;
+	border-bottom: 2px solid #007bff;
 }
 
 .production-table tbody tr:hover {
@@ -122,7 +120,7 @@ dao.close();
 			</div>
 
 			<div class="chart-container">
-				<canvas id="line-chart"></canvas>
+				<canvas id="line-chart" style="height: 400px; width: 100%;"></canvas>
 			</div>
 		</div>
 	</div>
@@ -174,7 +172,7 @@ dao.close();
         datasets: [{
             label: '월별 생산량',
             data: data,
-            borderColor: 'rgba(75, 192, 192, 1)',
+            borderColor: '#007bff',
             borderWidth: 2,
             fill: false,
             tension: 0.1 // 부드러운 곡선으로 연결

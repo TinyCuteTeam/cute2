@@ -23,13 +23,8 @@ public class TodoController extends HttpServlet {
 		todoService = new TodoService();
 	}
 
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 응답 인코딩 설정 (UTF-8)
-		response.setContentType("text/html; charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
-
 		List<TodoDTO> todos = null;
 		try {
 			todos = todoService.getAllTodos();
@@ -40,14 +35,8 @@ public class TodoController extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/Todo.jsp").forward(request, response);
 	}
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 요청과 응답 인코딩 설정 (UTF-8)
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
-
 		HttpSession session = request.getSession();
 		UserDTO user = (UserDTO) session.getAttribute("user");
 
@@ -61,7 +50,7 @@ public class TodoController extends HttpServlet {
 		String title = request.getParameter("title");
 		String contents = request.getParameter("contents");
 
-		// 콘솔에 출력하여 확인 (한글이 잘 출력되는지 확인 가능)
+		// 콘솔에 출력하여 확인
 		System.out.println("userId: " + userId);
 		System.out.println("date: " + date);
 		System.out.println("title: " + title);

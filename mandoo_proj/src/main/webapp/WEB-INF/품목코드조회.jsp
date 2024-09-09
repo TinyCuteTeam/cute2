@@ -51,8 +51,7 @@
 
 #addModal button {
 	width: 100%;
-	background-color: #4CAF50;
-	color: white;
+	background-color: #e6e6e6;
 	padding: 14px 20px;
 	margin: 8px 0;
 	border: none;
@@ -61,7 +60,8 @@
 }
 
 #addModal button:hover {
-	background-color: #45a049;
+	background-color: #0085FF;
+	color: white;
 }
 
 /* 모달창을 닫는 버튼 */

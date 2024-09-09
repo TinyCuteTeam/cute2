@@ -9,6 +9,6 @@
 			<li><a href="/mandoo/account" class="category-link">계정관리</a></li>
 		</c:if>
 		<li><a href="/mandoo/boardList" class="category-link">사내게시판</a></li>
-		<li><a href="/mandoo/boardList" class="category-link">일정관리</a></li>
+		<li><a href="/mandoo/todo" class="category-link">일정관리</a></li>
 	</ul>
 </div>

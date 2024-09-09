@@ -26,7 +26,7 @@ public class ClientController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		int page = 1;
-		int recordsPerPage = 6;
+		int recordsPerPage = 5;
 
 		if (request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));

@@ -28,7 +28,7 @@ public class ErrorController extends HttpServlet {
 				currentPage = Integer.parseInt(req.getParameter("page"));
 			}
 
-			int recordsPerPage = 6; // 페이지당 6개씩
+			int recordsPerPage = 8; // 페이지당 6개씩
 			ErrorService errorService = new ErrorService();
 
 			// 페이징 처리된 에러 목록 가져오기

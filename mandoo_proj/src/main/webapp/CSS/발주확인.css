@@ -27,7 +27,6 @@
 	margin-left: 360px;
 }
 
-
 .pagination {
 	display: inline-block;
 	margin-top: 20px;
@@ -35,6 +34,15 @@
 	margin-left: 50%;
 }
 
+
+.srTh {
+	background-color: #e6e6e6;
+	font-weight: bold;
+	border-radius: 15px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-left: 360px;
+}
 
 .pagination a {
 	color: black;
@@ -64,4 +72,9 @@
 	padding: 5px 5px;
 	border-radius: 3px;
 	text-decoration: underline;
+}
+
+.flex-client {
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
 }

@@ -57,7 +57,7 @@ h1, h2 {
 	animation-duration: 0.4s;
 }
 
-@
+
 keyframes animatetop {from { top:-300px;
 	opacity: 0;
 }

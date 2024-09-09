@@ -55,7 +55,7 @@
 /* 저장 버튼 스타일 */
 #popup button {
 	width: 100%;
-	background-color: #4CAF50;
+	background-color: #0085FF;
 	color: white;
 	padding: 14px 20px;
 	margin: 8px 0;
@@ -65,7 +65,7 @@
 }
 
 #popup button:hover {
-	background-color: #45a049;
+	background-color: #0085FF;
 }
 
 /* 모달 닫기 버튼 */

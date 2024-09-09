@@ -34,9 +34,16 @@
 /*    수정, 삭제버튼 css */
 .editButton {
 	border: 0px;
-	background-color: white;
+    background-color:rgba(0, 0, 0, 0);
 	width: 40px;
 	cursor: pointer;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+}
+
+.editButton:hover {
+	color: #0085FF;
+    font-weight: bold;
 }
 
 /* 품목코드 테이블 */

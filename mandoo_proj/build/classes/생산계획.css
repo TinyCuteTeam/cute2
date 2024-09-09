@@ -38,6 +38,14 @@
 	margin-bottom: 30px;
 }
 
+.srTh {
+	background-color: #e6e6e6;
+	font-weight: bold;
+	border-radius: 15px;
+	margin-bottom: 20px;
+}
+
+
 /* 검색창을 상단 중앙에 고정 */
 .search-container {
 	position: fixed; /* 위치를 고정 */

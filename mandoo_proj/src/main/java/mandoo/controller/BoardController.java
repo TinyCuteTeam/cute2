@@ -17,7 +17,7 @@ import mandoo.service.BoardService;
 @WebServlet("/boardList")
 public class BoardController extends HttpServlet {
 	private BoardService boardService = new BoardService();
-	private static final int POSTS_PER_PAGE = 7;
+	private static final int POSTS_PER_PAGE = 10;  
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

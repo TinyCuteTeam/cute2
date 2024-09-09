@@ -10,7 +10,7 @@
     font-weight: bold;
 }
 
-table {
+table {  
     border: 1px solid #ddd;
     width: 100%;
     border-collapse: collapse;
@@ -18,9 +18,9 @@ table {
     font-size: 18px; /* 폰트 크기 확대 */
 }
 
-tr {
+tr {       
     border-bottom: 1px solid #ddd;
-}
+}    
 
 td {
     padding: 15px; /* 패딩 확대 */

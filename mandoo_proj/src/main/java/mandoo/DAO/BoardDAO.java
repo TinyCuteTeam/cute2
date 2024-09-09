@@ -21,7 +21,7 @@ public class BoardDAO {
 		String sql = "SELECT * FROM (" + "SELECT rownum AS rnum, A.* FROM (" + "SELECT "
 				+ "CAST(SUBSTR(b.bord_id, 2) AS NUMBER) AS bord_id_num, "
 				+ "b.bord_id, b.user_id, b.board_title, b.board_contents, b.board_date, u.user_name " + "FROM board b "
-				+ "JOIN users u ON b.user_id = u.user_id " + "ORDER BY bord_id_num ASC) A WHERE rownum <= ?) "
+				+ "JOIN users u ON b.user_id = u.user_id " + "ORDER BY bord_id_num DESC) A WHERE rownum <= ?) "
 				+ "WHERE rnum >= ?";
 
 		try (Connection conn = Database.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {

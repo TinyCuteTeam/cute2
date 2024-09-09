@@ -21,7 +21,7 @@
 
 	<!-- 내용페이지 -->
 	<div class="content">
-		<div class="flex">
+		<div class="flex srTh">
 			<div>거래처</div>
 			<div>발주일</div>
 			<div>출고예정일</div>
@@ -32,7 +32,7 @@
 
 		<c:forEach var="order" items="${orders}">
 			<div class="flex round">
-				<div>
+				<div class="flex-client">
 					<a href="/mandoo/client">${order.clientId}</a>
 				</div>
 				<div>${order.orderDate}</div>

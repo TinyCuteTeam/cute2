@@ -52,7 +52,7 @@
                                 <td><c:out value="${stock.stockLocation}" /></td>
                                 <td><img class="imgg" src="${pageContext.request.contextPath}/image/${stock.itemCode}.jpg" alt="${stock.stockName}"></td>
                                 <td>
-                                    <button type="button" class="update-button"
+                                    <button type="button" class="update-button btn"
                                             data-id="${stock.stockId}" data-code="${stock.itemCode}"
                                             data-name="${stock.stockName}" data-count="${stock.stockCount}"
                                             data-location="${stock.stockLocation}" data-sort="${stock.stockSort}">수정</button>
@@ -61,14 +61,14 @@
                                     <form method="post" action="${pageContext.request.contextPath}/StockInventory">
                                         <input type="hidden" name="action" value="delete"> 
                                         <input type="hidden" name="stockId" value="${stock.stockId}">
-                                        <input type="submit" value="삭제">
+                                        <input type="submit" class="btn" value="삭제">
                                     </form>
                                 </td>
                                 <td>
-                                    <button type="button" class="stock-update-button"
+                                    <button type="button" class="stock-update-button btn"
                                             data-id="${stock.stockId}" data-code="${stock.itemCode}"
                                             data-name="${stock.stockName}" data-count="${stock.stockCount}"
-                                            data-location="${stock.stockLocation}" data-sort="${stock.stockSort}">재고 추가</button>
+                                            data-location="${stock.stockLocation}" data-sort="${stock.stockSort}" >재고 추가</button>
                                 </td>
                             </tr>
                         </c:forEach>

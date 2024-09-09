@@ -368,3 +368,496 @@ SET work_name =
 WHERE work_name = '없음' OR work_name IS NULL;
 
 select * from todo;
+select * from board;
+
+UPDATE board
+SET bord_TITLE = '첫번째 프로젝트 회의',
+    bord_CONTENTS = '첫번째 프로젝트 회의에서 논의된 내용을 정리합니다.'
+WHERE bord_ID = 'B001';
+
+UPDATE board
+SET bord_TITLE = '두번째 팀 빌딩 활동',
+    bord_CONTENTS = '두번째 팀 빌딩에서 진행된 활동과 소감을 공유합니다.'
+WHERE bord_ID = 'B002';
+
+UPDATE board
+SET bord_TITLE = '세번째 교육 프로그램',
+    bord_CONTENTS = '세번째 교육 프로그램에서 배운 점들을 정리합니다.'
+WHERE bord_ID = 'B003';
+
+UPDATE board
+SET bord_TITLE = '네번째 업무 성과 보고',
+    bord_CONTENTS = '네번째 분기의 업무 성과를 공유합니다.'
+WHERE bord_ID = 'B004';
+
+UPDATE board
+SET bord_TITLE = '다섯번째 고객 미팅',
+    bord_CONTENTS = '다섯번째 고객 미팅에서 논의된 사항을 정리합니다.'
+WHERE bord_ID = 'B005';
+
+UPDATE board
+SET bord_TITLE = '여섯번째 제품 출시 계획',
+    bord_CONTENTS = '여섯번째 제품 출시 계획에 대한 세부 내용을 공유합니다.'
+WHERE bord_ID = 'B006';
+
+UPDATE board
+SET bord_TITLE = '일곱번째 개발팀 회의',
+    bord_CONTENTS = '일곱번째 개발팀 회의에서 논의된 기술적 사항을 공유합니다.'
+WHERE bord_ID = 'B007';
+
+UPDATE board
+SET bord_TITLE = '여덟번째 마케팅 전략',
+    bord_CONTENTS = '여덟번째 마케팅 전략에 대한 논의 결과를 공유합니다.'
+WHERE bord_ID = 'B008';
+
+UPDATE board
+SET bord_TITLE = '아홉번째 사내 행사 계획',
+    bord_CONTENTS = '아홉번째 사내 행사 계획을 공지합니다.'
+WHERE bord_ID = 'B009';
+
+UPDATE board
+SET bord_TITLE = '열번째 신입사원 교육',
+    bord_CONTENTS = '열번째 신입사원 교육 프로그램에 대한 내용을 공유합니다.'
+WHERE bord_ID = 'B010';
+
+-- 추가적으로 필요할 경우 위와 같은 방식으로 나머지 게시물도 업데이트할 수 있습니다.
+
+UPDATE board
+SET bord_TITLE = '열한번째 연간 목표 발표',
+    bord_CONTENTS = '열한번째 게시물에서는 연간 목표 발표 내용을 다룹니다.'
+WHERE bord_ID = 'B011';
+
+UPDATE board
+SET bord_TITLE = '열두번째 내부 감사 보고서',
+    bord_CONTENTS = '열두번째 게시물에서는 내부 감사에 대한 보고서를 공유합니다.'
+WHERE bord_ID = 'B012';
+
+UPDATE board
+SET bord_TITLE = '열세번째 팀장 회의 결과',
+    bord_CONTENTS = '열세번째 게시물에서는 팀장 회의에서 나온 결론을 공유합니다.'
+WHERE bord_ID = 'B013';
+
+UPDATE board
+SET bord_TITLE = '열네번째 고객 만족도 조사 결과',
+    bord_CONTENTS = '열네번째 게시물에서는 고객 만족도 조사 결과를 공유합니다.'
+WHERE bord_ID = 'B014';
+
+UPDATE board
+SET bord_TITLE = '열다섯번째 제품 개발 진척 상황',
+    bord_CONTENTS = '열다섯번째 게시물에서는 제품 개발 진척 상황을 업데이트합니다.'
+WHERE bord_ID = 'B015';
+
+UPDATE board
+SET bord_TITLE = '열여섯번째 인사 이동 공지',
+    bord_CONTENTS = '열여섯번째 게시물에서는 인사 이동에 대한 내용을 공지합니다.'
+WHERE bord_ID = 'B016';
+
+UPDATE board
+SET bord_TITLE = '열일곱번째 신상품 출시 일정',
+    bord_CONTENTS = '열일곱번째 게시물에서는 신상품 출시 일정을 안내합니다.'
+WHERE bord_ID = 'B017';
+
+UPDATE board
+SET bord_TITLE = '열여덟번째 보안 점검 공지',
+    bord_CONTENTS = '열여덟번째 게시물에서는 보안 점검 일정을 안내합니다.'
+WHERE bord_ID = 'B018';
+
+UPDATE board
+SET bord_TITLE = '열아홉번째 서비스 개선 사항',
+    bord_CONTENTS = '열아홉번째 게시물에서는 서비스 개선 사항을 공유합니다.'
+WHERE bord_ID = 'B019';
+
+UPDATE board
+SET bord_TITLE = '스무번째 사내 복지 프로그램',
+    bord_CONTENTS = '스무번째 게시물에서는 새로운 사내 복지 프로그램에 대해 안내합니다.'
+WHERE bord_ID = 'B020';
+
+UPDATE board
+SET bord_TITLE = '게시물 테스트',
+    bord_CONTENTS = '테스트 게시물입니다. 기능 점검용입니다.'
+WHERE bord_ID = 'B021';
+
+UPDATE board
+SET bord_TITLE = '사내 게시판 규칙 변경 안내',
+    bord_CONTENTS = '사내 게시판 규칙이 변경되었습니다. 세부 내용을 확인하세요.'
+WHERE bord_ID = 'B022';
+
+UPDATE board
+SET bord_TITLE = '회의록 작성 가이드',
+    bord_CONTENTS = '회의록 작성 시 필요한 가이드와 양식을 공유합니다.'
+WHERE bord_ID = 'B023';
+
+UPDATE board
+SET bord_TITLE = '홍길동님의 게시물',
+    bord_CONTENTS = '홍길동님의 개인적인 소식을 공유합니다.'
+WHERE bord_ID = 'B024';
+
+
+
+UPDATE board
+SET board_TITLE = '첫번째 프로젝트 회의',
+    board_CONTENTS = '첫번째 프로젝트 회의에서 논의된 내용을 정리합니다.'
+WHERE bord_ID = 'B001';
+
+UPDATE board
+SET board_TITLE = '두번째 팀 빌딩 활동',
+    board_CONTENTS = '두번째 팀 빌딩에서 진행된 활동과 소감을 공유합니다.'
+WHERE bord_ID = 'B002';
+
+UPDATE board
+SET board_TITLE = '세번째 교육 프로그램',
+    board_CONTENTS = '세번째 교육 프로그램에서 배운 점들을 정리합니다.'
+WHERE bord_ID = 'B003';
+
+UPDATE board
+SET board_TITLE = '네번째 업무 성과 보고',
+    board_CONTENTS = '네번째 분기의 업무 성과를 공유합니다.'
+WHERE bord_ID = 'B004';
+
+UPDATE board
+SET board_TITLE = '다섯번째 고객 미팅',
+    board_CONTENTS = '다섯번째 고객 미팅에서 논의된 사항을 정리합니다.'
+WHERE bord_ID = 'B005';
+
+UPDATE board
+SET board_TITLE = '여섯번째 제품 출시 계획',
+    board_CONTENTS = '여섯번째 제품 출시 계획에 대한 세부 내용을 공유합니다.'
+WHERE bord_ID = 'B006';
+
+UPDATE board
+SET board_TITLE = '일곱번째 개발팀 회의',
+    board_CONTENTS = '일곱번째 개발팀 회의에서 논의된 기술적 사항을 공유합니다.'
+WHERE bord_ID = 'B007';
+
+UPDATE board
+SET board_TITLE = '여덟번째 마케팅 전략',
+    board_CONTENTS = '여덟번째 마케팅 전략에 대한 논의 결과를 공유합니다.'
+WHERE bord_ID = 'B008';
+
+UPDATE board
+SET board_TITLE = '아홉번째 사내 행사 계획',
+    board_CONTENTS = '아홉번째 사내 행사 계획을 공지합니다.'
+WHERE bord_ID = 'B009';
+
+UPDATE board
+SET board_TITLE = '열번째 신입사원 교육',
+    board_CONTENTS = '열번째 신입사원 교육 프로그램에 대한 내용을 공유합니다.'
+WHERE bord_ID = 'B010';
+
+-- 추가적으로 필요할 경우 위와 같은 방식으로 나머지 게시물도 업데이트할 수 있습니다.
+
+UPDATE board
+SET board_TITLE = '열한번째 연간 목표 발표',
+    board_CONTENTS = '열한번째 게시물에서는 연간 목표 발표 내용을 다룹니다.'
+WHERE bord_ID = 'B011';
+
+UPDATE board
+SET board_TITLE = '열두번째 내부 감사 보고서',
+    board_CONTENTS = '열두번째 게시물에서는 내부 감사에 대한 보고서를 공유합니다.'
+WHERE bord_ID = 'B012';
+
+UPDATE board
+SET board_TITLE = '열세번째 팀장 회의 결과',
+    board_CONTENTS = '열세번째 게시물에서는 팀장 회의에서 나온 결론을 공유합니다.'
+WHERE bord_ID = 'B013';
+
+UPDATE board
+SET board_TITLE = '열네번째 고객 만족도 조사 결과',
+    board_CONTENTS = '열네번째 게시물에서는 고객 만족도 조사 결과를 공유합니다.'
+WHERE bord_ID = 'B014';
+
+UPDATE board
+SET board_TITLE = '열다섯번째 제품 개발 진척 상황',
+    board_CONTENTS = '열다섯번째 게시물에서는 제품 개발 진척 상황을 업데이트합니다.'
+WHERE bord_ID = 'B015';
+
+UPDATE board
+SET board_TITLE = '열여섯번째 인사 이동 공지',
+    board_CONTENTS = '열여섯번째 게시물에서는 인사 이동에 대한 내용을 공지합니다.'
+WHERE bord_ID = 'B016';
+
+UPDATE board
+SET board_TITLE = '열일곱번째 신상품 출시 일정',
+    board_CONTENTS = '열일곱번째 게시물에서는 신상품 출시 일정을 안내합니다.'
+WHERE bord_ID = 'B017';
+
+UPDATE board
+SET board_TITLE = '열여덟번째 보안 점검 공지',
+    board_CONTENTS = '열여덟번째 게시물에서는 보안 점검 일정을 안내합니다.'
+WHERE bord_ID = 'B018';
+
+UPDATE board
+SET board_TITLE = '열아홉번째 서비스 개선 사항',
+    board_CONTENTS = '열아홉번째 게시물에서는 서비스 개선 사항을 공유합니다.'
+WHERE bord_ID = 'B019';
+
+UPDATE board
+SET board_TITLE = '스무번째 사내 복지 프로그램',
+    board_CONTENTS = '스무번째 게시물에서는 새로운 사내 복지 프로그램에 대해 안내합니다.'
+WHERE bord_ID = 'B020';
+
+UPDATE board
+SET board_TITLE = '게시물 테스트',
+    board_CONTENTS = '테스트 게시물입니다. 기능 점검용입니다.'
+WHERE bord_ID = 'B021';
+
+UPDATE board
+SET board_TITLE = '사내 게시판 규칙 변경 안내',
+    board_CONTENTS = '사내 게시판 규칙이 변경되었습니다. 세부 내용을 확인하세요.'
+WHERE bord_ID = 'B022';
+
+UPDATE board
+SET board_TITLE = '회의록 작성 가이드',
+    board_CONTENTS = '회의록 작성 시 필요한 가이드와 양식을 공유합니다.'
+WHERE bord_ID = 'B023';
+
+UPDATE board
+SET board_TITLE = '홍길동님의 게시물',
+    board_CONTENTS = '홍길동님의 개인적인 소식을 공유합니다.'
+WHERE bord_ID = 'B024';
+
+commit;
+
+UPDATE board
+SET BOARD_TITLE = '프로젝트 회의',
+    BOARD_CONTENTS = '프로젝트 회의에서 논의된 내용을 정리합니다.'
+WHERE BOARD_ID = 'B001';
+
+UPDATE board
+SET BOARD_TITLE = '팀 빌딩 활동',
+    BOARD_CONTENTS = '팀 빌딩에서 진행된 활동과 소감을 공유합니다.'
+WHERE BOARD_ID = 'B002';
+
+UPDATE board
+SET BOARD_TITLE = '교육 프로그램',
+    BOARD_CONTENTS = '교육 프로그램에서 배운 점들을 정리합니다.'
+WHERE BOARD_ID = 'B003';
+
+UPDATE board
+SET BOARD_TITLE = '업무 성과 보고',
+    BOARD_CONTENTS = '분기의 업무 성과를 공유합니다.'
+WHERE BOARD_ID = 'B004';
+
+UPDATE board
+SET BOARD_TITLE = '고객 미팅',
+    BOARD_CONTENTS = '고객 미팅에서 논의된 사항을 정리합니다.'
+WHERE BOARD_ID = 'B005';
+
+UPDATE board
+SET BOARD_TITLE = '제품 출시 계획',
+    BOARD_CONTENTS = '제품 출시 계획에 대한 세부 내용을 공유합니다.'
+WHERE BOARD_ID = 'B006';
+
+UPDATE board
+SET BOARD_TITLE = '개발팀 회의',
+    BOARD_CONTENTS = '개발팀 회의에서 논의된 기술적 사항을 공유합니다.'
+WHERE BOARD_ID = 'B007';
+
+UPDATE board
+SET BOARD_TITLE = '마케팅 전략',
+    BOARD_CONTENTS = '마케팅 전략에 대한 논의 결과를 공유합니다.'
+WHERE BOARD_ID = 'B008';
+
+UPDATE board
+SET BOARD_TITLE = '사내 행사 계획',
+    BOARD_CONTENTS = '사내 행사 계획을 공지합니다.'
+WHERE BOARD_ID = 'B009';
+
+UPDATE board
+SET BOARD_TITLE = '신입사원 교육',
+    BOARD_CONTENTS = '신입사원 교육 프로그램에 대한 내용을 공유합니다.'
+WHERE BOARD_ID = 'B010';
+
+UPDATE board
+SET BOARD_TITLE = '연간 목표 발표',
+    BOARD_CONTENTS = '연간 목표 발표 내용을 다룹니다.'
+WHERE BOARD_ID = 'B011';
+
+UPDATE board
+SET BOARD_TITLE = '내부 감사 보고서',
+    BOARD_CONTENTS = '내부 감사에 대한 보고서를 공유합니다.'
+WHERE BOARD_ID = 'B012';
+
+UPDATE board
+SET BOARD_TITLE = '팀장 회의 결과',
+    BOARD_CONTENTS = '팀장 회의에서 나온 결론을 공유합니다.'
+WHERE BOARD_ID = 'B013';
+
+UPDATE board
+SET BOARD_TITLE = '고객 만족도 조사 결과',
+    BOARD_CONTENTS = '고객 만족도 조사 결과를 공유합니다.'
+WHERE BOARD_ID = 'B014';
+
+UPDATE board
+SET BOARD_TITLE = '제품 개발 진척 상황',
+    BOARD_CONTENTS = '제품 개발 진척 상황을 업데이트합니다.'
+WHERE BOARD_ID = 'B015';
+
+UPDATE board
+SET BOARD_TITLE = '인사 이동 공지',
+    BOARD_CONTENTS = '인사 이동에 대한 내용을 공지합니다.'
+WHERE BOARD_ID = 'B016';
+
+UPDATE board
+SET BOARD_TITLE = '신상품 출시 일정',
+    BOARD_CONTENTS = '신상품 출시 일정을 안내합니다.'
+WHERE BOARD_ID = 'B017';
+
+UPDATE board
+SET BOARD_TITLE = '보안 점검 공지',
+    BOARD_CONTENTS = '보안 점검 일정을 안내합니다.'
+WHERE BOARD_ID = 'B018';
+
+UPDATE board
+SET BOARD_TITLE = '서비스 개선 사항',
+    BOARD_CONTENTS = '서비스 개선 사항을 공유합니다.'
+WHERE BOARD_ID = 'B019';
+
+UPDATE board
+SET BOARD_TITLE = '사내 복지 프로그램',
+    BOARD_CONTENTS = '새로운 사내 복지 프로그램에 대해 안내합니다.'
+WHERE BOARD_ID = 'B020';
+
+UPDATE board
+SET BOARD_TITLE = '게시물 테스트',
+    BOARD_CONTENTS = '테스트 게시물입니다. 기능 점검용입니다.'
+WHERE BOARD_ID = 'B021';
+
+UPDATE board
+SET BOARD_TITLE = '사내 게시판 규칙 변경 안내',
+    BOARD_CONTENTS = '사내 게시판 규칙이 변경되었습니다. 세부 내용을 확인하세요.'
+WHERE BOARD_ID = 'B022';
+
+UPDATE board
+SET BOARD_TITLE = '회의록 작성 가이드',
+    BOARD_CONTENTS = '회의록 작성 시 필요한 가이드와 양식을 공유합니다.'
+WHERE BOARD_ID = 'B023';
+
+UPDATE board
+SET BOARD_TITLE = '홍길동님의 게시물',
+    BOARD_CONTENTS = '홍길동님의 개인적인 소식을 공유합니다.'
+WHERE BOARD_ID = 'B024'
+
+
+
+UPDATE board
+SET BOARD_TITLE = '프로젝트 회의',
+    BOARD_CONTENTS = '프로젝트 회의에서 논의된 내용을 정리합니다.'
+WHERE bord_ID = 'B001';
+
+UPDATE board
+SET BOARD_TITLE = '팀 빌딩 활동',
+    BOARD_CONTENTS = '팀 빌딩에서 진행된 활동과 소감을 공유합니다.'
+WHERE bord_ID = 'B002';
+
+UPDATE board
+SET BOARD_TITLE = '교육 프로그램',
+    BOARD_CONTENTS = '교육 프로그램에서 배운 점들을 정리합니다.'
+WHERE bord_ID = 'B003';
+
+UPDATE board
+SET BOARD_TITLE = '업무 성과 보고',
+    BOARD_CONTENTS = '분기의 업무 성과를 공유합니다.'
+WHERE bord_ID = 'B004';
+
+UPDATE board
+SET BOARD_TITLE = '고객 미팅',
+    BOARD_CONTENTS = '고객 미팅에서 논의된 사항을 정리합니다.'
+WHERE bord_ID = 'B005';
+
+UPDATE board
+SET BOARD_TITLE = '제품 출시 계획',
+    BOARD_CONTENTS = '제품 출시 계획에 대한 세부 내용을 공유합니다.'
+WHERE bord_ID = 'B006';
+
+UPDATE board
+SET BOARD_TITLE = '개발팀 회의',
+    BOARD_CONTENTS = '개발팀 회의에서 논의된 기술적 사항을 공유합니다.'
+WHERE bord_ID = 'B007';
+
+UPDATE board
+SET BOARD_TITLE = '마케팅 전략',
+    BOARD_CONTENTS = '마케팅 전략에 대한 논의 결과를 공유합니다.'
+WHERE bord_ID = 'B008';
+
+UPDATE board
+SET BOARD_TITLE = '사내 행사 계획',
+    BOARD_CONTENTS = '사내 행사 계획을 공지합니다.'
+WHERE bord_ID = 'B009';
+
+UPDATE board
+SET BOARD_TITLE = '신입사원 교육',
+    BOARD_CONTENTS = '신입사원 교육 프로그램에 대한 내용을 공유합니다.'
+WHERE bord_ID = 'B010';
+
+UPDATE board
+SET BOARD_TITLE = '연간 목표 발표',
+    BOARD_CONTENTS = '연간 목표 발표 내용을 다룹니다.'
+WHERE bord_ID = 'B011';
+
+UPDATE board
+SET BOARD_TITLE = '내부 감사 보고서',
+    BOARD_CONTENTS = '내부 감사에 대한 보고서를 공유합니다.'
+WHERE bord_ID = 'B012';
+
+UPDATE board
+SET BOARD_TITLE = '팀장 회의 결과',
+    BOARD_CONTENTS = '팀장 회의에서 나온 결론을 공유합니다.'
+WHERE bord_ID = 'B013';
+
+UPDATE board
+SET BOARD_TITLE = '고객 만족도 조사 결과',
+    BOARD_CONTENTS = '고객 만족도 조사 결과를 공유합니다.'
+WHERE bord_ID = 'B014';
+
+UPDATE board
+SET BOARD_TITLE = '제품 개발 진척 상황',
+    BOARD_CONTENTS = '제품 개발 진척 상황을 업데이트합니다.'
+WHERE bord_ID = 'B015';
+
+UPDATE board
+SET BOARD_TITLE = '인사 이동 공지',
+    BOARD_CONTENTS = '인사 이동에 대한 내용을 공지합니다.'
+WHERE bord_ID = 'B016';
+
+UPDATE board
+SET BOARD_TITLE = '신상품 출시 일정',
+    BOARD_CONTENTS = '신상품 출시 일정을 안내합니다.'
+WHERE bord_ID = 'B017';
+
+UPDATE board
+SET BOARD_TITLE = '보안 점검 공지',
+    BOARD_CONTENTS = '보안 점검 일정을 안내합니다.'
+WHERE bord_ID = 'B018';
+
+UPDATE board
+SET BOARD_TITLE = '서비스 개선 사항',
+    BOARD_CONTENTS = '서비스 개선 사항을 공유합니다.'
+WHERE bord_ID = 'B019';
+
+UPDATE board
+SET BOARD_TITLE = '사내 복지 프로그램',
+    BOARD_CONTENTS = '새로운 사내 복지 프로그램에 대해 안내합니다.'
+WHERE bord_ID = 'B020';
+
+UPDATE board
+SET BOARD_TITLE = '게시물 테스트',
+    BOARD_CONTENTS = '테스트 게시물입니다. 기능 점검용입니다.'
+WHERE bord_ID = 'B021';
+
+UPDATE board
+SET BOARD_TITLE = '사내 게시판 규칙 변경 안내',
+    BOARD_CONTENTS = '사내 게시판 규칙이 변경되었습니다. 세부 내용을 확인하세요.'
+WHERE bord_ID = 'B022';
+
+UPDATE board
+SET BOARD_TITLE = '회의록 작성 가이드',
+    BOARD_CONTENTS = '회의록 작성 시 필요한 가이드와 양식을 공유합니다.'
+WHERE bord_ID = 'B023';
+
+UPDATE board
+SET BOARD_TITLE = '홍길동님의 게시물',
+    BOARD_CONTENTS = '홍길동님의 개인적인 소식을 공유합니다.'
+WHERE bord_ID = 'B024';
+
+commit;

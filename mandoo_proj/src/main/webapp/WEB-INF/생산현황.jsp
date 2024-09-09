@@ -34,7 +34,7 @@
 				</div>
 				<div>비비고/물만두</div>
 				<a class="mho"
-					href="/mandoo/workdetail">2024-050</a>
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 			</div>
 			<div class="progress-wrapper">
 				<div class="progress-label">2번 라인</div>
@@ -43,7 +43,7 @@
 				</div>
 				<div>비비고/김치만두</div>
 				<a class="mho"
-					href="">2024-050</a>
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 			</div>
 			<div class="progress-wrapper">
 				<div class="progress-label">3번 라인</div>
@@ -52,7 +52,7 @@
 				</div>
 				<div>비비고/물만두</div>
 				<a class="mho"
-					href="/mandoo/workdetail">2024-050</a>
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 			</div>
 			<div class="progress-wrapper">
 				<div class="progress-label">4번 라인</div>
@@ -61,7 +61,7 @@
 				</div>
 				<div>비비고/고기만두</div>
 				<a class="mho"
-					href="/mandoo/workdetail">2024-050</a>
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 			</div>
 			<div class="progress-wrapper">
 				<div class="progress-label">5번 라인</div>
@@ -70,7 +70,7 @@
 				</div>
 				<div>비비고/고기만두</div>
 				<a class="mho"
-					href="/mandoo/workdetail">2024-050</a>
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 			</div>
 			<div class="progress-wrapper">
 				<div class="progress-label">6번 라인</div>
@@ -79,7 +79,7 @@
 				</div>
 				<div>비비고/고기만두</div>
 				<a class="mho"
-					href="/mandoo/workdetail">2024-050</a>
+					href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 			</div>
 		</div>
 
@@ -99,7 +99,7 @@
 					<div class="flex round page-item">
 						<div>
 							<a class="mho"
-								href="/mandoo/workdetail">2024-050</a>
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 						</div>
 						<div>2024.04.18</div>
 						<div>2024.07.23</div>
@@ -114,7 +114,7 @@
 					<div class="flex round page-item">
 						<div>
 							<a class="mho"
-								href="/mandoo/workdetail">2024-050</a>
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 						</div>
 						<div>2024.06.18</div>
 						<div>2024.07.26</div>
@@ -130,7 +130,7 @@
 					<div class="flex round page-item">
 						<div>
 							<a class="mho"
-								href="/mandoo/workdetail">2024-050</a>
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 						</div>
 						<div>2024.04.18</div>
 						<div>2024.07.23</div>
@@ -146,7 +146,7 @@
 					<div class="flex round page-item">
 						<div>
 							<a class="mho"
-								href="/mandoo/workdetail">2024-050</a>
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 						</div>
 						<div>2024.07.18</div>
 						<div>2024.07.31</div>
@@ -161,7 +161,7 @@
 					<div class="flex round page-item">
 						<div>
 							<a class="mho"
-								href="/mandoo/workdetail">2024-050</a>
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 						</div>
 						<div>2024.07.18</div>
 						<div>2024.07.31</div>
@@ -176,7 +176,7 @@
 					<div class="flex round page-item">
 						<div>
 							<a class="mho"
-								href="/mandoo/workdetail">2024-050</a>
+								href="${pageContext.request.contextPath}/HTML/작업지시서.jsp">2024-050</a>
 						</div>
 						<div>2024.07.18</div>
 						<div>2024.07.31</div>

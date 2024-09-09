@@ -73,7 +73,7 @@
 	<!-- 사이드바 -->
 	<div class="sidebar">
 		<ul id="sidebar-content">
-			<li><a href="ProductionStatusRead" class="category-link title">생산현황</a></li>
+			<li><a href="ProductionStatusRead" class="category-link">생산현황</a></li>
 		</ul>
 	</div>
 
@@ -141,8 +141,8 @@
                         labels: ['생산 완료', '남은 작업'],
                         datasets: [{
                             data: [completedQty, totalQty - completedQty],
-                            backgroundColor: ['#4CAF50', '#e0e0e0'], // 완료와 미완료 색상
-                            borderColor: ['#4CAF50', '#e0e0e0'],
+                            backgroundColor: ['#007bff', '#e0e0e0'], // 완료와 미완료 색상
+                            borderColor: ['#007bff', '#e0e0e0'],
                             borderWidth: 1
                         }]
                     },

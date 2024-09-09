@@ -139,10 +139,6 @@
     </div>
 
 
-    <div>
-        <a href="작업지시서(작업자용).jsp"><img class="rollback" src="${pageContext.request.contextPath}/image/되돌아가기버튼.png" title="뒤로가기"></a>
-    </div>
-
 </body>
 <script src="${pageContext.request.contextPath}/JS/작업지시서.js"></script>
 

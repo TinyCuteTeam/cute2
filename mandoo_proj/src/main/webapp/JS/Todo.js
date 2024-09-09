@@ -3,25 +3,27 @@ const yearSelect = document.getElementById('yearSelect');
 const monthSelect = document.getElementById('monthSelect');
 const modal = document.getElementById('modal');
 const closeModal = document.querySelector('.close');
-const addEventButton = document.getElementById('addEventButton');
+const addEventButton = document.getElementById('addEventButton'); // 글쓰기로 가는 버튼
 const eventInput = document.getElementById('eventInput');
 const eventTitle = document.getElementById('eventTitle');
 const generateCalendarButton = document.getElementById('generateCalendarButton');
 const editEventButton = document.getElementById('editEventButton');
 
-// 모달 관련 요소
-const detailsModal = document.getElementById('detailsModal');
-const detailsText = document.getElementById('detailsText');
+// 모달
+const detailsModal = document.getElementById('detailsModal'); // 상세보기 모달
+const detailsText = document.getElementById('detailsText'); // 상세 내용 표시
 const detailsTitle = document.getElementById('detailsTitle');
-const modalDate = document.getElementById('modalDate');
-const eventList = document.getElementById('eventList');
-const submitEventButton = document.getElementById('submitEventButton');
-const backButton = document.getElementById('backButton');
-const addEventContainer = document.getElementById('addEventContainer');
+const modalDate = document.getElementById('modalDate'); // 선택한 날짜 표시
+const eventList = document.getElementById('eventList'); // 일정 목록 표시
+const submitEventButton = document.getElementById('submitEventButton'); // 일정 추가 글쓰기 버튼 
+const backButton = document.getElementById('backButton'); // 뒤로가기 버튼
+const addEventContainer = document.getElementById('addEventContainer'); // 추가 일정 컨테이너
 
-// 버튼 관련 요소
+// 글쓰기 버튼
 const write1 = document.querySelector('.write1');
 const write2 = document.querySelector('.write2');
+
+// 수정 버튼
 const edit1 = document.querySelector('.edit1');
 const edit2 = document.querySelector('.edit2');
 
@@ -32,6 +34,19 @@ const currentYear = today.getFullYear();
 
 let selectedDate;
 let events = {}; // 날짜별 일정을 저장할 객체
+
+// 세션 스토리지에서 일정 불러오기
+function loadEventsFromStorage() {
+    const storedEvents = sessionStorage.getItem('events');
+    if (storedEvents) {
+        events = JSON.parse(storedEvents); // 세션 스토리지에서 가져와서 객체로 변환
+    }
+}
+
+// 세션 스토리지에 일정 저장하기
+function saveEventsToStorage() {
+    sessionStorage.setItem('events', JSON.stringify(events)); // 객체를 문자열로 변환하여 저장
+}
 
 // 년도와 월 옵션 생성
 function populateYearAndMonth() {
@@ -76,11 +91,21 @@ function createCalendar(year, month) {
             dayDiv.classList.add('today'); // 현재 날짜 강조
         }
 
-        // 일정이 있는 경우 목록 표시
-        if (events[`${year}-${month + 1}-${day}`]) {
-            const eventListDiv = document.createElement('div');
-            eventListDiv.className = 'event';
-            dayDiv.appendChild(eventListDiv);
+        // 일정이 있는 경우 목록 표시 (최대 3개)
+        const dateKey = `${year}-${month + 1}-${day}`;
+        if (events[dateKey]) {
+            events[dateKey].slice(0, 3).forEach(event => {
+                const eventListDiv = document.createElement('div');
+                eventListDiv.className = 'event';
+                eventListDiv.innerText = event.title;
+                dayDiv.appendChild(eventListDiv);
+            });
+            if (events[dateKey].length > 3) {
+                const moreDiv = document.createElement('div');
+                moreDiv.className = 'more-events';
+                moreDiv.innerText = '...';
+                dayDiv.appendChild(moreDiv);
+            }
             dayDiv.classList.add('has-events');
         }
 
@@ -102,23 +127,15 @@ function openModal(year, month, day) {
 }
 
 // 모달 닫기
-closeModal.onclick = function () {
+closeModal.onclick = function() {
     modal.style.display = 'none';
+    saveEventsToStorage(); // 모달 닫을 때 일정을 저장
 }
 
 // 캘린더에 일정 추가
 function addEventToCalendar(day, eventTitle, eventInput) {
     const dayDivs = document.querySelectorAll('.day');
     const targetDay = dayDivs[day - 1]; // 배열은 0부터 시작하므로 day - 1
-
-    // 일정 텍스트를 7글자까지만 표시
-    const truncatedText = eventTitle.length > 7 ? eventTitle.slice(0, 7) : eventTitle;
-
-    const eventDiv = document.createElement('div');
-    eventDiv.className = 'event';
-    eventDiv.innerText = truncatedText; // 잘라낸 텍스트 사용
-
-    targetDay.appendChild(eventDiv);
 
     const year = parseInt(yearSelect.value);
     const month = parseInt(monthSelect.value);
@@ -129,13 +146,8 @@ function addEventToCalendar(day, eventTitle, eventInput) {
         events[dateKey] = [];
     }
     events[dateKey].push({ title: eventTitle, details: eventInput });
-}
 
-// 이벤트 리스너 추가
-generateCalendarButton.onclick = function () {
-    const year = parseInt(yearSelect.value);
-    const month = parseInt(monthSelect.value);
-    createCalendar(year, month);
+    saveEventsToStorage();
 }
 
 // 일정 목록 업데이트
@@ -146,10 +158,11 @@ function updateEventList() {
     if (events[dateKey]) {
         events[dateKey].forEach((event, index) => {
             const listItem = document.createElement('div');
-            listItem.className = 'eventList';
-            listItem.innerText = `${event.title}`;
+            listItem.className = 'eventList'; // 클래스 이름 수정
+            listItem.innerText = `${event.title}`; // 제목만 표시
             listItem.onclick = () => showEventDetail(event.title, event.details); // 클릭 시 상세보기
 
+            // 각 일정 항목에 구분선 추가
             const separator = document.createElement('div');
             separator.className = 'separator'; // 구분선 클래스 추가
 
@@ -162,27 +175,25 @@ function updateEventList() {
 }
 
 // 글쓰기 버튼 클릭 시
-addEventButton.onclick = function () {
+addEventButton.onclick = function() {
     addEventContainer.style.display = 'flex'; // 일정 추가 컨테이너 보이기
     eventList.style.display = 'none'; // 일정 목록 숨기기
     backButton.style.display = 'block'; // 뒤로가기 버튼 보이기
     addEventButton.style.display = 'none'; // 글쓰기 버튼 숨기기
 }
 
-// 폼 제출 이벤트 추가 (디버그용 로그 추가)
-document.getElementById('addEventForm').onsubmit = function (event) {
+// 폼 제출 이벤트 추가
+document.getElementById('addEventForm').onsubmit = function(event) {
     const modalTitle = document.getElementById('eventTitle').value;
 
     if (!modalTitle) {
         alert('제목을 입력해주세요.');
         event.preventDefault(); // 폼 제출 방지
-    } else {
-        console.log("폼 제출: 제목이 입력됨");
     }
 }
 
 // 일정 추가 또는 수정
-submitEventButton.onclick = function () {
+submitEventButton.onclick = function() {
     const eventTitleValue = eventTitle.value;
     const eventInputValue = eventInput.value || ''; // 입력값이 없으면 공백 문자열로 저장
     const year = parseInt(yearSelect.value);
@@ -190,26 +201,12 @@ submitEventButton.onclick = function () {
     const dateKey = `${year}-${month + 1}-${selectedDate}`;
 
     if (eventTitleValue) { // 제목이 있을 경우에만 추가
-        if (currentEditingEvent) {
-            // 기존 일정 수정
-            const existingEventIndex = events[dateKey].findIndex(event => event.title === currentEditingEvent.title && event.details === currentEditingEvent.details);
-            if (existingEventIndex !== -1) {
-                events[dateKey][existingEventIndex] = { title: eventTitleValue, details: eventInputValue }; // 수정
-            }
-            currentEditingEvent = null; // 수정 완료 후 초기화
-
-            submitEventButton.innerText = '추가'; // 버튼 텍스트를 '추가'로 되돌리기
-        } else {
-            addEventToCalendar(selectedDate, eventTitleValue, eventInputValue); // 새로운 일정 추가
-        }
+        addEventToCalendar(selectedDate, eventTitleValue, eventInputValue); // 제목과 상세 정보를 전달
 
         // 입력 필드 초기화
-        eventInput.value = '';
+        eventInput.value = ''; 
         eventTitle.value = '';
         updateEventList(); // 일정 목록 업데이트
-
-        // **폼 제출 추가**: 일정이 추가되면 폼을 강제로 제출
-        document.getElementById('addEventForm').submit();
     }
 
     addEventContainer.style.display = 'none'; // 일정 추가 컨테이너 숨기기
@@ -219,7 +216,7 @@ submitEventButton.onclick = function () {
 }
 
 // 뒤로가기 버튼 클릭 시
-backButton.onclick = function () {
+backButton.onclick = function() {
     addEventContainer.style.display = 'none'; // 일정 추가 컨테이너 숨기기
     eventList.style.display = 'block'; // 일정 목록 보이기
     backButton.style.display = 'none';
@@ -228,7 +225,28 @@ backButton.onclick = function () {
     addEventContainer.style.display = 'none';
 }
 
-// 초기화
-populateYearAndMonth();
-createCalendar(new Date().getFullYear(), new Date().getMonth());
+let currentEditingEvent = null; // 현재 수정 중인 일정 저장
 
+// 상세 정보 보기
+function showEventDetail(eventTitle, eventInput) {
+    // 모달의 기존 내용 숨기기
+    eventList.style.display = 'none';
+    addEventContainer.style.display = 'none'; // 일정 추가 컨테이너도 숨기기
+    backButton.style.display = 'block';
+    addEventButton.style.display = 'none';
+    document.getElementById('eventDetail').style.display = 'block'; // 상세 정보 영역 보이기
+    
+    // 상세 내용 설정
+    detailsText.innerText = `${eventInput}`;
+    detailsTitle.innerText = `${eventTitle}`;
+
+    // 현재 수정 중인 일정 정보를 저장
+    currentEditingEvent = { title: eventTitle, details: eventInput };
+}
+
+// 페이지 로드 시 세션 스토리지에서 일정을 불러옴
+window.onload = function() {
+    loadEventsFromStorage(); // 저장된 일정을 불러옴
+    populateYearAndMonth();
+    createCalendar(new Date().getFullYear(), new Date().getMonth());
+}
