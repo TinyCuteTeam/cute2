@@ -104,7 +104,7 @@
 							<div class="work-item flex round">
 								<div>${lineNo}번라인작업</div>
 								<div>
-									<a target="_blank" class="mho" href="/html/작업지시서(새창).html">${work.workId}</a>
+									<a target="_blank" class="mho" href="/mandoo/workdetail">${work.workId}</a>
 								</div>
 								<div>${work.workWrite}</div>
 								<div>${work.workEndate}</div>

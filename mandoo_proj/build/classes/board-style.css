@@ -13,7 +13,7 @@
 
 h1 {
     font-size: 24px; /* 제목 크기 조정 */
-    margin-bottom: 20px; /* 제목과 다음 요소 간 마진 조정 */
+    margin-bottom: 20px; /* 제목과 다음 요소 간 마진 조정 */ 
     text-align: center; /* 중앙 정렬 */
 }
 
@@ -109,7 +109,6 @@ th {
 }
 
 .content2 {
-    display: block;
     width: 1100px;
     margin-top: 50px;
     margin-left: 20px;

@@ -1,5 +1,5 @@
 ﻿.table-container {
-    
+    margin-top: -20px;
     overflow-y: hidden; /* 스크롤 제거 */
     margin-left: -75px;
     width: 1450px;
@@ -37,13 +37,12 @@
 .pagination a,
 .pagination .prev-next {
     text-decoration: none;
-    color: #007bff;
     padding: 0.5em 1em;
-    border: 1px solid #007bff;
     border-radius: 5px;
     margin: 0 0.2em;
     font-size: 1em;
     text-align: center;
+    border: solid 1px #ddd;
 }
 
 .pagination a.active {
@@ -53,26 +52,24 @@
 }
 
 .pagination .prev-next.disabled {
-    color: #ccc;
     border-color: #ccc;
     cursor: not-allowed;
     pointer-events: none; /* 비활성화된 링크 클릭 방지 */
 }
 
 .pagination .prev-next:hover {
-    background-color: #0056b3;
-    color: white;
+    background-color: #ddd;
 }
 
 .mtab {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #E6E6E6; */
+    background-color: #E6E6E6;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     text-align: right;
 }
 
@@ -190,4 +187,25 @@
     border-color: #ccc;
     cursor: not-allowed;
     pointer-events: none; /* 비활성화된 링크 클릭 방지 */
+}
+ 페이징  */
+.prev-next {
+    text-decoration: none;
+    color: #007bff;
+    padding: 0.5em;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+.prev-next.disabled {
+    color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none; /* 비활성화된 링크 클릭 방지 */
+}
+
+
+
+.content {
+    margin-left: 100px;
 }

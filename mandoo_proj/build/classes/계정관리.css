@@ -63,8 +63,8 @@ span {
     height: 40px;
     border-radius: 5px;
     position: absolute;
-    right: 140px;
-    bottom: -50px;
+    right: 420px;
+    top: 20px;
 }
 
 .btn1 {
@@ -74,22 +74,104 @@ span {
     height: 40px;
     border-radius: 5px;
     position: absolute;
-    right: 0px;
-    bottom: -50px;
+    right: 300px;
+    top: 20px;
 }
 
 .btn:hover {
-    background-color: #81b3e9;
+    background-color: #0085FF;
 }
 .btn1:hover {
-    background-color: #f38080;
+    background-color: #ff5252;
 }
 
 .chk {
     width: 20px;
-    height: 20px;
+    height: 20
+    px;
 }
 .content{
-    left: 415px;
     top: 170px;
+    overflow-y: auto;
+    max-height: 800px;
+    width: 1620px;
+    
+}
+
+#content-display {
+    width: 1000px;
+    margin-left: 19%;
+}
+
+
+.main {
+    margin-top: 70px;
+}
+
+
+.pagination {
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 38%;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+	border-radius: 5px;
+}
+
+.pagination a.active {
+	background-color: #0085FF;
+	color: white;
+	border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+.scroll {
+    margin: 20px 0;
+    /* ���� ���鸸 ����� �¿� ���� ���� */
+    max-height: 650px;
+    overflow-y: auto;
+    /* ���� ��ũ�� Ȱ��ȭ */
+    padding-right: 0;
+    /* ������ �е� ���� */
+    box-sizing: border-box;
+    /* �׵θ��� �е��� �����Ͽ� ũ�� ��� */
+}
+
+/* ��ũ�ѹ� ��ü */
+.scroll::-webkit-scrollbar {
+    width: 12px;
+    /* ��ũ�ѹ� �ʺ� */
+}
+
+/* ��ũ�ѹ� Ʈ�� */
+.scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Ʈ�� ���� */
+    border-radius: 5px;
+    /* Ʈ�� �𼭸� �ձ۰� */
+}
+
+/* ��ũ�ѹ� �ڵ� */
+.scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    /* �ڵ� ���� */
+    border-radius: 5px;
+    /* �ڵ� �𼭸� �ձ۰� */
+}
+
+/* ��ũ�ѹ� �ڵ� ȣ�� */
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: #007bff;
+    /* �ڵ� ȣ�� ���� */
 }

@@ -68,8 +68,7 @@
 /* 모달 저장 버튼 스타일 */
 #saveButton {
 	width: 100%;
-	background-color: #4CAF50;
-	color: white;
+	background-color: #e6e6e6;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 4px;
@@ -77,7 +76,8 @@
 }
 
 #saveButton:hover {
-	background-color: #45a049;
+	background-color: #0085FF;
+	color: white;
 }
 </style>
 </head>
@@ -90,7 +90,6 @@
 	<jsp:include page="/WEB-INF/sidebar_기준관리.jsp" />
 	<!-- 내용페이지 -->
 	<div class="content">
-
 		<h1>BOM 레시피 관리</h1>
 
 		<!-- 제품 레시피 선택 -->
@@ -103,8 +102,8 @@
 					</c:forEach>
 				</select>
 				<!-- BOM추가 버튼 -->
-				<a href="/mandoo/BOMAdd"><button type="button"
-						class="mho plus" id="addNewBomBtn">BOM 추가</button></a>
+				<a href="/mandoo/BOMAdd"><button type="button" class="mho plus"
+						id="addNewBomBtn">BOM 추가</button></a>
 				<!-- 행 추가 버튼 -->
 				<button type="button" class="mho plus" id="addRowBtn">행 추가</button>
 			</form>

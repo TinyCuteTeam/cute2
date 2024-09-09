@@ -62,7 +62,7 @@ public class AccountController extends HttpServlet {
 	    
 	    try {
 	        int page = 1; // 기본 페이지 번호
-	        int recordsPerPage = 6; // 한 페이지에 표시할 레코드 수
+	        int recordsPerPage = 4; // 한 페이지에 표시할 레코드 수
 
 	        if (request.getParameter("page") != null) {
 	            page = Integer.parseInt(request.getParameter("page"));

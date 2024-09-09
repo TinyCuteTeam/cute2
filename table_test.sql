@@ -52,6 +52,15 @@ SELECT * FROM stock;
 
 SELECT * FROM faulty;
 
+Update stock set Item_code='P003' where Item_code= 'I025';
+Update stock set Item_code='P004' where Item_code= 'I026';
+Update stock set Item_code='P005' where Item_code= 'I027';
+Update stock set Item_code='P006' where Item_code= 'I028';
+Update stock set Item_code='P007' where Item_code= 'I029';
+Update stock set Item_code='P008' where Item_code= 'I030';
+Update stock set Item_code='P009' where Item_code= 'I031';
+
+commit;
 
 SELECT * FROM work WHERE TO_CHAR(work_ENDATE, 'MM') = TO_CHAR(SYSDATE, 'MM');
 ALTER TABLE work ADD (production_qty NUMBER);
@@ -137,11 +146,225 @@ update work set work_do='작업 대기' where work_name='작업 18' ;
 commit;
 select * from work;
 
-update work set PRODUCTION_COMPLETED_QTY = 150
-where WORK_NAME = '작업 19';
+
 
 commit;
 
 select * from todo;
 
 desc todo;
+
+select * from bom;
+update work set PRODUCTION_COMPLETED_QTY = 10
+where WORK_ID = 'W023';
+ commit;
+select * from work;
+update U001
+
+
+
+select * from todo;
+
+SELECT 
+    WORK_ID,
+    CASE 
+        WHEN USER_ID = 'U001' THEN '박경민'
+        WHEN USER_ID = 'U002' THEN '홍지윤'
+        WHEN USER_ID = 'U003' THEN '김철수'
+        WHEN USER_ID = 'U004' THEN '박경민'
+        WHEN USER_ID = 'U005' THEN '홍지윤'
+        WHEN USER_ID = 'U006' THEN '김철수'
+        WHEN USER_ID = 'U007' THEN '박경민'
+        WHEN USER_ID = 'U008' THEN '홍지윤'
+        WHEN USER_ID = 'U009' THEN '김철수'
+        WHEN USER_ID = 'U010' THEN '박경민'
+        WHEN USER_ID = 'U011' THEN '홍지윤'
+        WHEN USER_ID = 'U012' THEN '김철수'
+        WHEN USER_ID = 'U013' THEN '홍지윤'
+        WHEN USER_ID = 'U014' THEN '김철수'
+        WHEN USER_ID = 'U015' THEN '홍지윤'
+        WHEN USER_ID = 'U016' THEN '김철수'
+        WHEN USER_ID = 'U017' THEN '홍지윤'
+        WHEN USER_ID = 'U018' THEN '김철수'
+        WHEN USER_ID = 'U019' THEN '홍지윤'
+        WHEN USER_ID = 'U020' THEN '김철수'
+
+        ELSE 'Unknown User'
+    END AS USER_NAME,
+    ITEM_CODE,
+    WORK_WRITE,
+    WORK_ENDATE,
+    WORK_NAME,
+    WORK_DO,
+    PRODUCTION_QTY,
+    LINE_NO,
+    PRODUCTION_COMPLETED_QTY
+FROM 
+    WORK;
+    
+    UPDATE WORK
+SET USER_ID = 
+    CASE 
+        WHEN USER_ID = 'U001' THEN '박경민'
+        WHEN USER_ID = 'U002' THEN '홍지윤'
+        WHEN USER_ID = 'U003' THEN '김철수'
+        WHEN USER_ID = 'U004' THEN '박경민'
+        WHEN USER_ID = 'U005' THEN '홍지윤'
+        WHEN USER_ID = 'U006' THEN '김철수'
+        WHEN USER_ID = 'U007' THEN '박경민'
+        WHEN USER_ID = 'U008' THEN '홍지윤'
+        WHEN USER_ID = 'U009' THEN '김철수'
+        WHEN USER_ID = 'U010' THEN '박경민'
+        WHEN USER_ID = 'U011' THEN '홍지윤'
+        WHEN USER_ID = 'U012' THEN '김철수'
+        WHEN USER_ID = 'U013' THEN '홍지윤'
+        WHEN USER_ID = 'U014' THEN '김철수'
+        WHEN USER_ID = 'U015' THEN '홍지윤'
+        WHEN USER_ID = 'U016' THEN '김철수'
+        WHEN USER_ID = 'U017' THEN '홍지윤'
+        WHEN USER_ID = 'U018' THEN '김철수'
+        WHEN USER_ID = 'U019' THEN '홍지윤'
+        WHEN USER_ID = 'U020' THEN '김철수'
+    END;
+    
+    UPDATE work
+SET USER_ID = 
+    CASE 
+        WHEN USER_ID = 'U001' THEN '박경민'
+        WHEN USER_ID = 'U002' THEN '홍지윤'
+        WHEN USER_ID = 'U003' THEN '김철수'
+        WHEN USER_ID = 'U004' THEN '박경민'
+        WHEN USER_ID = 'U005' THEN '홍지윤'
+        WHEN USER_ID = 'U006' THEN '김철수'
+        WHEN USER_ID = 'U007' THEN '박경민'
+        WHEN USER_ID = 'U008' THEN '홍지윤'
+        WHEN USER_ID = 'U009' THEN '김철수'
+        WHEN USER_ID = 'U010' THEN '박경민'
+        WHEN USER_ID = 'U011' THEN '홍지윤'
+        WHEN USER_ID = 'U012' THEN '김철수'
+        WHEN USER_ID = 'U013' THEN '홍지윤'
+        WHEN USER_ID = 'U014' THEN '김철수'
+        WHEN USER_ID = 'U015' THEN '홍지윤'
+        WHEN USER_ID = 'U016' THEN '김철수'
+        WHEN USER_ID = 'U017' THEN '홍지윤'
+        WHEN USER_ID = 'U018' THEN '김철수'
+        WHEN USER_ID = 'U019' THEN '홍지윤'
+        WHEN USER_ID = 'U020' THEN '김철수'
+    END;
+
+UPDATE work
+SET USER_ID = 
+    CASE 
+        WHEN USER_ID = 'U001' THEN '박경민'
+        WHEN USER_ID = 'U002' THEN '홍지윤'
+        WHEN USER_ID = 'U003' THEN '김철수'
+        WHEN USER_ID = 'U004' THEN '박경민'
+        WHEN USER_ID = 'U005' THEN '홍지윤'
+        WHEN USER_ID = 'U006' THEN '김철수'
+        WHEN USER_ID = 'U007' THEN '박경민'
+        WHEN USER_ID = 'U008' THEN '홍지윤'
+        WHEN USER_ID = 'U009' THEN '김철수'
+        WHEN USER_ID = 'U010' THEN '박경민'
+        WHEN USER_ID = 'U011' THEN '홍지윤'
+        WHEN USER_ID = 'U012' THEN '김철수'
+        WHEN USER_ID = 'U013' THEN '홍지윤'
+        WHEN USER_ID = 'U014' THEN '김철수'
+        WHEN USER_ID = 'U015' THEN '홍지윤'
+        WHEN USER_ID = 'U016' THEN '김철수'
+        WHEN USER_ID = 'U017' THEN '홍지윤'
+        WHEN USER_ID = 'U018' THEN '김철수'
+        WHEN USER_ID = 'U019' THEN '홍지윤'
+        WHEN USER_ID = 'U020' THEN '김철수'
+        ELSE USER_ID  -- 매핑되지 않는 경우 기존 USER_ID를 그대로 유지
+    END;
+commit;
+
+select * from work;
+
+
+UPDATE work
+SET work_name = 
+    CASE 
+        WHEN WORK_ID = 'W001' THEN ' 고기만두 제작'
+        WHEN WORK_ID = 'W002' THEN ' 김치만두 제작'
+        WHEN WORK_ID = 'W003' THEN ' 갈비만두 제작'
+        WHEN WORK_ID = 'W004' THEN ' 수제만두 제작'
+        WHEN WORK_ID = 'W005' THEN ' 왕교자만두 제작'
+        WHEN WORK_ID = 'W006' THEN ' 해물만두 제작'
+        WHEN WORK_ID = 'W007' THEN ' 매운만두 제작'
+        WHEN WORK_ID = 'W008' THEN ' 고기만두 제작'
+        WHEN WORK_ID = 'W009' THEN ' 김치만두 제작'
+        WHEN WORK_ID = 'W010' THEN ' 갈비만두 제작'
+        WHEN WORK_ID = 'W011' THEN ' 수제만두 제작'
+        WHEN WORK_ID = 'W012' THEN ' 왕교자만두 제작'
+        WHEN WORK_ID = 'W013' THEN ' 해물만두 제작'
+        WHEN WORK_ID = 'W014' THEN ' 매운만두 제작'
+        WHEN WORK_ID = 'W015' THEN ' 고기만두 제작'
+        WHEN WORK_ID = 'W016' THEN ' 김치만두 제작'
+        WHEN WORK_ID = 'W017' THEN ' 갈비만두 제작'
+        WHEN WORK_ID = 'W018' THEN ' 수제만두 제작'
+        WHEN WORK_ID = 'W019' THEN ' 왕교자만두 제작'
+        WHEN WORK_ID = 'W020' THEN ' 해물만두'
+        ELSE work_name  -- 매핑되지 않는 경우 기존 work_name을 그대로 유지
+    END;
+commit;
+
+UPDATE work
+SET work_name = 
+    CASE 
+        WHEN WORK_ID = 'W001' THEN ' 고기만두 '
+        WHEN WORK_ID = 'W002' THEN ' 김치만두 '
+        WHEN WORK_ID = 'W003' THEN ' 갈비만두 '
+        WHEN WORK_ID = 'W004' THEN ' 수제만두 '
+        WHEN WORK_ID = 'W005' THEN ' 왕교자만두 '
+        WHEN WORK_ID = 'W006' THEN ' 해물만두 '
+        WHEN WORK_ID = 'W007' THEN ' 매운만두 '
+        WHEN WORK_ID = 'W008' THEN ' 고기만두 '
+        WHEN WORK_ID = 'W009' THEN ' 김치만두 '
+        WHEN WORK_ID = 'W010' THEN ' 갈비만두 '
+        WHEN WORK_ID = 'W011' THEN ' 수제만두 '
+        WHEN WORK_ID = 'W012' THEN ' 왕교자만두 '
+        WHEN WORK_ID = 'W013' THEN ' 해물만두 '
+        WHEN WORK_ID = 'W014' THEN ' 매운만두 '
+        WHEN WORK_ID = 'W015' THEN ' 고기만두 '
+        WHEN WORK_ID = 'W016' THEN ' 김치만두 '
+        WHEN WORK_ID = 'W017' THEN ' 갈비만두 '
+        WHEN WORK_ID = 'W018' THEN ' 수제만두 '
+        WHEN WORK_ID = 'W019' THEN ' 왕교자만두 '
+        WHEN WORK_ID = 'W020' THEN ' 해물만두 '
+        ELSE work_name  -- 매핑되지 않는 경우 기존 work_name을 그대로 유지
+    END;
+    
+
+
+UPDATE work
+SET work_name = 
+    CASE 
+        WHEN WORK_ID = 'W001' THEN ' 고기만두 '
+        WHEN WORK_ID = 'W002' THEN ' 김치만두 '
+        WHEN WORK_ID = 'W003' THEN ' 갈비만두 '
+        WHEN WORK_ID = 'W004' THEN ' 수제만두 '
+        WHEN WORK_ID = 'W005' THEN ' 왕교자만두 '
+        WHEN WORK_ID = 'W006' THEN ' 해물만두 '
+        WHEN WORK_ID = 'W007' THEN ' 매운만두 '
+        WHEN WORK_ID = 'W008' THEN ' 고기만두 '
+        WHEN WORK_ID = 'W009' THEN ' 김치만두 '
+        WHEN WORK_ID = 'W010' THEN ' 갈비만두 '
+        WHEN WORK_ID = 'W011' THEN ' 수제만두 '
+        WHEN WORK_ID = 'W012' THEN ' 왕교자만두 '
+        WHEN WORK_ID = 'W013' THEN ' 해물만두 '
+        WHEN WORK_ID = 'W014' THEN ' 매운만두 '
+        WHEN WORK_ID = 'W015' THEN ' 고기만두 '
+        WHEN WORK_ID = 'W016' THEN ' 김치만두 '
+        WHEN WORK_ID = 'W017' THEN ' 갈비만두 '
+        WHEN WORK_ID = 'W018' THEN ' 수제만두 '
+        WHEN WORK_ID = 'W019' THEN ' 왕교자만두 '
+        WHEN WORK_ID = 'W020' THEN ' 해물만두 '
+        WHEN WORK_ID = 'W021' THEN ' 매운만두 '
+        WHEN WORK_ID = 'W022' THEN ' 고기만두 '
+        WHEN WORK_ID = 'W023' THEN ' 김치만두 '
+        ELSE work_name  -- 매핑되지 않는 경우 기존 work_name을 그대로 유지
+    END
+WHERE work_name = '없음' OR work_name IS NULL;
+
+select * from todo;

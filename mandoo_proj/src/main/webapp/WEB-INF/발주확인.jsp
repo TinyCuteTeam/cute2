@@ -47,7 +47,7 @@
 		<!-- 페이징 -->
 		<div class="pagination">
 			<c:if test="${currentPage > 1}">
-				<a href="/mandoo/OrderInfo?page=${currentPage - 1}">Previous</a>
+				<a href="/mandoo/OrderInfo?page=${currentPage - 1}">이전</a>
 			</c:if>
 
 			<c:forEach var="i" begin="1" end="${totalPages}">
@@ -56,7 +56,7 @@
 			</c:forEach>
 
 			<c:if test="${currentPage < totalPages}">
-				<a href="/mandoo/OrderInfo?page=${currentPage + 1}">Next</a>
+				<a href="/mandoo/OrderInfo?page=${currentPage + 1}">다음</a>
 			</c:if>
 		</div>
 	</div>

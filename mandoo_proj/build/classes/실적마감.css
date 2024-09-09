@@ -26,3 +26,68 @@
     width: 100% !important; /* canvas의 너비를 컨테이너에 맞추기 */
     height: 100% !important; /* canvas의 높이를 컨테이너에 맞추기 */
 }
+
+
+.content-display {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-container {
+    width: 45%; /* 테이블의 너비를 조절 */
+}
+
+.chart-container {
+    width: 50%; /* 차트의 너비를 조절 */
+}
+
+.production-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.production-table th, .production-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.production-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.production-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.production-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.production-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.production-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.chart-container {
+    width: 45%; /* 차트의 너비 조절 */
+    height: 500px; /* 차트의 높이 조절 */
+    position: relative; /* 차트의 위치 조정 */
+}
+
+#line-chart {
+    width: 100% !important; /* 캔버스의 너비를 차트 컨테이너의 너비에 맞춤 */
+    height: 100% !important; /* 캔버스의 높이를 차트 컨테이너의 높이에 맞춤 */
+}
+
+.chart-container canvas {
+    margin-top: -165px;
+}

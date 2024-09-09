@@ -1,9 +1,9 @@
 .content {
-	overflow: auto;
-	margin-left: 100px;
+    max-height: 800px;
+    overflow-y: auto;
+	margin-left: 160px;
 	text-align: center;
-	width: 65%;
-	height: 750px;
+	width: 62%;
 	padding-right: 272px;
 }
 
@@ -15,21 +15,22 @@
 
 /*품목추가 버튼*/
 .plus:hover {
-	background-color: #81b3e9;
-	font-weight: bold;
+    background-color: #0085FF;
+    color: white;
 }
 
 .plus {
-	width: 100px;
-	height: 50px;
-	margin: 20px;
-	border: none;
-	border-radius: 5px;
-	background-color: #e6e6e6;
-	font-size: 15px;
-	cursor: pointer;
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    font-size: 15px;
+    cursor: pointer;
+	margin-bottom: 20px;
 }
-
 /*    수정, 삭제버튼 css */
 .editBtn {
 	border: 0px;
@@ -61,4 +62,34 @@ tr {
 .text {
 	font-size: 30px;
 	text-align: center;
+}
+
+
+
+/* ��ũ�ѹ� ��ü */
+.content::-webkit-scrollbar {
+    width: 12px;
+    /* ��ũ�ѹ� �ʺ� */
+}
+
+/* ��ũ�ѹ� Ʈ�� */
+.content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Ʈ�� ���� */
+    border-radius: 5px;
+    /* Ʈ�� �𼭸� �ձ۰� */
+}
+
+/* ��ũ�ѹ� �ڵ� */
+.content::-webkit-scrollbar-thumb {
+    background: #888;
+    /* �ڵ� ���� */
+    border-radius: 5px;
+    /* �ڵ� �𼭸� �ձ۰� */
+}
+
+/* ��ũ�ѹ� �ڵ� ȣ�� */
+.content::-webkit-scrollbar-thumb:hover {
+    background: #0085FF;
+    /* �ڵ� ȣ�� ���� */
 }

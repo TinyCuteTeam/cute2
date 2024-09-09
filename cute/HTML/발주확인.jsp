@@ -17,17 +17,11 @@
 
 	<jsp:include page="/WEB-INF/header.jsp" />
 	<!-- 사이드바 -->
-	<div class="sidebar">
-		<ul id="sidebar-content">
-			<li><a href="/발주확인.jsp" class="category-link title">발주확인</a></li>
-			<li><a href="/생산계획.jsp" class="category-link">생산계획</a></li>
-			<li><a href="/작업지시서(작업자용).jsp" class="category-link">작업지시서</a></li>
-		</ul>
-	</div>
+	<jsp:include page="/WEB-INF/sidebar_생산계획.jsp" />
 
 	<!-- 내용페이지 -->
 	<div class="content">
-		<div class="flex mfont">
+		<div class="flex">
 			<div>거래처</div>
 			<div>발주일</div>
 			<div>출고예정일</div>
@@ -38,9 +32,7 @@
 
 		<c:forEach var="order" items="${orders}">
 			<div class="flex round">
-				<div>
-					<a class="mho" href="/html/생산계획상세.html?planId=${order.clientId}">${order.clientId}</a>
-				</div>
+				<div>${order.clientId}</div>
 				<div>${order.orderDate}</div>
 				<div>${order.orderEndDate}</div>
 				<div>${order.orderBox}</div>
@@ -64,6 +56,7 @@
 				<a href="/mandoo/OrderInfo?page=${currentPage + 1}">다음</a>
 			</c:if>
 		</div>
+
 	</div>
 
 	<script src="${pageContext.request.contextPath}/JS/발주확인.js"></script>

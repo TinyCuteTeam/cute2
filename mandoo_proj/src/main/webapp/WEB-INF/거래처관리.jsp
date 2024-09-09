@@ -50,8 +50,7 @@
 
 #addClientModal button {
 	width: 100%;
-	background-color: #4CAF50;
-	color: white;
+	background-color: #e6e6e6;
 	padding: 14px 20px;
 	margin: 8px 0;
 	border: none;
@@ -60,7 +59,8 @@
 }
 
 #addClientModal button:hover {
-	background-color: #45a049;
+	background-color: #0085FF;
+	color: white;
 }
 
 /* 모달창 닫기 */
@@ -76,31 +76,6 @@
 	text-decoration: none;
 	cursor: pointer;
 }
-
-.pagination {
-	display: inline-block;
-	margin-top: 20px;
-}
-
-.pagination a {
-	color: black;
-	float: left;
-	padding: 8px 16px;
-	text-decoration: none;
-	transition: background-color .3s;
-	border: 1px solid #ddd;
-	margin: 0 4px;
-}
-
-.pagination a.active {
-	background-color: #4CAF50;
-	color: white;
-	border: 1px solid #4CAF50;
-}
-
-.pagination a:hover:not(.active) {
-	background-color: #ddd;
-}
 </style>
 </head>
 
@@ -114,13 +89,13 @@
 		<div>
 			<h1>거래처 관리</h1>
 
-			<div class="plusTop">
-				<button type="button" id="openModalBtn" class="mbtn11 btnStyle">거래처
+			<div class="srPlus">
+				<button type="button" id="openModalBtn" class="plus btnStyle">거래처
 					추가</button>
 			</div>
 
 			<!-- 거래처정보 카테고리 -->
-			<div class="main">
+			<div>
 				<div class="flex">
 					<div>거래처</div>
 					<div>대표명</div>
@@ -150,18 +125,19 @@
 
 				</form>
 
-				<!-- 페이징 -->
+				<!-- 페이지 네비게이션 -->
 				<div class="pagination">
-					<c:if test="${totalPages > 1}">
-						<c:if test="${currentPage > 1}">
-							<a href="?page=${currentPage - 1}">&laquo; Previous</a>
-						</c:if>
-						<c:forEach begin="1" end="${totalPages}" var="i">
-							<a href="?page=${i}" class="${currentPage == i ? 'active' : ''}">${i}</a>
-						</c:forEach>
-						<c:if test="${currentPage < totalPages}">
-							<a href="?page=${currentPage + 1}">Next &raquo;</a>
-						</c:if>
+					<c:if test="${currentPage > 1}">
+						<a href="/mandoo/client?page=${currentPage - 1}">이전</a>
+					</c:if>
+
+					<c:forEach var="i" begin="1" end="${totalPages}">
+						<a href="/mandoo/client?page=${i}"
+							class="${i == currentPage ? 'active' : ''}">${i}</a>
+					</c:forEach>
+
+					<c:if test="${currentPage < totalPages}">
+						<a href="/mandoo/client?page=${currentPage + 1}">다음</a>
 					</c:if>
 				</div>
 
@@ -174,28 +150,22 @@
 						<form method="post" action="/mandoo/client">
 							<input type="hidden" name="action" value="add">
 							<div>
-								거래처: <br>
-								<input type="text" name="clientName">
+								거래처: <br> <input type="text" name="clientName">
 							</div>
 							<div>
-								대표명: <br>
-								<input type="text" name="clientBoss">
+								대표명: <br> <input type="text" name="clientBoss">
 							</div>
 							<div>
-								연락처: <br>
-								<input type="text" name="clientTel">
+								연락처: <br> <input type="text" name="clientTel">
 							</div>
 							<div>
-								주소: <br>
-								<input type="text" name="clientAddress">
+								주소: <br> <input type="text" name="clientAddress">
 							</div>
 							<div>
-								이메일: <br>
-								<input type="text" name="clientEmail">
+								이메일: <br> <input type="text" name="clientEmail">
 							</div>
 							<div>
-								담당자: <br>
-								<input type="text" name="clientBoss">
+								담당자: <br> <input type="text" name="clientBoss">
 							</div>
 							<div>
 								사업자등록증: <br> <input type="text" name="clientNumber">

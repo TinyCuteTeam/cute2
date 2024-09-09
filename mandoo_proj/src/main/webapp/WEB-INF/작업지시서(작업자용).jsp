@@ -14,8 +14,7 @@
 <style>
 /* 모달 배경 */
 .popup {
-	display: none;
-	/* 기본적으로 숨김 */
+	display: none; /* 기본적으로 숨김 */
 	position: fixed;
 	z-index: 1;
 	left: 0;
@@ -24,8 +23,7 @@
 	height: 100%;
 	overflow: auto;
 	background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.4);
-	/* 배경을 반투명하게 */
+	background-color: rgba(0, 0, 0, 0.4); /* 배경을 반투명하게 */
 	padding-top: 60px;
 }
 
@@ -38,10 +36,8 @@
 	width: 80%;
 	height: 750px;
 	max-width: 500px;
-	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-	/* 그림자 효과 */
-	border-radius: 10px;
-	/* 모서리 둥글게 */
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+	border-radius: 10px; /* 모서리 둥글게 */
 }
 
 /* 입력 필드 스타일 */
@@ -97,13 +93,16 @@
 	<jsp:include page="/WEB-INF/sidebar_생산계획.jsp" />
 
 	<div class="content">
+
+		<div class="search-container">
+			<input type="text" id="search-input" placeholder="검색어를 입력하세요...">
+			<button id="search-button">검색</button>
+			<button id="reset-button">취소</button>
+		</div>
 		<div class="wrap">
 			<div class="action-buttons">
-				<!-- user_access가 2일 경우 삭제 버튼 숨기기 -->
-				<c:if test="${sessionScope.user_access != 2}">
-					<button id="add-button">등록</button>
-					<button id="delete-button">삭제</button>
-				</c:if>
+				<button id="add-button">등록</button>
+				<button id="delete-button">삭제</button>
 			</div>
 		</div>
 
@@ -135,7 +134,9 @@
 			<div class="m_llist">
 				<c:forEach var="work" items="${works}">
 					<div class="flex round page-item">
-						<div>${work.workId}</div>
+						<div>
+							<a target="_blank" class="mho" href="/html/작업지시서(새창).html">${work.workId}</a>
+						</div>
 						<div>${work.workWrite}</div>
 						<div>${work.workEndate}</div>
 						<div class="over" title="${work.itemCode}">${work.itemCode}</div>
@@ -177,27 +178,22 @@
 				</div>
 			</div>
 
-			<!-- 페이지 네비게이션 -->
-			<div class="mnum">
-				<c:if test="${currentPage > 1}">
-					<a href="/mandoo/Work?page=${currentPage - 1}">이전</a>
-				</c:if>
+		</div>
 
-				<c:forEach var="i" begin="1" end="${totalPages}">
-					<a href="/mandoo/Work?page=${i}"
-						class="${i == currentPage ? 'active' : ''}">${i}</a>
-				</c:forEach>
+		<!-- 페이지 네비게이션 -->
+		<div class="pagination">
+			<c:if test="${currentPage > 1}">
+				<a href="/mandoo/Work?page=${currentPage - 1}">이전</a>
+			</c:if>
 
-				<c:if test="${currentPage < totalPages}">
-					<a href="/mandoo/Work?page=${currentPage + 1}">다음</a>
-				</c:if>
-			</div>
+			<c:forEach var="i" begin="1" end="${totalPages}">
+				<a href="/mandoo/Work?page=${i}"
+					class="${i == currentPage ? 'active' : ''}">${i}</a>
+			</c:forEach>
 
-			<div class="search-container">
-				<input type="text" id="search-input" placeholder="검색어를 입력하세요...">
-				<button id="search-button">검색</button>
-				<button id="reset-button">취소</button>
-			</div>
+			<c:if test="${currentPage < totalPages}">
+				<a href="/mandoo/Work?page=${currentPage + 1}">다음</a>
+			</c:if>
 		</div>
 
 		<!-- 작업지시서 등록 모달 -->
@@ -237,26 +233,26 @@
 		</div>
 
 		<script>
-                    document.getElementById('add-button').addEventListener('click', function () {
-                        document.getElementById('popup').style.display = 'block';
-                    });
+			document.getElementById('add-button').addEventListener('click', function() {
+				document.getElementById('popup').style.display = 'block';
+			});
 
-                    document.getElementById('close-popup').addEventListener('click', function () {
-                        document.getElementById('popup').style.display = 'none';
-                    });
+			document.getElementById('close-popup').addEventListener('click', function() {
+				document.getElementById('popup').style.display = 'none';
+			});
+			
+			document.querySelectorAll('.start-button').forEach(button => {
+				button.addEventListener('click', function () {
+					const workId = this.getAttribute('data-work-id');
+					document.getElementById('selectedWorkId').value = workId;
+					document.getElementById('lineModal').style.display = 'block';
+				});
+			});
 
-                    document.querySelectorAll('.start-button').forEach(button => {
-                        button.addEventListener('click', function () {
-                            const workId = this.getAttribute('data-work-id');
-                            document.getElementById('selectedWorkId').value = workId;
-                            document.getElementById('lineModal').style.display = 'block';
-                        });
-                    });
-
-                    document.getElementById('close-line-popup').addEventListener('click', function () {
-                        document.getElementById('lineModal').style.display = 'none';
-                    });
-                </script>
+			document.getElementById('close-line-popup').addEventListener('click', function () {
+				document.getElementById('lineModal').style.display = 'none';
+			});
+		</script>
 	</div>
 </body>
 
