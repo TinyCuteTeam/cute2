@@ -17,7 +17,7 @@
 
     <!-- 내용 페이지 -->
     <div class="content">
-        <h1 id="head_title">재고 현황 (부자재)</h1>
+        <h1 id="head_title">재고 현황 (원재료)</h1>
 
         <div class="mtab">
             <form method="get" action="${pageContext.request.contextPath}/MaterialStockInventory">
