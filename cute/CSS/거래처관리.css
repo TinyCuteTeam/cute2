@@ -211,4 +211,8 @@ input[type="text"] {
 
 .pagination a:hover:not(.active) {
 	background-color: #ddd;
+    position : relative;
+    left: 50px;
 } 
+
+position
